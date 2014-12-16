@@ -56,7 +56,7 @@ body {
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
 color:inherit;
-text-decoration: none;
+text-decoration: underline;
   
 }
 a strong {
@@ -66,7 +66,7 @@ a strong {
 a:hover,
 a:focus {
 text-decoration: none;
-  color:#ccddcc;
+  color:#686e94;
 }
 
 /* Headings */
@@ -91,7 +91,7 @@ h2 {
 }
 
 h2 a:hover {
-  color: #ccddcc;
+  color: #686e94;
   text-decoration: none;
 }
 
