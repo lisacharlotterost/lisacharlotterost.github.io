@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Charts I created in 2018
+title: Charts I created in 2018 and 2019
 image: /pic/181231-datawrappercharts.png
 categories: [fav, design]
 summary: Generating charts in R based on trigonometric functions like sin(x) and cos(x). Lots of fun.
 ---
 
-If you work at a charting tool, you create some charts. In November 2017, I started to blog for [Datawrapper](https://www.datawrapper.de/). Since then we've been posting a [Weekly Chart](https://blog.datawrapper.de/category/weekly-chart/) in which one of us (or a guest author) explain chart design tricks. Here are some of the best charts I've created over the years for and at Datawrapper. Most of them show the underlying data when you hover over the data points. I apologize in advance for the long loading time...these embedded iframes eat some data space.
+If you work at a charting tool, you create some charts. In November 2017, I started to blog for [Datawrapper](https://www.datawrapper.de/). Since then we've been posting a [Weekly Chart](https://blog.datawrapper.de/category/weekly-chart/) in which one of us (or a guest author) explain chart design tricks. Here are some of the best charts I've created over the years for and at Datawrapper. Most of them show the underlying data when you hover over the data points. I apologize in advance for the long loading time...these embedded iframes need some time to express themselves.
 
 <h1 style="margin-top:3px; line-height: 2.6rem;">
 &rarr; <a href="https://www.datawrapper.de/">Datawrapper website</a><br>
