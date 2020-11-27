@@ -4,7 +4,7 @@ title: Oh look, Lisa has a new website!
 tag: personal
 summary: How it looked like before the redesign, and why I decided to change it & built everything from scratch.
 image: /pic/190715_newwebsite-f.png
-desc: Recreating the same chart with nine different charting tools.
+desc: How it looked like before the redesign, and why I decided to change it & built everything from scratch.
 permalink: newsite
 categories: [article]
 ---
