@@ -4,7 +4,7 @@ whofor: at SHOW
 title: What to consider when considering data vis rules
 image: /pic/201120_S-H-O-W-talk-f2.png
 categories: [article, talk]
-summary: Which kind of data vis rules I like, and how the theory of art can help us 
+summary: Which kind of data vis rules I like, and how the theory of art can explain why rules contradict each other.
 permalink: datavisrules
 ---
 
