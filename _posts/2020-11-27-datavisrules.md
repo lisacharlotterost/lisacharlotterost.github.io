@@ -16,10 +16,10 @@ This talk has three parts.
 
 ![image](/pic/201120_S-H-O-W-talk109.png)
 
-- If you're interested in why I like rules, [read the first part](/datavisrules/#part1). 
-- If you're interested in how I think that rules should look like, [read part 2](/datavisrules/#part2). 
-- **The most interesting part** for many turned out to be part 3, [to which you can jump here](/datavisrules/#part3). In it, I attempt to apply theories of art to data visualization, to explain how different goals can make rules contradict each other. 
-- You can also read a few reactions from the SHOW audience [at the end of this transcript](/datavisrules/#reactions).
+- If you're interested in why I like rules, [read the first part](/datavisrules#part1). 
+- If you're interested in how I think that rules should look like, [read part 2](/datavisrules#part2). 
+- **The most interesting part** for many turned out to be part 3, [to which you can jump here](/datavisrules#part3). In it, I attempt to apply theories of art to data visualization, to explain how different goals can make rules contradict each other. 
+- You can also read a few reactions from the SHOW audience [at the end of this transcript](/datavisrules#reactions).
 
 
 <div id="part1"></div><br>
