@@ -212,7 +212,7 @@ I found one possible answer for that in art theory. Art is very, very diverse. T
 
 But how can you compare them? They're so different. How can you judge them? 
 
-The trick that different people came up with is to judge them by different goals: For example, by their form, or by how much they achieve something. There are five traditional European-American theories I want to explain today: ** Formalism**, ** instrumentalism**, **Expressionism**, **Imitationalism**, and **Institutionalism**. 
+The trick that different people came up with is to judge them by different goals: For example, by their form, or by how much they achieve something. There are five traditional European-American theories I want to explain today: **Formalism**, **Instrumentalism**, **Expressionism**, **Imitationalism**, and **Institutionalism**. 
 
 Applying this model to the data visualization world could be useful in helping us think about rules and goals. 
 
