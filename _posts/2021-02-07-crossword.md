@@ -136,6 +136,10 @@ Happy crossword-solving!
 
 As always, find me on [Twitter](https://twitter.com/lisacrost) or via email: [lisacharlotterost@gmail.com](mailto:lisacharlotterost@gmail.com).
 
+---
+
+*Edit (three hours after publishing the first version): Added the hint for 21-Down and added a number (19b) and a hint for it.* 
+
 <style>
 	.bottom_line {
 	border-bottom: 1.5px solid black; 
