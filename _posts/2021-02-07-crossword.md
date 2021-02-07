@@ -31,7 +31,7 @@ The squares with the red number in the lower-right (in the example above, you ca
 
 <h2 style="color:red;margin-top:10px;">bit.ly/_ _ _ _ _ _ _ _</h2>
 
-(It's not a phrase that makes sense. I don't like these crossword puzzles where you only need to solve half of the solution to guess it.)
+(It's not a phrase that makes sense. I don't like these crossword puzzles where you only need to solve half of the solution to guess the rest.)
 
 This URL will lead to a **Google survey**. Put your name in there, and you'll get the link to the Google survey results – which will be the ranking! 
 
