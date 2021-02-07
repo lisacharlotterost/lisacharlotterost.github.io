@@ -87,6 +87,8 @@ Here are the clues:
 **16** – Visualizes the biggest challenge of our time. (only 2nd word)<br>
 **17** – Will never reach zero.<br>
 **19** – Easily confused with 32–Across when creating maps.<br>
+**19b** – Moved bubbles enthusiastically. (last name)
+**21** – Probably the wrong projection for your map.<br>
 **23** – <span class="bottom_line"></span> interval. Or: what you need to present at a data vis conference for the first time.<br>
 **24** – We trust in amazing historical data visualizations.<br>
 **25** – "...it's like what you add when you turn an adjective into an adverb!" – "But our tool's name doesn't start with an adjective?"<br>
