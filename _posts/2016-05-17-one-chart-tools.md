@@ -20,7 +20,7 @@ I think it can't hurt to have a wider view of the options out there: To maybe di
 If they are important tools I missed, or if I missed some features in a tool or a better way to get to the bubble chart, or if I'm wrong about a thing or two, or if you completely disagree with my opinion about these tools (which, I'm sure, will happen): Let me know on [Twitter](https://twitter.com/lisacrost) or via email (lisacharlotterost@gmail.com)!
 
 
-# The Data & the Visualization Form
+## The Data & the Visualization Form
 
 To visualize data, you need data. I will use a dataset that contains the health expectancy in years, GDP per capita and population for 187 countries in 2015, [provided by Gapminder](http://www.gapminder.org/data/).  [Here](https://docs.google.com/spreadsheets/d/1qmOCE6RBQc2hy-vW8Kefp--LcWpgwCysmgIgARy0gDk/edit?usp=sharing)'s a Google Spreadsheet with the data:
 

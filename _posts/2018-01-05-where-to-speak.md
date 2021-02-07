@@ -13,7 +13,7 @@ I divide the conference world into two fields. I call them “**They want you**�
 
 It’s very likely that you are more familiar with “You want them” conferences, so let’s look at them first:
 
-# “You want them” conferences
+## “You want them” conferences
 
 **The audience**: These are the conferences where you finally meet everyone from Twitter. You are excited to speak there because your hero x is speaking, too. It’s lots of funs. Everyone speaks to “themselves”; to people who are in the same field. You can immediately speak on a high level about your topic. A typical feedback you get on your talk or in a conversation is "Yes, and..." or “Have you read this paper/book?”
 
@@ -25,7 +25,7 @@ It’s very likely that you are more familiar with “You want them” conferenc
 
 **Examples**: OpenVisConf, Information+, IEEE VIS.
 
-# “They want you” conferences
+## “They want you” conferences
 
 After speaking at “You want them” conferences for some time and building a reputation, you will get emails. They’re always formal like heck, and they go like this: “*In 9 months and 5 days, a conference with the fancy title x will happen. It’s about business / digital / content / big data. Leaders of industry x will come. Please give talk x you gave 2 years ago. How much money do you want*?”
 
@@ -52,7 +52,7 @@ Communicate that price (plus a bit extra for negotiation). If they tell you a lo
 
 **Examples:** I'm afraid most of us would not know the names of these conferences anyway.
 
-# The conferences in-between
+## The conferences in-between
 
 Like always, I'm exaggerating without limits. Of course there are not only these two extremes of conferences. Here are some shades of grey:
 

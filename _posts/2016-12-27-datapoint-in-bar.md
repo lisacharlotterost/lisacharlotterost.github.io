@@ -20,7 +20,7 @@ This blog post won’t be a transcript of my talk, but an overview of the questi
 ![talk-slides](/pic/0000_talks/161201_ADatpointWalksIntoABar.gif)
 
 
-# What I talked about
+## What I talked about
 
 Mother Teresa said "If I look at the mass I will never act. If I look at the one, I will." I presented ways that make us act when looking at the mass. First, I talked about our problems to see the individuals when creating data visualizations about huge numbers of people, thanks to our two different modes of thinking:
 
@@ -41,7 +41,7 @@ In the second half of the talk, I presented ways to talk to the fast, emotional 
 In the end, I pointed out that it can be harmful to just evoke emotions. We also need to be responsible enough to help people act upon them.
 
 
-# Questions I didn’t answer in my talk
+## Questions I didn’t answer in my talk
 
 1. *Do these methods I presented actually evoke emotions?* Anshul Pandey, Enrico Bertini and Jeremy Boy did some first experiments in this direction, and failed to find any effect of data vis on empathy and donations. I’m looking forward to further research.
 
@@ -52,7 +52,7 @@ In the end, I pointed out that it can be harmful to just evoke emotions. We also
 I’m sure there are more questions. If you know of some, write me an email ([lisacharlotterost@gmail.com](mailto:lisacharlotterost@gmail.com)) or find me on Twitter ([@lisacrost](https://twitter.com/lisacrost)).
 
 
-# Sources
+## Sources
 
 I got interested in the topic “Data Vis and empathy” thanks to a great, great [Data Stories episode about Statistical Numbing](https://www.google.de/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=datastories%20paul%20slovic). The research of Paul Slovic blew me away, so I listened to it for a second time and skimmed big parts of Paul and Scott Slovic’s book [“Number and Nerves”](http://osupress.oregonstate.edu/book/numbers-and-nerves). Their website [“The Arithmetic of Compassion”](http://www.arithmeticofcompassion.org/) gives a great overview of the key concepts. I also gained a lot of understanding into how people can deal with smaller bits of information better than with bigger bits from the paper [“Small Wins”](http://www.extension.iastate.edu/registration/events/ela/pdf/Small%20wins%20file.pdf) by Karl E. Weick (thanks to Jan for the tip!).
 

@@ -29,7 +29,7 @@ There's also something new: **I'll embed all embeddable charts**, e.g. from Info
 **As last time, I will have opinions.** Keep in mind that these are utterly subjective and only about the workflow that I had when creating this specific bubble chart with this specific data. My reviews won't tell you about the experience of creating another chart type with the same tool. Or about the experience of creating the same chart with different data. Or which chart types you can create in these tools (head over to Andy Kirk's [Chartmaker Directory](http://chartmaker.visualisingdata.com/) to find out). I hope it's still useful to see these tools in action. Let's start:
 
 
-# Embeddable Charts
+## Embeddable Charts
 
 **Infogram** I'm not sure why I missed [Infogram](https://infogram.com/) in the last blog post. Now owned by Prezi, it's a colorful tool that outputs interactive charts. What I liked (and most tools don't offer): Infogram showed me my chart and its underlying data on the same page. In general, this tool did exactly what I wanted, although I missed some options: setting the opacity and a log scale, and adding labels to my bubbles. And I couldn't assign data columns to axes: If my columns were in a different order, I would have needed to reorder them first.  
 
@@ -120,7 +120,7 @@ That's how I created the same chart 2.5 years ago:
 ![image](/pic/160426-google.gif)
 
 
-# Non-embeddable Charts
+## Non-embeddable Charts
 
 **Adobe Illustrator**
 Ah, [Adobe Illustrator](https://www.adobe.com/products/illustrator.html). A tool that almost every Information Designer uses for static designs, daily. Let's be precise here: The charting options in Illustrator suck. There's no way to set the circle size or a log scale, but I'd just call that limited functionality. What's really frustrating is that you can't edit the data anymore once you decide that it's time to properly design the chart.
@@ -148,7 +148,7 @@ I'd call [RAW](https://rawgraphs.io/) a super-easy-to-use extension for Adobe Il
 
 
 
-# Outtakes
+## Outtakes
 
 Like this entire review, my selection is massively biased and subjective. In general, I focus on drag&drop charting apps with the goal of presentation, not analysis. But when I wrote the [predecessor of this blog post](https://lisacharlotterost.github.io/2016/05/17/one-chart-tools/) 2.5 years ago, I reviewed seven more tools. Why did I not update my reviews for them? Here's why:
 

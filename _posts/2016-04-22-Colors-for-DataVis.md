@@ -12,7 +12,7 @@ permalink: /:year/:month/:day/:title/
 A few days ago, I approached my Twitter followers with [a request to help me](https://twitter.com/lisacrost/status/722948084703956992) in an urgent matter: "Can somebody tell me how to get better with color?," I wrote. " My color decisions are awful." Thanks to a retweet by Scott Murray I got a lot of replies with links to websites and tools. They were awesome. And I want to share them with you, annotated with my own thoughts about them. Here you go:
 
 
-# Why color?
+## Why color?
 
 First, watch this **[video](https://www.youtube.com/watch?v=Qj1FK8n7WgY&feature=youtu.be)** about why color decisions are important and how to mix colors. I'll sum up the main reasons to use colors here: Color is important because (a) it lets you set the mood and (b) color lets you guide the viewer's eye, draw attention to something and therefore tell a story.
 
@@ -30,7 +30,7 @@ When working with **qualitative data**, your mission is to find colors which go 
 
 
 
-# 1. Data Vis Gradients
+## 1. Data Vis Gradients
 
 **[ColorBrewer 2.0](http://colorbrewer2.org/)** NEEDS to be mentioned first. It's a classic. THE color tool of color tools for every ambitious data vis designer. It's not only a tool: While making your choices, it also teaches you about the best use of color in data vis. If you haven't yet, click on the question marks and read these wonderful explanations.
 [![image](/pic/160423-colobrewer.png)](http://colorbrewer2.org/)
@@ -54,7 +54,7 @@ If you feel like you mastered all these tools and need more, **[I want hue](http
 
 
 
-# 2a. Color Compositions - Learn from the Masters
+## 2a. Color Compositions - Learn from the Masters
 
 After covering the gradients, let's move on to Color Palettes. When I asked my question on Twitter, three people recommended me painters, so I feel like there is some demand to cover them. To be honest: I appreciate the old masters, and as a Bauhaus University alumna I see the special something you can get from Albers, Itten and Co. (As an ex Weimar resident I can also see the delight one can get from [Goethe's Theory of Color](https://en.wikipedia.org/wiki/Theory_of_Colours).) But...you know...their available colors were different. Who knows what they would have thought of with bright neon green. That said, I'm sure we can still learn a lot from their writings about color composition.
 
@@ -75,7 +75,7 @@ Coming slowly back to the present day: The website [ColorLisa](http://colorlisa.
 
 
 
-# 2b. Color Compositions - Learn from the Movies
+## 2b. Color Compositions - Learn from the Movies
 
 Let's move from art to a more pop-culture relevant phenomenon: Movies. Master of storytelling, this medium knows how to use color to set highlights, lead your eye, set the mood and make you feel delighted.
 
@@ -93,7 +93,7 @@ If you want to examine the colors of your own movie stills or other images you h
 Because of that, it might be helpful to create a palette of the colors as you "see" them in photos or movie stills. An automated approach or color pickers won't help you much with that; it will always look more grey-ish than the colors appear. Bill Hart-Davidson [suggests](https://twitter.com/billhd/status/722968554673475584) to use photos of tropical fish as a basis for color palettes, and I can see how this might work very well. That said, tools like DeGraeve are definitely still helpful for art or graphic design work.
 
 
-# 2c. Color Compositions - Learn from Others
+## 2c. Color Compositions - Learn from Others
 
 There are so, so many color palette collections.
 [ColorHunt](http://www.colorhunt.co/), [ColourLovers](http://www.colourlovers.com/palettes), [Coolors](https://coolors.co/browser), [LOLcolors](http://www.lolcolors.com/)
@@ -107,7 +107,7 @@ It's also a great idea to get inspired in a bigger sense: Go to museums and gall
 [![image](/pic/160423_colorblog.png)](http://www.sophianahmad.com/)
 
 
-# 2d. Color Compositions - Create them yourself
+## 2d. Color Compositions - Create them yourself
 
 **[Smashing Magazine](https://www.smashingmagazine.com/2016/04/web-developer-guide-color/)** provides a good introduction to create your very first color palette yourself. I especially like the idea of "creating harmonious grays" with overlaying some very raw grays with your main color. I've never thought about it, but it makes a lot of sense to make your color palette feel more harmonious.
 [![image](/pic/160423-smashing.png)](https://www.smashingmagazine.com/2016/04/web-developer-guide-color/)
@@ -117,13 +117,13 @@ The Smashing Magazine introduction also make use of **[Paletton](http://paletton
 [![image](/pic/160423-paletton.png)](http://paletton.com/#uid=c013t00490kRlxYaFw0g0qFqFg0w0aF)
 
 
-# 3. Color Blindness
+## 3. Color Blindness
 
 You found awesome colors to use? SWEET. Now make sure that they fulfill their purpose and can be distinguished by colorblind people as well! The conventional wisdom is that the difference between red and blue is hard to tell for colorblind people – but that really depends on the shades of red and blue, as you can see on the image. A browser extension like [Spectrum](https://chrome.google.com/webstore/detail/spectrum/ofclemegkcmilinpcimpjkfhjfgmhieb?hl=en) or an app like [Sim Daltonism](https://michelf.ca/projects/mac/sim-daltonism/) can simulate the colors as seen by people with different color blindnesses. There is also the [R library "viridis"](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html), which beautiful color palettes work especially well for colorblind people.
 ![image](/pic/160423-colorblind.png)
 
 
-# 4. Fuuuuuuun with Colors
+## 4. Fuuuuuuun with Colors
 
 Ok, after all that work, let's watch a **[Sesame Street Video](https://www.youtube.com/watch?v=yu44JRTIxSQ&feature=youtu.be)** by the fabulous OK GO peeps:
 [![image](/pic/160423-okgo.png)](https://www.youtube.com/watch?v=yu44JRTIxSQ&feature=youtu.be)

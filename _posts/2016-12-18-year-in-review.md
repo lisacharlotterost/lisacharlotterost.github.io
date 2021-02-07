@@ -25,7 +25,7 @@ permalink: /:year/:month/:day/:title/
 
 Let’ start simple:
 
-# 1&emsp;What is a good (data vis) tool?
+## 1&emsp;What is a good (data vis) tool?
 
 I don’t have a Google Analytics Tracker installed on my blog; but I’m 68.3% sure that my very practical posts about data vis were the most visited.
 
@@ -46,7 +46,7 @@ And the third post, I went high-level and [compared the tools with each other](h
 Do I use different tools now than I did before? No. Was that the goal? No. I’m happy to have a better overview of the field, and I was happy to share that overview with all of you. And the best thing about writing the post was having an excuse to have conversations with great tool makers like [Christopher Groskopf](https://twitter.com/onyxfish) or [Ben Fry](https://twitter.com/ben_fry).
 
 
-# 2&emsp;What implications has the concept of Map vs Territory?
+## 2&emsp;What implications has the concept of Map vs Territory?
 
 The prize for my most-loved-concept 2016 goes to the idea of map and territory. It’s an old idea. But one I really learned to appreciate this year.
 
@@ -61,7 +61,7 @@ It’s an idea that made me think about the way I look at the world and how I in
 A very practical implication for the concept of “the map is not the territory” were this years’ election (map):
 
 
-# 3&emsp;How does the US election work?
+## 3&emsp;How does the US election work?
 
 My brain started caring about the US election when everybody else was already tired of it. But then I couldn’t stop thinking about it. Once I understood the difference between the electoral votes and the popular votes, I was hooked. I wrote [a general post about why I think that we should (also) map the popular votes](https://lisacharlotterost.github.io/2016/10/19/election-map/):
 [![image](/pic/161218_end_elex1.png)](https://lisacharlotterost.github.io/2016/10/19/election-map/)
@@ -72,7 +72,7 @@ After the election, I added a post with [the actual election results in popular 
 I didn’t get as much feedback as I hoped I would, but that’s ok. I guess everybody was just too busy making the most amazing election maps ever. I can live with that.
 
 
-# 4&emsp;How to communicate feelings?
+## 4&emsp;How to communicate feelings?
 
 Feelings are hard, man. Also blurry. And necessary. This year I bravely marched into the unknown fields of writing absolute not-criticizable posts about my feels.
 
@@ -88,7 +88,7 @@ I continued with talking/gif-ing about [“How I Feel When I Learn To Code”](h
 All these topics have been covered by smart people long before me. But I found writing these posts incredible helpful. In the best case, these posts built a compelling narrative for me – and let people compare their experiences with mine (as I’ll explain a bit later in the part “What’s the point of visualizing self-tracked data?”). Win-Win!  
 
 
-# 5&emsp;What is the purpose of journalism?
+## 5&emsp;What is the purpose of journalism?
 
 At the beginning of the year I went to the Responsible Data Forum in NYC. Coming from my “data vis for journalism” bubble, the mostly advocacy-driven attendees opened up a new field for me. One exchange with [Steve Lambert](https://twitter.com/SteveLambert) during some team work resonated especially strong with me. When I asked him *“So what’s the goal of our data vis here? What should it accomplish?”*, he said *“Change, of course.”* I was blown away. And jealous: **NGOs and activists have very clear goals; journalism lacks them.** What IS the goal of journalism, really? To answer that question, I read lots of mission statements of newspapers, had discussions with smart people like [Brian Boyer](https://twitter.com/brianboyer), [Gregor Aisch](https://twitter.com/driven_by_data) and [Alan Smith](https://twitter.com/theboysmithy), [asked Twitter](https://twitter.com/lisacrost/status/717756359865929729) and drew diagrams like the following:
 ![image](/pic/161218_end_journalism.jpg)
@@ -98,7 +98,7 @@ I also gave a talk at my maybe favorite conference this year, **Information+**; 
 
 But I found a truly satisfying answer to the question why journalism matters in a slightly related question:
 
-# 6&emsp;Do we all need to fight against world hunger with our skills?
+## 6&emsp;Do we all need to fight against world hunger with our skills?
 
 A highlight of this year was discovering [Polygraph](http://polygraph.cool/). Its creator, [Matt Daniels](https://twitter.com/matthew_daniels) is obviously very talented. But something felt wrong about it. In his articles, he drew attention to words that rappers use in their lyrics; instead of to the main issues on this planet (as [Hans Rosling](https://twitter.com/HansRosling) or [Max Roser](https://twitter.com/MaxCRoser) would do). **I couldn’t understand why Matt didn’t use his amazing talents for the greater good**. In an email conversation, he replied to my discomfort with the following words:
 
@@ -129,7 +129,7 @@ These goals don’t want to be fully achieved, but always aimed for. Doing this 
 
 Turns out, **challenging beliefs** is one of my favorites hobbies. I’ll try to come up with more ideas that will do so in the future.
 
-# 7&emsp;What’s the point of visualizing self-tracked data?
+## 7&emsp;What’s the point of visualizing self-tracked data?
 
 People who have read my blog exactly a year ago might remember [my issues with Self Tracking](https://lisacharlotterost.github.io/2015/12/11/Selftracking/) and its visualization. *“Self-tracking results in irrelevant visualizations which give a fake comfort of meaning, but don’t help neither the tracked person nor the viewer”*, I wrote a bit bitter. As somebody who has done some quantified selfing myself, I wanted to see a point in it, but just couldn’t.
 
@@ -139,7 +139,7 @@ Until I met [Nicolas Felton](https://twitter.com/feltron) at Resonate in Belgrad
 And it made me feel better about so many projects I encountered in 2016.
 
 
-# Last, and also least?
+## Last, and also least?
 
 I don’t think that every post I wrote is the best post I’ve ever written, but I’m still glad I wrote them. Here are the posts that truly deserve to be mentioned at the very bottom of this Year In Review article:
 

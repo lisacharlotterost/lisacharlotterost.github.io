@@ -15,7 +15,7 @@ The composition of everything two-dimensional like illustrations, photographies 
 What is the challenge? Well, if you have an axis with the two poles »tension« and »harmony«, you want your composition right in the middle (if you paint, maybe a little bit more to »tension«, in magazine design maybe a little bit more to »harmony«.) To achieve this, I personally use some principles from which I will list a collection here:
 <br>
 
-# Principles for Composition
+## Principles for Composition
 
  - *Fig 1:* Use ratios like the **golden ratio** and the Fibonacci numbers to create harmony; ignore them to create tension.
  - *Fig 2:* Use **symmetry** to create harmony (»Symmetrie ist die Ästhetik des kleinen Mannes«, as my father used to quote); use asymmetry to create tension.
@@ -32,7 +32,7 @@ As one can see, I especially often use a triangular composition – it's one of 
 Nowadays one can bring more tension in the own work with making the sides of the triangles as different as possible. One long side and two short (imaginative) sides of a triangle are considered more interesting than a equilateral triangle like the one from Raffaello.
 
 
-# Balance & Harmony
+## Balance & Harmony
 
 Basically, what creates tension and what one can see in almost all the principles, is contrast. A long time I thought harmony and balance are the same – but balance is tension, so at the same time balance is the balance between harmony and tension. With time, only harmony gets dull and boring. The human species needs variety and diversion, and so needs the magazine.
 This has always been one of the greatest struggles in visual communication for me: To find the point on an axis between these both extremes that’s perfect for the reading experience is tricky. You want the reader to understand the design language in the magazine – so you’ll need one. But you also want to surprise the reader and get bold on this or that page, so you need to break out of your magazine language. I guess the best magazine is the one where you get surprised while flicking through it, but in which you clearly see the difference to the ads in the mag.

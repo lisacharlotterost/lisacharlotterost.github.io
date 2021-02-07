@@ -26,7 +26,7 @@ And to demonstrate that, I will write my first tutorial. It's **an extremly deta
 Here comes the long version:
 
 
-# 1. Download your archive
+## 1. Download your archive
 
 Follow the instructions [on this site](https://support.google.com/websearch/answer/6068625?hl=en) and you end up getting such a screen:
 
@@ -36,7 +36,7 @@ Listen to the Google guys: Be careful with your data! It IS sensitive. It contai
 
 After clicking on **"Create Archive"**, you'll need to wait. Google will send you an email as soon as your archive is ready. Then download this archive and unzip the ZIP file they give you. Congratulations, you know own your Google Search History (together with Google. Well, Google owns it more.) First step: Done!
 
-# 2. Merge the JSONs
+## 2. Merge the JSONs
 
 You unzipped your files? Good! Looks like it's not a simple Excel file called "YourSearchHistory.xls", right? The files you unzipped are **JSONs**, [a neat file format](https://en.wikipedia.org/wiki/JSON). Google created one JSON for each quarter in which you've used Google Search. Which might be convenient for them, but not for us: We want to have ONE file for ALL our search queries. So we need to merge our JSONs to one mega JSON. And the least advanced but most simple way to do that is by hand.
 
@@ -93,7 +93,7 @@ To sum up the rules for merging our JSONs by hand:
 YOU DID IT! Yeah! To get that right is the hardest part of the whole tutorial – everything will be easy from now on.
 
 
-# 3. Convert the JSONs to an Excel file
+## 3. Convert the JSONs to an Excel file
 
 JSONs can be directly visualied with d3.js for example – but you don't know Javascript. So we will need to convert this file to a format that Tableau Public can read (=the software we'll use to visualize the data). For the converting part, we'll use [**OpenRefine**, actually a tool to clean up messy data](http://openrefine.org/). There are many JSON-to-CSV/TSV-converter online, and if your JSON is fairly small, I would recommend them. But because my final merged JSON file "AllSearches.JSON" was 4.6MB big, these tools had some difficulties dealing with it. OpenRefine, however, did a smooth job. Also: I'm a huge fan of this software. [So go download it here](http://openrefine.org/download.html) and use it to clean up data on every future occasion!
 
@@ -108,7 +108,7 @@ For our little project, we will click on exactly four buttons. So open OpenRefin
 - You should see 10 or so rows of your table again. Click on **"Export"** in the upper right and choose "Excel".
 - Done! You may close OpenRefine now. Or you can stay and admire it a little bit more.
 
-# 4. Convert the timestamps
+## 4. Convert the timestamps
 
 Open the exported Excel file with Excel or [LibreOffice](https://www.libreoffice.org/download/libreoffice-fresh/). You should see lots and lots of rows and four columns:
 
@@ -136,7 +136,7 @@ Now look at our timestamp column: Whoooah, every cell has more than ten characte
 
 So that's what our formula is doing: First, it only takes the first ten characters of our timestamp cell B2 and ignores the rest of it: `=LEFT(B2;10)`. Then, it divides these numbers through `60` seconds, `60` minutes and `24` hours: `=LEFT(B2;10)/(60*60*24)`. And then it adds the date on which the unix time started counting: `=LEFT(B2;10)/(60*60*24)+"1/1/1970"`. And voilà! A "normal" date is born.
 
-# 5. visualize and analyse your data with Tableau
+## 5. visualize and analyse your data with Tableau
 
 Finally! We arrived at the part of this tutorial in which we will see a visualization of our data. For that, we're using **Tableau Public**. Why that, you wonder, and not Excel? Because Tableau Public is really good in dealing with fairly huge numbers, having an intuitve interface and therefore letting you see different perspectives of your data in quick and easy way. Try it. You will like it. If you haven't downloaded it yet, [go here and do it](https://public.tableau.com/s/download).  
 

@@ -24,7 +24,7 @@ This talk has three parts.
 
 <div id="part1"></div><br>
 
-# Part 1: Why I like rules
+## Part 1: Why I like rules
 
 I like rules. And I think a lot about them. And for me, thinking about rules means thinking about one question: How? How do you, or I, or we all, get from where we are right now to design better-looking data visualizations? Or better-looking things in general?   
 
@@ -89,7 +89,7 @@ In the next part, I'll talk about how I try to do all this:
 
 <div id="part2"></div><br>
 
-# Part 2: Which kind of rules I like
+## Part 2: Which kind of rules I like
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk32.png)
 
@@ -97,7 +97,7 @@ In my opinion, the best data vis rules are **complete, skimmable, self-evident, 
 
 First, complete. 
 
-## Complete rules
+### Complete rules
 
 Here's an example from a "What to consider" blog post [about stacked column charts](https://blog.datawrapper.de/stacked-column-charts/). "Stacked column charts are great to show the parts of multiple totals," I wrote. "If you only want to show parts of one total, consider a bar chart instead."
 
@@ -121,11 +121,11 @@ Yes! Agreed.
 
 But this concept of "breaking the rules" is only helpful if you already know what you're doing. If you're just starting out with data visualization or design in general (or with writing for Wikipedia), **you don't know yet what "improvement" means, or how to create something "beautiful and well"**. These are the people I write for.
 
-## Skimmable rules
+### Skimmable rules
 
 Because different principles might be helpful for different people, I believe that **text and images** work well for rule collections (instead of talks or videos). This way, you can skim the rules that are obvious to you. Having a **clear structure** (text - image - text - image) or headlines makes it easy for readers to know when a rule ends and the next one begins.
 
-## Self-evident rules
+### Self-evident rules
 
 I don't just want to tell readers what the rules are; I want them to understand it for themselves. That's why I illustrate every rule. I don't want them to think, "Ok, I believe you." I want them to think: **"I can see it for myself"**.
 
@@ -145,7 +145,7 @@ And yes, it's lots of fun to come up with these little illustrations:
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk116.png)
 
-## Explained rules
+### Explained rules
 
 I think it's fair to explain to readers why a rule works. If I explain that underlying premise, in the best case, people can transfer that knowledge to other situations (when visualizing data). 
 
@@ -156,7 +156,7 @@ Here's an example: "Your readers can compare values easier with each other if th
 Even if you didn't read the article about stacked bar charts, you might remember that principle the next time you design a stacked bar chart.  
 
 
-## Optional rules
+### Optional rules
 
 The English word *rule* comes from the Latin word *rego*: *I rule, govern*. That's not quite the impression I want to leave with my "What to consider" blog posts. I see data vis rules more as in the German phrase *in der Regel*. *Regel* means *rule*, but *In der Regel* can be translated as *usually, normally*:
 
@@ -170,7 +170,7 @@ That's why I call my articles "What to consider" and not "Must do's and don'ts":
 
 
 
-## Conditional rules
+### Conditional rules
 
 Rules are human-made. They're not facts. 
 
@@ -194,7 +194,7 @@ For the rest of this talk, I'll talk about these goals we might have for our dat
 
 <div id="part3"></div><br>
 
-# Part 3: Why rules contradict each other
+## Part 3: Why rules contradict each other
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk63.png)
 
@@ -218,7 +218,7 @@ Applying this model to the data visualization world could be useful in helping u
 
 So let's start:
 
-## Formalism
+### Formalism
 
 "Formalism" judges art by how interesting it is to look at, how well it is composed, how well colors are used, and shapes. Abstract art often wants to be judged by Formalism, like this painting by the Australian painter Grace Crowley:
 
@@ -232,7 +232,7 @@ But I'd say that [every visualization that's trying something new for the sake o
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk72.png)
 
-## Instrumentalism
+### Instrumentalism
 
 Advocates of "Instrumentalism" argue that art should serve a purpose. Art should influence society and lead to some social good. An example is Steve Lambert's ["Capitalism works for me! True/False"](https://visitsteve.com/made/capitalism-works-for-me-truefalse/) that makes people reflect on their opinion of capitalism. Lambert says that his work is supposed to make us think about the agency we have about the economic system we live in.
 
@@ -246,7 +246,7 @@ But even a simple dashboard that simply has "informing" as its biggest goal, or 
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk75.png)
 
-## Expressionism
+### Expressionism
 
 For some artists (and their critics), art is all about expressing emotion. In lots of  video art, this is the case, or in this cinematic photography by Alex Prager:
 
@@ -264,7 +264,7 @@ The data is certainly people in this visualization by The New York Times that sh
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk79.png)
 
-## Imitationalism
+### Imitationalism
 
 If you believe that art should be realistic, then you judge art with "Imitationalism" in mind – and you'll like art by e.g. [Ron Mueck](https://www.gautierdeblonde.com/?page_id=9):
 
@@ -282,7 +282,7 @@ In this way, this [raincloud plot](https://micahallen.org/2018/03/15/introducing
 
 When thinking about imitationalist data visualization, it's important to think about the difference between **analysis and communication**. A raincloud plot in the analysis phase of a data visualization project is an *instrumental* choice: You're trying to find something out, and maybe this raincloud plot will help you. But communicating your data like this, I'd say, comes with an *imitationalist* motivation: You're trying to be as truthful to the data as possible, even if that means that it becomes unreadable for some.
 
-## Institutionalism 
+### Institutionalism 
 
 The last theory of art I want to talk about is "Institutionalism". This is a banana: 
 
@@ -296,7 +296,7 @@ But we also listen to ourselves. I bet that if people see a data visualization o
 
 And in our organizations, we get confronted with "Institutionalism" in a literal sense: The company we work for or our coworkers defines what's good or bad data vis: **Good data vis is what your team says it is.** 
 
-## The lines are blurry
+### The lines are blurry
 
 Like every model, this one falls apart if you look close enough. Of course, every data visualization has a *form*, has a *function*, or shows the data more or less *truthful*. Often, you can't even say what's the *focus* of a data visualization. Here are two examples:
 
@@ -310,7 +310,7 @@ And lots of scientific visualizations are concerned with showing the complexity 
 
 Still, I found this "theory of art" model helpful in figuring out why rules contradict each other: **Because they come from different "theories of data visualization."** Here are three examples:
 
-## Example 1: Accessibility vs. nice colors
+### Example 1: Accessibility vs. nice colors
 
 First, let's come back to our **Web Accessibility vs. beautiful colors** example from the beginning. You'll follow the rule "Act on the Web Accessibility guidelines" if you judge your work by Instrumentalism: You want to reach as many people as possible. And you follow the rule "Use beautiful colors" if you're...well, if you're a designer and you want to use yellow in a data visualization because you haven't done so and you like how it looks like. That's Formalism.
 
@@ -319,7 +319,7 @@ First, let's come back to our **Web Accessibility vs. beautiful colors** example
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk92.png)
 
 
-## Example 2: Ease of understanding vs. mathematically correctness
+### Example 2: Ease of understanding vs. mathematically correctness
 
 The second example of clashing rules is **"Make a clear statement with your data that's easy to grasp" vs. "Do justice to the complexity of the data"**. It's almost impossible to do both consequentially. You have to bring sacrifices. 
 
@@ -331,7 +331,7 @@ A few weeks ago, Financial Times journalist John Burn-Murdoch [gave a keynote](h
 
 As we can appreciate realistic paintings without thinking, "That's not useful'," we should do the same with data visualizations that are "just" beautiful or "just" a sophisticated portray of the data. 
 
-## Example 3: Attract attention vs. bar chart races
+### Example 3: Attract attention vs. bar chart races
 
 Two more rules that don't go together well are **"Attract and hold the attention of your readers with your data visualization" and "Don't do bar chart races."** 
 
@@ -372,7 +372,7 @@ Thank you for reading through this talk! If you have thoughts, new categorizatio
 
 <div id="reactions"></div><br>
 
-# Reactions from the SHOW audience
+## Reactions from the SHOW audience
 
 Some people found the idea of the "-isms" interesting, and had comments. 
 

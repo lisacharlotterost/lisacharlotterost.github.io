@@ -14,7 +14,7 @@ permalink: /:year/:month/:day/:title/
 
 After the days that everybody now just calls “The Weekend Of Uproar”, Stefanie Posavec [tweeted](https://twitter.com/stefpos/status/825988313005817860) the following: “**TFW all of your creative ideas & projects feel superficial when compared to the heavy f-ing shit going on in the world. Time to level UP**.” I was grateful for her putting that blurry feeling into words. Lots of us feel that we need to DO something. SOMETHING. That post tries to explain WHY and HOW.
 
-# Why oh Why?
+## Why oh Why?
 
 Let’s talk about Stefanie’s first point: Her ideas feel superficial. I’m sure that’s true for many of us. The question is: Do we all need to become political now? Many of us are not hardcore activists (otherwise we would have become hardcore activists and not designers or developers). You might be one of us who thinks: **Do I need to feel guilty if I keep creating superficial, entertaining stuff?**
 
@@ -22,7 +22,7 @@ I ask that question to myself. Where should I stand between political revolution
 
 The following text is not an answer, but a conversation; between me and myself. **I will point out the reasons why we should keep doing the same superficial things—and why we shouldn’t**. Most of my arguments are as valid as my counter-arguments. The world is not black and white. I certainly won’t just create political data visualizations in the (near) future, and I won’t judge anyone who does the same.
 
-## 1. “It won’t make a dent anyway.”
+### 1. “It won’t make a dent anyway.”
 
 With every graphic we post on the NYT, the Washington Post, FiveThirtyEight, etc, we’re just preaching to the choir. Have you ever seen a comment at the NYT that says “OMG, my beloved Trump is SUCH a jerk? I had no idea! Thank you for opening my eyes”?Thought so. We’re just talking to ourselves in our filter bubbles. If we sincerely think about our goals and how to reach them most efficiently, creating another graphic for liberal media won’t be the best strategy.
 
@@ -30,7 +30,7 @@ With every graphic we post on the NYT, the Washington Post, FiveThirtyEight, etc
 
 **…AND** preaching to the choir is not the worst idea. Even the choir can get more motivated to act. We can help them to figure out what to do. We can support their activism with data and information. We can motivate our filter bubble to donate even more.
 
-## 2. “Escapism is underrated.”
+### 2. “Escapism is underrated.”
 
 We can’t just be exposed to the BAD every single hour of every single day. We need a distraction. We need the contrast, the normality. People get tired of all the serious “The world is screwed, AGAIN”-stuff, and they will turn to entertainment anyway. And we might even get people excited about data vis with our lighter projects, and then they can still use their new skills to change the world.
 
@@ -40,7 +40,7 @@ We can’t just be exposed to the BAD every single hour of every single day. We 
 
 **…AND** who says we can’t combine meaningful information and entertainment? Vi Hart and Nicky Case with their [“Parable of the Polygons”](http://ncase.me/polygons/) have shown that this is possible. And people seem to like politics once it comes in the form of series like “House of Cards.” It’s all about the form.
 
-## ”3. There are soooo many people working on it already”
+### ”3. There are soooo many people working on it already”
 
 All these graphics editors in newsrooms. And all these journalists with a soft spot for data. I’m sure they’re on it.
 
@@ -49,7 +49,7 @@ All these graphics editors in newsrooms. And all these journalists with a soft s
 **…AND** when we show the same data with two different visualizations, then that’s a feature, not a bug. Different visualizations of the same data offer different perspectives, make different statements, highlight different parts and will reach different people. Even bar charts about the same data, just differently styled and annotated, can appeal to different-minded people.
 
 
-## ”4. A graphic won’t be good if I’m not excited about the topic.”
+### ”4. A graphic won’t be good if I’m not excited about the topic.”
 
 I’m not a political person. I’m not an activist. I’ve never been one. I’m not excited about data about politics. I won’t stay motivated to build a visualization of politics. And then my time is better invested in some project that’s actually fun.
 
@@ -62,22 +62,22 @@ Know of more reasons? Tell me in the comments, write me an email ([lisacharlotte
 <br><br>
 
 
-# How oh How?
+## How oh How?
 
 Many of us might not have the problem of motivation. They immediately ask: **How can I use my data vis talents to do something?** We have all seen the power of data vis. Many of us work in newsrooms or have successful blogs where we post side projects. So we think: If only I could come up with something that would actually help. But help who? Or what?
 
 Here again, I don’t have a good answer. These are my (naive) thoughts so far, about what data vis can change in times of crisis:
 
-## 1. Data Vis can change minds and strengthen minds.
+### 1. Data Vis can change minds and strengthen minds.
 I don’t know how much data or the visualization of data can change the minds of politicians. [And it seems like](http://www.gallup.com/poll/201617/gallup-daily-trump-job-approval.aspx) most people already disapprove of Trump’s job anyway. But even if we don’t change minds: Reminding people of the dilemma (and what they can do against) might lead to more donations and to more activism.
 
-## 2. Data Vis can help to investigate the truth.
+### 2. Data Vis can help to investigate the truth.
 Investigative journalism might uncover some truths about the government that could lead to big changes. Data Vis can help to analyze and to present that truth.
 
-## 3. Data Vis can support activists.
+### 3. Data Vis can support activists.
 Activists might need data and information that we can research and present. I have no idea (yet) which kind of data they would need, and I’m pretty excited about that point.
 
-## 4. Data Vis can educate people.
+### 4. Data Vis can educate people.
 That’s what I’m most excited about: Simple education. How does the government work? Who’s supposed to sit where, what’s their job, and what is going wrong currently? How is the federal budget used? What’s the connection between the US and other countries and why does it matter?
 
 <br>

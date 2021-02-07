@@ -38,7 +38,7 @@ Today I want to explore how I can do my job better. Am I just preaching to the c
 To do so, I will explain first where false beliefs actually come from. Why don't we all believe in the same? Then I want to explain why it's so hard to get rid of false beliefs once they're planted inside of you. And then we'll use this knowledge to explore what we can do to believe more certain things – we in this room, and I as a data vis person.
 
 
-# A. Where false beliefs come from.
+## A. Where false beliefs come from.
 
 Let’s start by talking about the reasons for false beliefs. Of course, there’s only one:
 
@@ -80,7 +80,7 @@ The third reason for forming false beliefs I want to talk about is **fallacies**
 ![image](/pic/170509_Republica_Talk32.png)
 
 
-# B. Why it is so hard to get rid of them.
+## B. Why it is so hard to get rid of them.
 
 So once we got a false belief, we just keep it until somebody comes and says “Dude, that's not right", and then we get rid of it – right? Unfortunately not. **We defend many beliefs like crazy**.
 
@@ -119,7 +119,7 @@ It’s supposed to work also the other way round: If you show me information opp
 
 I think it’s important to keep that in mind, to not give up on people (“Whyyyyy the heck do you not accept the truth?”).
 
-# C. How to believe more true things.
+## C. How to believe more true things.
 
 So after hearing about the obstacles that keep us from believing more true things…how can we still attempt to do so? The most obvious idea is to **convince someone**, brute force: “Hey, you believe x, but that’s not true. You should believe y.”
 
@@ -181,7 +181,7 @@ But we don’t have skin in the game with most tribe-defining beliefs like clima
 
 Remember that awesome [“Science Curiosity and Political Information Processing”](http://onlinelibrary.wiley.com/doi/10.1111/pops.12396/full)-paper? It states that *“Farmers … have been observed to use information on climate change to form identity-congruent beliefs when they are behaving as citizens but to form truth-convergent ones when they are engaging in the task of farming, where they have an end—succeeding as farmers—that can be satisfied only with that form of information processing”*. Which basically means: When you ask a Republican farmer if he believes in climate change, he will probably say no – until this belief gets important for his goals to be a better farmer. [Reminding ourselves and others](https://phys.org/news/2017-05-climate.html) of the skin in the game and the personal ways they can benefit from information will make them listen.
 
-# D. What does it all mean?
+## D. What does it all mean?
 
 Wow, you’ve made it! That was one long article. Here are all the points we’ve encountered while you were reading this article; and believe me, each category could be filled with far more reasons, causes, and examples:
 

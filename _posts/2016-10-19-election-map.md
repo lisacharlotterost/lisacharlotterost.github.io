@@ -23,7 +23,7 @@ But I think we should go one step up. Instead of asking “HOW do we want to dis
 
 I have four compelling reasons for doing so! Let me start the first one with an embarrassing confession.
 
-# 1. Explanation
+## 1. Explanation
 
 Until a month ago, I didn’t understand the US election system. I was hugely invested, sure: I got the NYT Election Forecast newsletter and, like most of you, was on FiveThirtyEight multiple times a day. But I didn’t really understand what I saw there. I would look at the “chance of winning” bar or the cartograms and saw at least three quarter of the space colored in blue. But then I’d scroll down to the popular vote and would be confronted with a really, REALLY close forecast.
 
@@ -39,7 +39,7 @@ So I started to get into it. In fact, I wanted to understand it so well that I b
 
 That last map shows what I’m arguing for: A map that doesn’t just show the states colored in by the winner, but that **shows ALL votes–even the ones that didn’t lead to the win of a candidate in that state.**
 
-# 2. How we see them
+## 2. How we see them
 
 That last map really made me think about stereotypes; about red states and blue states. When I look at New York or California on an electoral college map, I see states in which everybody will vote for Clinton. When I look at Wyoming or Alabama, I see states in which everybody will vote for Trump. On the map, these states are bright blue and bright red. **And I’m afraid that these maps can have a huge negative influence on our collective stereotypes.**
 
@@ -55,7 +55,7 @@ Red states are not as red as we think. And blue states are not as blue as we thi
 ![image](/pic/161114_elex-16.png)
 
 
-# 3. How we see ourselves
+## 3. How we see ourselves
 
 Even more important than working against stereotypes is it that we find ourselves on a map. Imagine being one of the thousands of democratic voters in Utah or one of the millions of Republicans in California. **The map ignores you**, and has so since decades. “This is blue territory”, cartograms tells me about California. “There is not one Trump voter here. NOT ONE!”
 
@@ -64,13 +64,13 @@ Even more important than working against stereotypes is it that we find ourselve
 ![image](/pic/161114_elex-12.png)
 
 
-# 4. Less surprises
+## 4. Less surprises
 
 When I showed my popular vote map to a friend a few weeks ago, he said: “Yeah, Lisa, you know, that doesn’t tell me anything.” And maybe that’s a flaw in the design. But maybe it’s also by design. Of course we want to see clear patterns, clear chances of winning, clear dominating colors in cartograms. But US Elections has been traditionally very close, and we should be aware of that. A map of the popular vote can show that there IS no clear predicted winner. And that it’s a really close race, again and again.
 
 ![image](/pic/161114_elex-13.png)
 
-# Conclusion
+## Conclusion
 
 Does that mean we should get rid of the electoral college map? Heck no. This map is important – far more important than the popular vote map, because it represents the US election system better than showing the popular vote. In the best case, **we should show both: A map with the popular vote, and a map with the electoral votes.**
 

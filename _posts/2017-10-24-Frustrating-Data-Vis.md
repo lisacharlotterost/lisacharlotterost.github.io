@@ -11,7 +11,7 @@ or: Why I started to work at Datawrapper
 
 **tl;dr: I believe that it should be easier for journalists to create charts for their articles. The public will benefit from more context, and the Data Vis experts in their newsroom will have time to focus on bigger projects. Datawrapper is my best bet on a data vis tool for journalists**.
 
-# The problem
+## The problem
 
 In newsrooms, two kinds of people deal with data visualization:
 
@@ -42,7 +42,7 @@ It pains me to see this frustration. 
 ![image](/pic/171024_newsrooms4.png)
 *The kinds of data visualization that should be so simple to make that journalists can work on them*.
 
-# The solution
+## The solution
 
 So that’s where I see the solution: **It should be damn simple to make that bar chart**. For journalists to be independent, and for Data Vis experts to save time for the big stuff. No code. Just data in, bar chart out. 
 

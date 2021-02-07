@@ -23,7 +23,7 @@ In the end, it let to me being in New York currently, waiting for the [State of 
 
 I'll also go up the ladder of abstraction a little bit, to show that fictional maps combine two important things: Education in form of comparison and imagination.
 
-# 1. Comparison
+## 1. Comparison
 
 Comparison is extremly important for data vis: One number isn't of much use. One number in comparison with the years before, the situation in other countries or with the number of similar elements **sets it in a context with something familiar that makes it easier to understand**.
 
@@ -33,7 +33,7 @@ Of course you can compare map data, too. On the following map I show all buildin
 
 You can immediately compare the landmarks with each other: Champ the Mars is smaller than Central Park and the Tiananmen Square seems tiny for being one of the biggest squares on the world.
 
-# 2. Imagination
+## 2. Imagination
 
 But you also start to imagine: The Eiffel Tower in New York? Nice, I don't have to go to Paris anymore! Then again, isn't the Eiffel Tower only 300m (980ft) tall? Will I even have a view up there?
 

@@ -23,7 +23,7 @@ So yes, why. **Why the heck are we actually visualising data**? I want to answer
 **4**&emsp;Goals influence each other. <br>
 **5**&emsp;What are your goals? <br>
 
-# Data vis goals: the overview
+## Data vis goals: the overview
 
 In this first part, I will present my **mental model of possible data vis goals**; sorted into three categories. **Feel free to skim that part!** The first category, Attention&thinsp;&&thinsp;Beauty, includes goals that relate to the quick first impression of a data vis project. After the first initial impression, we move to goals that relate to the decoding of data: Understanding. And the last category, Implication, contains the sense-making and long-term impressions of a data vis piece.
 
@@ -72,7 +72,7 @@ Sometimes, that’s not a bad thing. “Going with the hype” also includes cop
 **Implication: 5. Go meta**: Data defines our lives in many ways. Data vis can show that and can make us think about how data is collected, stored or analyst or used for decisions. Data art can achieve that in its extremes, but “normal” data vis can show a taste of that. Giorgia Lupi, co-founder of the studio Accurat has been an advocate for that for years. In 2015, she [stated](https://medium.com/accurat-studio/the-architecture-of-a-data-visualization-470b807799b4#.n8k1iskvx) that Accurat’s visualizations want to “embrace complexity” and “maintain the nuances of the data”.
 
 
-# Different industries have different goals.
+## Different industries have different goals.
 
 After going through all the goals, we will now have a closer look at the data vis goals of certain industries.
 
@@ -98,7 +98,7 @@ And then there is **Data Journalism**. Its biggest focus in on understanding. It
 ![image](/pic/170310_INCH_DataVis_short79.png)
 
 
-# Different data visualizer have different goals.
+## Different data visualizer have different goals.
 
 We all get into Data vis because of slightly different and also because of slightly similar reasons. Personally, my main motivations to do data vis are to create something beautiful, to make myself and other people understand something, to offer an overview and to change people’s beliefs. **That is very close to the goals of data vis for journalism**, and I do feel very home in that field.
 
@@ -108,7 +108,7 @@ Why is it important that personal goals align with field goals? **Because goals 
 
 Another way to think about goals and priorities is to ask: **What do you sacrifice for what**? If your main priority is beauty, you will sacrifice understanding for a fancy new visualization form.  For me, understanding is more important than beauty. I’m somebody who says: “Ok, let’s show the boring bar chart instead of the multi-dimensional slope chart since nobody seems to understand the latter one.” But beauty AND understanding are definitely more worth than just understanding; and I’m willing to put a lot of time and effort into beauty.
 
-# Goals influence each other.
+## Goals influence each other.
 
 Goals/outcomes are interconnected. Some influence each other positively, some influence each other negatively. For example, if your goal is to make your data visualization beautiful, you’re more likely to have evoked emotions as an outcome than with a boring bar chart. Evoking emotion is a side-effect of beauty.
 
@@ -134,7 +134,7 @@ But that’s only true to a certain point, in my experience. If the focus on bea
 
 This example shows how goals can positively and negatively influence each other. But it also shows how opinions about goals can differ. I wonder what you all think about the relationship between beauty, understanding and implication. Let me know!
 
-# What are your goals?
+## What are your goals?
 
 ![image](/pic/170310_INCH_DataVis_short98.png)
 

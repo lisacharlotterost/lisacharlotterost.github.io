@@ -24,7 +24,7 @@ The whole session was one big experiment. I’ve never hosted such a question ro
 
 ![image](/pic/161102_dataquestions.jpg)
 
-# What didn’t go well
+## What didn’t go well
 
 My aim was to close knowledge gaps. That definitely happened. But it happened far more for beginners than for advanced people. During the session, we answered questions that were on hugely different levels. Questions like "What does scraping mean?" as well as "How can I more reliably bin data for choropleth maps?".  The advanced people were the ones answering the basic questions to beginners AND the advanced questions to other advanced people. It might be a good idea to **divide beginners and advanced people** in different groups.
 
@@ -35,7 +35,7 @@ Third improvement: **Better defining the question space**. "Data" is an extremel
 
 ![image](/pic/161102_dataquestions.gif)
 
-# What went well
+## What went well
 
 I was positively surprised especially about how open people were with their questions and with what they didn’t know. I tried to create a **safe space** by <br>
 a) talking about how we are all students and teachers at the same time and that nobody can know anything<br>

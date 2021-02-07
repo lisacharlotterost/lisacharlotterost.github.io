@@ -27,7 +27,7 @@ The spike in the last quarter of the chart? That's me writing my Master's Thesis
 **Where does the data come from?** Since April, [you can download your entire Google search history](http://www.cnet.com/news/google-now-lets-you-download-your-search-history/) [easily](https://support.google.com/websearch/answer/6068625?hl=en). The queries come in JSONs, one per quarter, with Unix timestamps and tags: "isch" refers to Image search, "nws" to news search, "blg" to blog search (which I still used in 2010....but not anymore), etc. Google Maps queries are included, too, but come untagged. However, queries for directions can be easily found because of the included "->"; they look like this: "51.689585,-2.532349 -> Cheltenham, Gloucestershire, UK". I downloaded the JSONs, merged them, sent them through Open Refine to get a CSV, used a formula to transform the timestamp to an Excel date and then used Tableau Public to have a look at the data:
 
 
-# Location
+## Location
 A story of search queries is a story of life. Using Google means telling a  company what bothers you, what's going on in your head, what you're working on and what you need and want to know. It also tells a lot about where you are – without even giving away your GPS coordinates. Here are small multiples which show how often I searched for certain city names on Google. Please note that in this and the next examples, these words are just part of the full queries:
 
 ![image](/pic/150620_GoogleSearch_9.jpg)
@@ -42,7 +42,7 @@ The opposite is true in bigger cities: That's the reason why Berlin and especial
 "But you lived in New York, Toronto and Oxford – why didn't you google for directions as often as in Berlin?" Simple reason: I didn't have data. I lived in Toronto in 2011 – I didn't even have a smartphone back then. And I had a smartphone in New York, but this city has excellent apps and a great transportation system. And Oxford, again, is a fairly small place: I knew my way around the city pretty quickly. **In general, the better my phone & internet connection is and the bigger the city I'm living in, the more Google knows about my location.**
 
 
-# Projects
+## Projects
 
 When I was 17 years old, I had a dilemma: I was interested in too many topics, but often only for a short period of time. I would get excited about the psychology of conspiracy theorists for three months, before drawing maps every single afternoon for the next six weeks – followed by dealing with the question of how to transfer the web into print for the next six months. I had a hard time to choose what I want to study. So I decided at some point: Instead of studying some content like psychology, business, philosophy, I would study how to communicate these topics. I would study the form (aka design). The following graphic shows my semester breaks especially well between the end of 2011 and 2013:
 
@@ -59,7 +59,7 @@ But the form I'm choosing for a topic differs, too. For my Master's Thesis, the 
 ![image](/pic/150620_GoogleSearch_12.jpg)
 
 
-# Tools
+## Tools
 
 Data visualization or Magazine Design is a nice "form" to use, but you need tools to actually go from "content" to "it looks awesome". Every time we have a problem or question with our software and we search for a solution, we let Google know which tools we're using.
 
@@ -72,7 +72,7 @@ Illustrator and Excel show a surprising correlation – which makes sense when I
 The spike in CSS, d3, TileMill and Github came in one week in November 2014. I was sitting in Lisbon and prepared for my work at ZEIT Online with many tutorials and a [d3 graphic about unemployment rates in Germany](http://lisacharlotterost.de/Graphic-Unemployment-in-Germany/).
 
 
-# The benefit of knowing what's behind the data
+## The benefit of knowing what's behind the data
 
 To show the danger of reading data like my Google queries without knowing the reason for this data, I want to show an example:
 

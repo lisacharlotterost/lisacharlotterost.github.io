@@ -13,7 +13,7 @@ permalink: /:year/:month/:day/:title/
 In the past few days (7.24 hours according to my time-tracking app, but that doesn't include the endless hours of googling for solutions), I used my [Google Search History visualization Project](http://lisacharlotterost.github.io/2015/06/20/Searching-through-the-years/) to get a little bit more into R. The project was perfect for that: I found that from all my vis apps, only Tableau was able to give me histograms for time series (meaning, it could count my queries in bins of days, weeks, months, years). But Tableau doesn't let you export SVGs/PDFs in its free version. R, however, is free and a pro in histograms and PDF export. **So I thought I give R a try to rebuild my Tableau visualizations.** First I'll talk a little bit about the difference between R and ggplot2 regarding histograms, then I'll get into small multiples with ggplot2. *All of that shouldn't be considered as a tutorial. I am still learning. There are certainly better ways to do all of that. If you know one: Message me!*
 
 
-# R vs. ggplot2
+## R vs. ggplot2
 
 R & ggplot2. Hm. I tried both for a few hours and came to a conclusion which is true for lots of tool comparisons: One of them is easy and weak: native R. The other one is difficult and powerful: ggplot2.
 
@@ -56,7 +56,7 @@ It does look more beautiful – but that's the least it can do to convince me th
 
 
 
-# Small Multiples with the ggplot2 library in R
+## Small Multiples with the ggplot2 library in R
 
 But of course, as soon as you want to do more advanced visualizations, ggplot2 has its legitimation. Let's get back to that "power" of ggplot2 I was mentioning earlier: small multiples (and lots of other nice stuff) are possible. With some great help from the great [Daniel Kirsch](http://danielkirs.ch/) (let's not kid ourselves, he wrote 90% of the code), I rebuild the small multiples chart of locations I googled, which I posted [in the original analysis](http://lisacharlotterost.github.io/2015/06/20/Searching-through-the-years/). It looks like that:
 
@@ -75,12 +75,12 @@ berlin = df %>%
 berlin$cat = 'berlin'
 #....etc.
 
-# bring all tables with the filtered data together.
+## bring all tables with the filtered data together.
 combined =
   rbind(eisenberg, weimar, leipzig, toronto, cuba, frankfurt, newyork, oxford, london, berlin, oderberger) %>%
   arrange(year, month)
 
-# decide about the order of elements in the final plot
+## decide about the order of elements in the final plot
 combined$cat <- factor(combined$cat, levels = c("eisenberg","weimar","leipzig","toronto","cuba","frankfurt","newyork","oxford","london","berlin","oderberger"))
 
 #plott the small multiples:

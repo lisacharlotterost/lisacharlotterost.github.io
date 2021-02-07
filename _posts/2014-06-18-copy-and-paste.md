@@ -14,11 +14,11 @@ But do I feel bad? Do I feel like I don’t make enough of an effort to design? 
 
 And then I thought: »Screw it. Just get to know more designs, early – and then have a wild range from which you can copy and combine, according to your content. If you have a really new idea on the way, even better. But don’t force it.« I'm sure this works only so long in my career, but that's what I try now: I have a library of possibilities in my head, get samples out if I need them (meaning, if they fit to the task I'm working on), copy or transform and combine them.
 
-# Elements of Creativity
+## Elements of Creativity
 
 Transforming. Copying. Combining. According to Kirby Ferguson, these are the three pillars of every invention. Ferguson is the author of the great video documentation [»Everything is a Remix«](http://everythingisaremix.info/), in which he explains pop-culture phenomena, like songs, movies or technological product that have been copied and combined in the past.
 
-# Morphological Matrix
+## Morphological Matrix
 
 The creativity model that emphasizes the »combining« aspect the most is the Morphological Matrix. It's just a table, but it's the visual model that amazes me the most (and that [Karl Gerstner used as a way to choose typefaces](http://rethinked.org/?tag=karl-gerstner)).
 
@@ -33,7 +33,7 @@ In terms of graphic design and depending on the chosen parameter, the number of 
 
 Maybe you wonder: Will such a tool make us to better designers? I doubt that. But it’s an argument for copying, and I like copying. When I speak about an »idea library« in my head, I hope it works like this. The Morphological Matrix lets us understand how we think and how we come up with »innovation«, but without all the magic and muse around it. And maybe in the end, if we understand what we do, we can extend the doing, too.
 
-# Combining both
+## Combining both
 
 Because I like the Morphological Matrix and Fergunsons elements of creativity, I thought it's actually possible to combine both (see what I did here? Combine is the third element of creativity):
 

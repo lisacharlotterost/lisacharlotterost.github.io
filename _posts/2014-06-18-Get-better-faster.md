@@ -16,11 +16,11 @@ Here are the lessons I learned while working on my Master's Thesis:
 
 ---
 
-# Understand your capacity
+## Understand your capacity
 
 One »hack« I tried pretty successfully in my Master's Thesis from the beginning was documenting my process almost every night with the help of my blog themagazinedesignproject.tumblr.com. I answered questions like: What have I done today? What was successful? What wasn't? Why? What are the next steps? Doing this every day helped me understanding what I can achieve in one day. With time, I could set more realistic goals for my day, which I then would not over- nor underachieve. (The blog also had other positive effects like bringing my work out there and having a conversation with people who are interested in what I'm doing.)
 
-# Gather together
+## Gather together
 
 The second most helpful concept during my Master's Thesis was the »Arbeitsgruppe Abschlussklasse« (task force graduation class). It was basically an independent Master's colloquium: Four friends of mine and I organised us a room and projector every two weeks and talked about our process.
 The purpose? We started it to finally get good feedback. In university courses one notices that feedback is rare: Not because of missing good thoughts in the brains of the students, but because of the peer pressure. I’ve never been an exception to this, sadly. The Arbeitsgruppe Abschlussklasse circle was supposed to be small, so the not-so-dumb but shy people like I can flourish a little bit more.
@@ -30,14 +30,14 @@ I thought the Arbeitsgruppe Abschlussklasse would be a nice idea, but it was sur
 I got more helpful feedback and heard ideas from my friends about my work that I’ve never heard before.
 Personally, I used the Arbeitsgruppe Abschlussklasse as a motivation to eloborate on ideas I had in mind while designing the individual magazines. The meetings and presentations forced me to sort my thoughts and my process. Presenting is – not only for the audience, but especially for me – an overview over what I’ve done so far and a checking if everything makes sense. I knew this before, but it just surprises me every time again how helpful preparing a presentation really is.
 
-# Go Small Steps
+## Go Small Steps
 
 Investing in a distant future instead of in the near future is hard for the human race. This theory is related to a fact that's called hyperbolic discounting: If asked »Would you prefer a dollar today or three dollars tomorrow?«, [the average person will take the dollar today](http://en.wikipedia.org/wiki/Hyperbolic_discounting). So working on a Master's Thesis that's due in a few months is inconvienent, too; especially when the sun and your friends are waiting outside.
 For me, it helped a great deal to set own deadlines. I like deadlines: I like the feeling of finishing something. And it was very important for me to finish designing one magazine before starting with the next one. (Fortunately, my plan was working as scheduled.) Thinking of creating three magazines in three months can have a daunting effect, but thinking of designing a magazine in four weeks or an info graphic in one day is do-able.
 A second example of doing small steps is this theoretical part of my Master's Thesis: I came up with almost all the here described ideas in the preparation of presentations for the Arbeitsgruppe Abschlussklasse or while writing a blog post. The basis for a lot of graphics here can also be found in presentations or blog posts from the last few months. In the end, everything comes together (and allows me to write and design this theoretical part in one week).
 
 
-# Take Breaks to get inspired
+## Take Breaks to get inspired
 
 The third realisation of doing small steps is my personal productivity score. In the beginning of my Master's Thesis I drew a calender with 126 days in 18 weeks and hung it on my wall. Every night when I came home, I rated my productivity of the current day from one to five stars.
 
@@ -48,14 +48,14 @@ One can also see the peaks: I had an huge productivity boost after meeting Richa
 I still don't know the answer to that, but I'm curious to get to know more about this issue in the future. All I know so far is that one indeed needs inspirational breaks (I noticed this because I didn't take them very often).
 
 
-# Think before doing stuff
+## Think before doing stuff
 
 »Spend one hour per day thinking about what you want to do on this day.« – I don't remember where I got this quote from, but it's burned into my head. Not because I'm actually practising this kind of advice (personally, I think one hour is too much, but of course I could be wrong), but because it's the exact opposite of what I and so many other designers are doing.
 Designers are threatened to do stuff without thinking. I noticed this when I tried another possibility of getting to know how I work: I recorded a few screen videos that lets me see how I'm moving things in InDesign. I sat down with no ideas how to combine the text and the comments on the spread, and 40 minutes later (squeezed into five minutes video time) I came up with a spread. I got carried away with some details in the process, like moving boxes only a little bit up and down; and I learned that I should separate even more the rough composition/concept work from the fine margins/typo work.
 But the crucial lesson here was that thinking through doing works only at least as well as thinking before doing. I could have saved myself a lot of time with planning some visual ideas before realizing them. But how well it really works? Here again, I don't know the answer yet: When is thinking better and when doing?
 
 
-# Avoid Unknown Unknowns
+## Avoid Unknown Unknowns
 
 I've always been afraid of the knowledge and skills that I should have – because it would make my work so much more easier / relevant / better / [positive adjective] – but don’t know it. This knowledge, of which you don’t even know that you don’t know it, is called Unknown Unknowns. It can be the project out there that's extremly similar to what you're working on but had no idea it exists. It can be a life hack, a person or anything else. Unknown Unknowns are the missing piece of a puzzle of which you don't know how large it really  is. Unknown Unknowns are archenemies in the early days of every project.
 
@@ -69,12 +69,12 @@ I've always been afraid of the knowledge and skills that I should have – becau
  - Ask questions, as many as possible. Especially the Why-Questions. And the Why-of-the-Why-of-the-Why-Question.
  - Read as broad as possible: Not only your always same blogs and books, but also about the business or production side of it, about artistic, historical or psychological approaches etc. The goal is to get as many perspectives on one topic as possible.
 
-# Read
+## Read
 
 Especially the last one is important. Read a lot. Read in every direction. Or in one – it doesn't matter so much, just read. I read too little, and I notice that a lot.
 I usually use books for a »break to get inspired«; meaning, as triggers to new ideas: When I’m reading a book, every other chapter my thoughts get inspired by a specific sentence or phrase and move to the space in the part of my brain where ideas are made (making ideas mean mostly combining them; it’s my own Mind Morphological Matrix, so to say). Reading the first part of seven chapters in Francesco Franchi's Designing News for example took ages…I was constantly with my eyes in my brain instead of on the paper. (I made the experience that my thoughts are flowing better the more abstract the text is.)
 
-# Structure your thoughts (with models)
+## Structure your thoughts (with models)
 
 As evident throughout my Master's Thesis, I'm a huge fan of information graphics. I like every part of doing an info graphic. I like looking for the most interesting data. I like to use and learn new formulas in Excel or Google Fusion Tables. I like using tools like Pivot Tables and Tableau to explore the data; to see if there is a statement that I could visualize. I like thinking about how you can bring all the interesting data on paper (form follows statement!). I like the challenge that you first have to think or you’re loosing a lot of time while moving elements from one corner to another. And I like the result.
 However, one of the best parts of doing an information graphic is sorting the information and data available. I try to bring this aspect in almost every corner of my life and use models to organize my thoughts (similarily to organizing the thoughts and the process while preparing presentations).

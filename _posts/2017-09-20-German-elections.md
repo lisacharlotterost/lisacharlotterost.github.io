@@ -16,7 +16,7 @@ So what *does* it mean? **What are Germans like me voting for exactly when they�
 
 We can't vote for our chancellor directly. Instead, we are deciding on the approx. 680 people who will move into parliament, and who then will vote for the chancellor and tons of other stuff in the next four years. To decide who these people are, I'll make two votes on Sunday: The First Vote and the Second Vote.
 
-# 1 Who?
+## 1 Who?
 **The First Vote is for a person**, who is often affiliated with a party and wants to represent my election district in parliament. Germany is currently divided into **299 election districts**, which all have roughly the same number of citizens: 280,000 people:
 
 ![image](/pic/170920_election4.png)
@@ -37,7 +37,7 @@ It’s pretty black. Black is the color of the CDU, the party of Angela Merkel. 
 
 But don’t pity too early! There is hope: The election districts and the First Vote don't actually determine how much percent of the parliament seats are taken by which party. That’s the job of the Second Vote. **Only with the Second Vote we voters decide what fraction of the seats each party gets.** The Second Vote is the reason why the Green party won only one of the 299 election district in 2013 but ended up having 13% of the seats in parliament – and why the CDU didn’t win 80% of the seats, but 40%.
 
-# 2 How many seats? Also, who else?
+## 2 How many seats? Also, who else?
 **The Second Vote is for a party**; not for a specific person like the First Vote. Or, to be exact: The Second Vote is for a list of candidates from all parties in my state. In each state in which a party wants to be voted for, the party sends a **list of candidates** to the election administrator of this state and says: "Please put our party on the ballot in this state.” When I vote for a party with my Second Vote, I actually vote for this state list of the party.
 
 So how do we get from these votes to the seats? Well, in each state, each party can earn a specific amount of seats. The **number of seats per state** is determined by the number of inhabitants, similar to the election districts. The German election administrator just takes the 598 seats that exist in Parliament and allocates them to the states: Hamburg gets 13 seats, Berlin gets 24 seats, etc.
@@ -57,7 +57,7 @@ Sooo...that means that the CDU has only 4 seats in Hamburg left to fill with the
 ![image](/pic/170920_election10.png)
 
 
-# 3 All the seats, in all the states
+## 3 All the seats, in all the states
 
 **Here’s a quick summary of what you’ve just learned**: Germans have two votes. The First Vote answers the question who will get a parliament seat to represent my election district. The Second Vote answers two questions: How many people of each party will be in parliament for my state? And: Besides the people who got elected directly with the First Vote, who else will get into parliament for each party?
 
