@@ -19,7 +19,7 @@ And the winner of this crossword puzzle is...
 
 🥁🥁🥁
 
-...[Duncan Geere](@duncangeere)! The information designer solved the puzzle within 23 MINUTES (!) after me posting it. His price – a data vis book of his choice – is already on its way to his home town Gothenburg. Duncan called it ["possibly the nerdiest triumph of my life"](https://twitter.com/duncangeere/status/1359037201468846080).
+...[Duncan Geere](https://twitter.com/duncangeere)! The information designer solved the puzzle within 23 MINUTES (!) after me posting it. His price – a data vis book of his choice – is already on its way to his home town Gothenburg. Duncan called it ["possibly the nerdiest triumph of my life"](https://twitter.com/duncangeere/status/1359037201468846080).
 
 A big, **big** kudos also to [Neil Richards](https://twitter.com/@theneilrichards), [Dana Wanzer](https://twitter.com/@danawanzer), [Cameron Yick](https://twitter.com/@hydrosquall), [Amelia McNamara](https://twitter.com/@AmeliaMN), [Vicky Johnson-Dahl](https://twitter.com/@hurricanevicky), Alexandra Khoo, [Colin Angus](https://twitter.com/@VictimOfMaths), [Alli Torban](https://twitter.com/@allitorban), and [Claire Santoro](https://twitter.com/@claireesantoro) for scoring 2nd to 10th place. 
 
