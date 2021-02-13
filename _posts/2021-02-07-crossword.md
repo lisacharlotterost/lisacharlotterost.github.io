@@ -9,6 +9,10 @@ permalink: dataviscrossword
 categories: [article]
 ---
 
+*Edit (three hours after publishing the first version): Added the hint for 21-Down and added a number (19b) and a hint for it.* 
+
+*Edit February 12: I posted the solution! [**Find it here.**](/dataviscrossword-solutions/)*
+
 Yesterday morning, my partner [Jonathan](https://jonathanmuth.com/) and I solved a crossword puzzle over breakfast. We normally don't do that. Jonathan picked up a copy of "[Arts of the Working Class](http://artsoftheworkingclass.org/)", a curious, free newspaper. He likes to read the editorial – but in this issue, half the editorial had gone missing and instead, we were confronted with a crossword. And while we solved clues and put in words like "Marxism" and "Cybernetics", we were surprised about how much we actually enjoyed it. 
 
 And I got an idea: A crossword for the data vis field! That's what the world needs! Or maybe not, but here it is anyway! 
@@ -130,17 +134,14 @@ I don't normally solve crossword puzzles. And I never designed one. So when writ
 
 ## Where's the solution? 
 
-It's not online yet. I'll post it in a week or so! 
-
-Happy crossword-solving! 
-
----
-
-As always, find me on [Twitter](https://twitter.com/lisacrost) or via email: [lisacharlotterost@gmail.com](mailto:lisacharlotterost@gmail.com).
+~~It's not online yet. I'll post it in a week or so!~~ <br>[**Here's the solution**](/dataviscrossword-solutions/).
+<br><br>
 
 ---
 
-*Edit (three hours after publishing the first version): Added the hint for 21-Down and added a number (19b) and a hint for it.* 
+Happy crossword-solving! As always, find me on [Twitter](https://twitter.com/lisacrost) or via email: [lisacharlotterost@gmail.com](mailto:lisacharlotterost@gmail.com).
+
+
 
 <style>
 	.bottom_line {
