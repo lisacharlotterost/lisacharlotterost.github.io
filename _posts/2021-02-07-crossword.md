@@ -11,7 +11,7 @@ categories: [article]
 
 *Edit (three hours after publishing the first version): Added the hint for 21-Down and added a number (19b) and a hint for it.* 
 
-*Edit February 12: I posted the solution! [**Find it here.**](/dataviscrossword-solutions/)*
+*Edit February 12: I posted the solution! [**Find it here.**](/dataviscrossword-solutions)*
 
 Yesterday morning, my partner [Jonathan](https://jonathanmuth.com/) and I solved a crossword puzzle over breakfast. We normally don't do that. Jonathan picked up a copy of "[Arts of the Working Class](http://artsoftheworkingclass.org/)", a curious, free newspaper. He likes to read the editorial – but in this issue, half the editorial had gone missing and instead, we were confronted with a crossword. And while we solved clues and put in words like "Marxism" and "Cybernetics", we were surprised about how much we actually enjoyed it. 
 
