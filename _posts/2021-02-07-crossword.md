@@ -6,7 +6,7 @@ summary: Find the 13 vis types, 5 tools, 14 people, and 22 concepts from the fie
 image: /pic/210207_crossword-f.png
 desc: Find the 13 vis types, 5 tools, 14 people, and 22 concepts from the field of data vis and win a data vis book.
 permalink: dataviscrossword
-categories: [article]
+categories: [fav, article]
 ---
 
 *Edit (three hours after publishing the first version): Added the hint for 21-Down and added a number (19b) and a hint for it.* 

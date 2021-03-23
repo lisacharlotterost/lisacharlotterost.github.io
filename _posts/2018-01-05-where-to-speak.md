@@ -2,7 +2,7 @@
 layout: post
 title: '"You want them" vs "They want you"'
 image: /pic/180105_whentotalk-f.png
-categories: [article]
+categories: [article, fav]
 summary: Which conferences to speak at – some thoughts.
 permalink: /:year/:month/:day/:title/
 ---

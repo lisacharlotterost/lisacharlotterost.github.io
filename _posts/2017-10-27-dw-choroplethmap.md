@@ -1,7 +1,7 @@
 ---
 layout: external
 title: How to choose a color palette for choropleth maps
-image: https://blog.datawrapper.de/img/posts/thumb-171027_colorpalette-f.png
+image: /pic/171027_colorpalette-f.png
 external: https://blog.datawrapper.de/how-to-choose-a-color-palette-for-choropleth-maps/
 whofor: on Datawrapper ↗
 categories: [article]
