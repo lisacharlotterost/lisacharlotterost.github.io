@@ -1,7 +1,7 @@
 ---
 layout: post
 whofor: at INCH
-title: Why Do We visualize Data?
+title: Why do we visualize data?
 tag: talk, datavis
 image: /pic/170310_INCH_DataVis_short-f.png
 categories: [fav, article, talk]
@@ -11,7 +11,7 @@ permalink: /:year/:month/:day/:title/
 
 ![image](/pic/170308_INCHgif.gif)
 
-*This is the transcript of a talk I gave at [INCH](http://www.inch-conference.com/) in Munich at the 10th of March 2017. You can find all the slides in that insanely fast GIF up there and as PDFs [on Github](https://github.com/lisacharlotterost/talk-slides/blob/master/1703_WhyDoWevisualizeData.pdf).*
+*This is the transcript of a talk I gave at [INCH](http://www.inch-conference.com/) in Munich at the 10th of March 2017. You can find all the slides in that insanely fast GIF up there and as PDFs [on Github](https://github.com/lisacharlotterost/talk-slides/blob/master/1703_WhyDoWeVisualiseData.pdf).*
 
 Finding a definition for data vis is ok-ish easy: Data vis represents data with visual elements to communicate information. Today I want to focus on a part of the data vis definition that is a bit overlooked: The part that tries to answer my favorite question of them all: “Why?”
 
