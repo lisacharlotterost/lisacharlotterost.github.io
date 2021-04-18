@@ -8,7 +8,7 @@ summary: We should all be privacy nerds. But it still isn't as convenient as jus
 permalink: /:year/:month/:day/:title/
 ---
 
-*This post doesn't offer any solutions. It just shows how I feel. If that makes you uncomfortable or angry, don't read it. A translation into Polish can be found [here](http://www.dobreprogramy.pl/Jak-sie-czuje-rozmawiajac,Blog,77350.html).*
+*This post doesn't offer any solutions. It just shows how I feel. If that makes you uncomfortable or angry, don't read it. This article got translated into [Polish](http://www.dobreprogramy.pl/Jak-sie-czuje-rozmawiajac,Blog,77350.html) and [Spanish](https://www.ibidemgroup.com/edu/una-conversacion/).*
 
 Hi! That's me:
 
