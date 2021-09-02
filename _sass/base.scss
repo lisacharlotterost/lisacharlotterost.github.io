@@ -51,7 +51,22 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+  }
 
+  .name-strikethrough {
+    display: inline-block;
+    position: relative; 
+  }
+  .name-strikethrough-strike {
+    position: absolute;
+    content: "";
+    display:block;
+    left:0;
+    right:2px;
+    top:50%;
+    transform: translateY(-50%);
+    height:1.5px;
+    background-color: rgba(0,0,0,0.5);
   }
 }
 
