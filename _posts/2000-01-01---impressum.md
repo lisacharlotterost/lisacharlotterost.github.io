@@ -8,7 +8,7 @@ image: /pic/000000-impressum.png
 
 ### According to § 5 TMG:
 
-Lisa Charlotte Rost<br>
+Lisa Charlotte Muth<br>
 Oderberger Straße 27<br>
 10435 Berlin<br>
 E-Mail: lisacharlotterost@gmail.com
