@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Charts I created in 2018 and 2019
+title: Datawrapper visualizations I created in 2018 and 2019
 image: /pic/181231-datawrappercharts.png
 categories: [fav, design]
 summary: In November 2017, I started to blog for Datawrapper and to create charts, maps & tables with the tool.
