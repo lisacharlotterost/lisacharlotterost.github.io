@@ -11,7 +11,7 @@ image: /pic/000000-impressum.png
 Lisa Charlotte Muth<br>
 Oderberger Straße 27<br>
 10435 Berlin<br>
-E-Mail: lisacharlotterost@gmail.com
+E-Mail: lisacharlottemuth@gmail.com
 
 
 ## Copyright
