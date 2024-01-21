@@ -7,17 +7,17 @@ highlighter:      rouge
 permalink:        :title
 
 # Setup
-title:            Lisa Charlotte Rost
+title:            Lisa Charlotte Muth
 tagline:          Portfolio & Blog
 description:      What Lisa writes, designs and talks about.
-url:              http://lisacharlotterost.github.io
+url:              https://lisacharlottemuth.com/
 baseurl:
 
 author:
-  name:           "Lisa Charlotte Rost"
-  url:            https://twitter.com/lisacrost
-  email:          lisacharlotterost@gmail.com
-  twitter_user:   lisacrost
+  name:           "Lisa Charlotte Muth"
+  url:            https://x.com/lisacmuth
+  email:          lisacharlottemuth@gmail.com
+  twitter_user:   lisacmuth
 
 paginate:         5
 
