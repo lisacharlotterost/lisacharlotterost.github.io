@@ -50,11 +50,7 @@ description: Slides and transcripts of my best talks.
           {% endif %}
 
           <!-- display month & year when blog post or talk. Only display year for design work -->
-          {% if category contains "design" %}
-             {{ post.date | date: "%Y" }}
-          {% else %}
-             {{ post.date | date: "%B %Y" }}
-          {% endif %}
+         {{ post.date | date: "%Y" }}
 
           <!-- show for which client I've worked for -->
           {% unless post.whofor == nil %}
