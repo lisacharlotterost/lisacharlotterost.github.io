@@ -7,7 +7,7 @@ summary: The original version of my guide to color tools. I published an updated
 permalink: /:year/:month/:day/:title/
 ---
 
-*Edit:* This post got [translated into Japanese](http://lab.sugimototatsuo.com/2016/05/colors-for-datavis/). I also published an updated version of this blogpost in 2018 for Datawrapper. [Find it here](https://blog.datawrapper.de/colorguide/).
+*Edit:* This post got [translated into Japanese](http://lab.sugimototatsuo.com/2016/05/colors-for-datavis/). I also published an updated version of this blogpost in 2018 for Datawrapper. [Find it here](https://www.datawrapper.de/blog/colorguide/).
 
 A few days ago, I approached my Twitter followers with [a request to help me](https://twitter.com/lisacrost/status/722948084703956992) in an urgent matter: "Can somebody tell me how to get better with color?," I wrote. " My color decisions are awful." Thanks to a retweet by Scott Murray I got a lot of replies with links to websites and tools. They were awesome. And I want to share them with you, annotated with my own thoughts about them. Here you go:
 

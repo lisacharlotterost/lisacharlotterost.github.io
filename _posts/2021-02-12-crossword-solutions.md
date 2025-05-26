@@ -116,7 +116,7 @@ A big, **big** kudos also to [Neil Richards](https://twitter.com/@theneilrichard
 
 **16** *– Visualizes the biggest challenge of our time. (only 2nd word)*<span class='kerning'> → STRIPES → </span>[Warming or climate stripes](https://en.wikipedia.org/wiki/Warming_stripes) are a visualization by Ed Hawkins showing global warming with colors.
 
-**17** *– Will never reach zero.*<span class='kerning'> → LOGSCALE → </span>Logscales can't reach or include zero, [as I explained in detail over here](https://blog.datawrapper.de/weeklychart-logscale2/).
+**17** *– Will never reach zero.*<span class='kerning'> → LOGSCALE → </span>Logscales can't reach or include zero, [as I explained in detail over here](https://www.datawrapper.de/blog/weeklychart-logscale2/).
 
 **19** *– Easily confused with 32–Across when creating maps.*<span class='kerning'> → LAT → </span>Lots of people – especially data visualiser who are not studied cartographers – keep confusing latitude (lat) and longitude (lon). 32-Across is lon, so this one is lat.
 

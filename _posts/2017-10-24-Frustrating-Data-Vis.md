@@ -57,4 +57,4 @@ Data in, bar chart out. 
 
 So that’s why I end my freelance life (mostly for the Berlin newspaper “Tagesspiegel” in the last six months) and start to work at Datawrapper. **Let the journey begin**. 
 
-*If you’re curious what I will do at Datawrapper, hop over to the Datawrapper Blog, where [I wrote a little thing](https://blog.datawrapper.de/say-hi-to-lisa-b6c7553219e9) to answer that question*.
+*If you’re curious what I will do at Datawrapper, hop over to the Datawrapper Blog, where [I wrote a little thing](https://www.datawrapper.de/blog/say-hi-to-lisa-b6c7553219e9) to answer that question*.

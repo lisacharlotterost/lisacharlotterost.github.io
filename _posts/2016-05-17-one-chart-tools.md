@@ -118,7 +118,7 @@ I first came across [NodeBox](https://www.nodebox.net/) in this [Visualoop artic
 **Datawrapper**
 ~~Some of you might have noticed that I didn't mention their  beloved~~ [Datawrapper](https://datawrapper.de/). This tool is one of the easier chart-clicky-tool out there and is used by many newsrooms. ~~But it doesn't offer scatterplots. The explanation I was given: Datawrapper is supposed to be for presentation only, and scatterplots are a presentation format that should be handled with care.~~
 
-*Edit:* In March 2017, Datawrapper started to [offer scatterplots](https://blog.datawrapper.de/introducing-scatter-plot-66b8d8a99abc) as a chart type. The process for creating them works really well with my data. Datawrapper is one of the rare tools that automatically assigns my variables to the axes exactly as I intended to. I'm impressed that it even offers log scales, since it's supposed to be a easy-to-use tool for editors (maybe log scales are too much for that aim? Not sure). And wow, I do love editing the axis labels directly in the chart. Convenient as heck.
+*Edit:* In March 2017, Datawrapper started to [offer scatterplots](https://www.datawrapper.de/blog/introducing-scatter-plot-66b8d8a99abc) as a chart type. The process for creating them works really well with my data. Datawrapper is one of the rare tools that automatically assigns my variables to the axes exactly as I intended to. I'm impressed that it even offers log scales, since it's supposed to be a easy-to-use tool for editors (maybe log scales are too much for that aim? Not sure). And wow, I do love editing the axis labels directly in the chart. Convenient as heck.
 
 ![gif](/pic/160426-datawrapper.gif)
 [![image](/pic/160426-datawrapper.png)](https://www.datawrapper.de)

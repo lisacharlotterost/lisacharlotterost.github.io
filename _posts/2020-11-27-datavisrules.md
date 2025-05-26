@@ -78,7 +78,7 @@ But rules can be a short cut for lots of people when creating simple charts:
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk27.png)
 
-Three years ago, in November 2017, I started working for the data visualization tool Datawrapper. Since then, **I made it part of my job to write down data vis rules.** I call these blog posts ["What to consider..."](https://blog.datawrapper.de/tags/what-to-consider/) – like ["What to consider when creating choropleth maps"](https://blog.datawrapper.de/choroplethmaps/), ["What to consider when creating pie charts"](https://blog.datawrapper.de/pie-charts/), or ["What to consider when choosing colors for data visualization"](https://blog.datawrapper.de/colors/).
+Three years ago, in November 2017, I started working for the data visualization tool Datawrapper. Since then, **I made it part of my job to write down data vis rules.** I call these blog posts ["What to consider..."](https://www.datawrapper.de/blog/tags/what-to-consider/) – like ["What to consider when creating choropleth maps"](https://www.datawrapper.de/blog/choroplethmaps/), ["What to consider when creating pie charts"](https://www.datawrapper.de/blog/pie-charts/), or ["What to consider when choosing colors for data visualization"](https://www.datawrapper.de/blog/colors/).
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk111.png)
 
@@ -99,7 +99,7 @@ First, complete.
 
 ### Complete rules
 
-Here's an example from a "What to consider" blog post [about stacked column charts](https://blog.datawrapper.de/stacked-column-charts/). "Stacked column charts are great to show the parts of multiple totals," I wrote. "If you only want to show parts of one total, consider a bar chart instead."
+Here's an example from a "What to consider" blog post [about stacked column charts](https://www.datawrapper.de/blog/stacked-column-charts/). "Stacked column charts are great to show the parts of multiple totals," I wrote. "If you only want to show parts of one total, consider a bar chart instead."
 
 ![slide from my SHOW talk about data vis rules](/pic/201120_S-H-O-W-talk112.png)
 
