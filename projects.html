@@ -18,7 +18,7 @@ description: Slides and transcripts of my best talks.
 
       <!-- put a little intro text below the category title -->
       <div class="blogcontainer article-text">
-          <p>Before delving into data vis, I studied print design for six years. Here are some of my older works that are still data vis related, and newer ones I've created for newsrooms or my blog. Heck, there's even one (!) interactive graphic in here.</p>
+          <p>Before delving into data vis, I studied print design for six years – you can find some of these older works if you scroll all the way to the bottom. Further up: Data visualizations I've created for newsrooms, in my free time, and especially for the <a href="https://www.datawrapper.de/blog">Datawrapper blog</a>.</p>
       </div>
     </div>
 
@@ -50,14 +50,12 @@ description: Slides and transcripts of my best talks.
           {% endif %}
 
           <!-- display month & year when blog post or talk. Only display year for design work -->
-         {{ post.date | date: "%Y" }}
+         {{ post.date | date: "%B %Y" }}
 
           <!-- show for which client I've worked for -->
           {% unless post.whofor == nil %}
             <b><span style="color:#cc0000">{{ post.whofor }}</b></span>
           {% endunless %}
-
-
 
         </div>
         <h1 class="post-title">
