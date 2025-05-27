@@ -2,7 +2,7 @@
 layout: post
 title: Datawrapper visualizations I created in 2021
 image: /pic/211231_datawrappercharts.png
-categories: [design]
+categories: []
 whofor: for Datawrapper
 summary: "What I visualized for Datawrapper in 2021."
 ---

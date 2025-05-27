@@ -4,7 +4,7 @@ title: Datawrapper visualizations I created in 2024
 image: /pic/241231-Datawrapper-charts-2024d.png
 categories: [design]
 whofor: for Datawrapper
-summary: "Nuclear power, Nobel Prizes, and the height of men: What I visualized for Datawrapper in 2024."
+summary: "Nuclear power, English proficiency, and the height of men: What I visualized for Datawrapper in 2024."
 ---
 
 In 2024, we released a lot of new features into the world and hence published an unusual high number of [feature announcements](https://www.datawrapper.de/blog/category/datawrapper-news). For some of them, I created charts showing off the new options. 
