@@ -2,7 +2,7 @@
 layout: post
 title: Datawrapper visualizations I created in 2020
 image: /pic/201231_datawrappercharts.png
-categories: [fav, design]
+categories: [design]
 whofor: for Datawrapper
 summary: "2020 was packed with corona charts. Besides that: US elections, university degrees, public holidays, and lots of tooltip charts."
 ---

@@ -3,7 +3,7 @@ layout: post
 title: Personality Traits for a Data Vis Career
 tags: values, data vis
 image: /pic/150114_values-f.png
-categories: [fav, article]
+categories: [article]
 summary: How values like curiosity and a need for overview motivate us <s>to go to meetups</s> to create data vis.
 permalink: /:year/:month/:day/:title/
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Datawrapper visualizations I created in 2025 (so far)
 image: /pic/251231-Datawrapper-charts-2025.png
-categories: [design]
+categories: [fav, design]
 whofor: for Datawrapper
 summary: "World records, population growth, and German baby boomers: What I visualized for Datawrapper in 2025."
 ---

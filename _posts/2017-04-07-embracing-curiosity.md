@@ -3,7 +3,7 @@ layout: post
 title: Embracing Curiosity
 tag: thoughts, datavis
 image: /pic/170407_curiosity-f.png
-categories: [fav, article]
+categories: [article]
 summary: Finding the sweet spot between discovery and explanation.
 permalink: /:year/:month/:day/:title/
 ---
