@@ -1,6 +1,6 @@
 ---
 layout: withoutdate
-title: Imprint
+title: Impressum
 image:
 permalink: impressum
 image: /pic/000000-impressum.png
@@ -9,9 +9,10 @@ image: /pic/000000-impressum.png
 ### According to § 5 TMG:
 
 Lisa Charlotte Muth<br>
-Oderberger Straße 27<br>
-10435 Berlin<br>
-E-Mail: lisacharlottemuth@gmail.com
+Straßburger Straße 33<br>
+10405 Berlin<br>
+E-Mail: lisacharlottemuth@gmail.com<br>
+USt-ID: DE309026638
 
 
 ## Copyright
