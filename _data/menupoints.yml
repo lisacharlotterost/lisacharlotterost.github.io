@@ -4,11 +4,14 @@ docs:
 - title: ARTICLES
   url: /articles
 
+- title: PROJECTS
+  url: /projects
+
 - title: TALKS
   url: /talks
 
-- title: PROJECTS
-  url: /projects
+- title: EVENTS
+  url: /events
 
 - title: ABOUT
   url: /about

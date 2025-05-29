@@ -21,6 +21,14 @@ author:
 
 paginate:         5
 
+# Category order on the home page. 
+# When you update this, you need to restart Jekyll with bundle exec jekyll serve
+category_order:
+  - article
+  - design
+  - event
+  - talk
+
 # Plugins
 whitelist:        []
 plugins:          [jekyll-paginate]

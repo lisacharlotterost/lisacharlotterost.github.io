@@ -13,7 +13,7 @@ layout: default
   <span class="article-date">
 
     <!-- display month & year when blog post or talk. Only display year for design work -->
-    {% if page.categories contains "design" %}
+    {% if page.categories contains "design" or page.categories contains "event" %}
        {{ page.date | date: "%Y" }}
     {% else %}
        {{ page.date | date_to_long_string }}
@@ -67,9 +67,11 @@ layout: default
   {% when "article" %}
     <h1>Most recent articles</h1><br>
   {% when "talk" %}
-    <h1>Other Talks</h1><br>
+    <h1>Other talks I gave</h1><br>
   {% when "design" %}
-    <h1>Other Projects</h1><br>
+    <h1>Other projects</h1><br>
+  {% when "event" %}
+    <h1>Other events I organized</h1><br>
   {% endcase %}
 
   <div class="grid">

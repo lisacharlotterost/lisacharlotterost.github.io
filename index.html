@@ -9,7 +9,7 @@ title: Home
     <hr>
     <h2>
       Hi! My name is Lisa <a href="/about"><img src="/pic/000000-about2.png" width="70px" alt="profile pic Lisa" style="margin-bottom:-10px"></a>. <br>
-      I <a href="/projects.html">create</a>, <a href="/talks.html">talk</a> & <a href="/articles.html">write</a> about data vis, currently for <a href="https://www.datawrapper.de" target="_blank">Datawrapper</a> in Berlin. Here I show what I've worked on in the past few years.<br>
+      I <a href="/articles">write</a>, <a href="/projects">create</a>, <a href="/talks">talk</a> & <a href="/events">host events</a> about data vis, currently for <a href="https://www.datawrapper.de" target="_blank">Datawrapper</a> in Berlin. <br>Here's what I've worked on.<br>
     </h2><br>
 
     <div class="sidebar-text">
@@ -19,108 +19,94 @@ title: Home
       <a href="https://vis.social/@lisacmuth" target="_blank">MASTODON</a>&emsp;
       <a href="https://bsky.app/profile/lisacmuth.bsky.social" target="_blank">BLUESKY</a>&emsp;
       <a href="https://github.com/lisacharlotterost" target="_blank">GITHUB</a>&emsp;
-      <a href="/impressum.html">IMPRINT</a>
+      <a href="/impressum.html">IMPRESSUM</a>
     </div>
 
   </div>
 
-  {% assign array = "article|talk|design" | split:'|' %}
-  {% for category in site.categories %}
+{% for category_name in site.category_order %}
+  {% assign posts_in_category = site.categories[category_name] %}
+  {% if posts_in_category %}
 
-    <!-- don't show the category "fav" as a category -->
-    {% unless category contains "fav" %}
+  <div class="category-header">
+    <hr>
+    {% case category_name %}
+    {% when "article" %}
+      <a name="articles" class="anchor"></a>
+      <h2>Selected articles</h2>
+      <div class="sidebar-text">
+        &rarr; <a href="/articles.html">SEE ALL ARTICLES</a>
+      </div>
+    {% when "event" %}
+      <a name="events" class="anchor"></a>
+      <h2>Organized events</h2>
+      <div class="sidebar-text">
+        &rarr; <a href="/events.html">SEE ALL EVENTS</a>
+      </div>
+    {% when "design" %}
+      <a name="projects" class="anchor"></a>
+      <h2>Selected projects</h2>
+      <div class="sidebar-text">
+        &rarr; <a href="/projects.html">SEE ALL PROJECTS</a>
+      </div>
+    {% when "talk" %}
+      <a name="talks" class="anchor"></a>
+      <h2>Selected talks</h2>
+      <div class="sidebar-text">
+        &rarr; <a href="/talks.html">SEE ALL TALKS</a>
+      </div>
+    {% endcase %}
 
-    <!-- find out & display the name of each category -->
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    <div class="category-header">
-      <hr>
+    <div class="blogcontainer article-text">
       {% case category_name %}
       {% when "article" %}
-        <a name="articles" class="anchor"></a>
-        <h2>Selected Articles</h2>
-        <div class="sidebar-text">
-          &rarr; <a href="/articles.html">SEE ALL ARTICLES</a>
-        </div>
+        <p>"To understand something, write about it," they say. I'm curious. So I started writing: first on my personal blog, mostly about data vis when I got into the field around 2014. There was so much to learn! Since November 2017, I get paid by Datawrapper to do just that: Figuring things out, and taking you all on a tour with me:</p>
       {% when "talk" %}
-        <a name="talks" class="anchor"></a>
-        <h2>Selected Talks</h2>
-        <div class="sidebar-text">
-          &rarr; <a href="/talks.html">SEE ALL TALKS</a>
-        </div>
-      {% when "design" %}
-        <a name="projects" class="anchor"></a>
-        <h2>Selected Projects</h2>
-        <div class="sidebar-text">
-          &rarr; <a href="/projects.html">SEE ALL PROJECTS</a>
-        </div>
+        <p>Talks let me combine images (slides) and text (my speech) in a more tension-building, direct way than blog posts. I taught data vis at different universites and have given general data vis workshops over the years – but here you can find the talks I used as an excuse to research a completely new question:</p>
+      {% when "event" %}
+        <p>I started going to conferences and meetups about data visualization as soon as I had the epiphany that "Whoa, this is a real field, and people actually do this for a living!" At some point, I wanted to bring data vis enthusiasts together myself – to meet them, but to also give back to a community that had given me so much. So far, I’ve organized three things:</p>
+      {% else %}
+        <p>Before delving into data vis, I studied print design for six years. Here you can find some of these older works, but also data visualizations I've created for newsrooms, in my free time, and, most recently, for the <a href="https://www.datawrapper.de/blog">Datawrapper blog</a>:</p>
       {% endcase %}
-
-      <!-- put a little intro text below each category title -->
-      <div class="blogcontainer article-text">
-
-          {% case category_name %}
-          {% when "article" %}
-            <p>"To understand something, write about it," they say. I'm curious. So I started writing: first on my personal blog, mostly about data vis when I got into the field around 2014. There was so much to learn! Since November 2017, I get paid by Datawrapper to do just that: Figuring things out, and <a href="https://www.datawrapper.de/blog/">taking you all on a tour with me</a>. These are my best articles from both eras:</p>
-          {% when "talk" %}
-            <p>Talks let me combine images (slides) and text (my speech) in a more tension-building, direct way than blog posts. I taught data vis at different universites and have given general data vis workshops over the years – but here you can find the talks I used as an excuse to research a completely new question:</p>
-          {% else %}
-            <p>Before delving into data vis, I studied print design for six years. These are some of older student works (still data vis related-ish), and newer ones I've created for newsrooms or my blog. You can also find some charts I've created during my time at Datawrapper:</p>
-          {% endcase %}
-      </div>
     </div>
-
+  </div>
 
   <div class="grid">
+    {% for post in posts_in_category %}
+      {% capture category_name_actual %}{{ post.categories | last }}{% endcapture %}
+      {% if post.categories contains "fav" and category_name_actual == category_name %}
 
-    {% for post in site.categories[category_name] %}
+        {% capture url_to_use %}{{ post.url }}{% endcapture %}
+        {% if post.external %}
+          {% capture url_to_use %}{{ post.external }}{% endcapture %}
+        {% endif %}
 
-      <!-- only display the post in a category if it's the **last** category in the frontmatter-category-array. E.g, if the frontmatter-array of a post is [fav, article, talks], it won't show in the article-category, but only in the talks-category. -->
-      <!-- also, only show an article if it's in the fav category. -->
-      {% capture category_name-actual %}{{ post.categories | last }}{% endcapture %}
-      {% if post.categories contains "fav" and category_name-actual == category_name %}
+        <a class="thumb" href="{{ post.url }}">
+          <div class="post">
+            <div class="post-image">
+              <img src="{{ post.image }}"/>
+            </div>
+            <div class="post-date">
+              {% if category_name == "design" %}
+                {{ post.date | date: "%Y" }}
+              {% else %}
+                {{ post.date | date: "%B %Y" }}
+              {% endif %}
+              {% unless post.whofor == nil %}
+                <b><span style="color:#cc0000">{{ post.whofor }}</span></b>
+              {% endunless %}
+            </div>
+            <h1 class="post-title">{{ post.title }}</h1>
+            <div class="post-summary">{{ post.summary }}</div>
+          </div>
+        </a>
 
-      <!-- open external links -->
-      {% capture url_to_use %}{{ post.url }}{% endcapture %}
-      {% if post.external %}
-        {% capture url_to_use %}{{ post.external }}{% endcapture %}
       {% endif %}
-
-      <!-- display title, image and date for each post -->
-      <a class="thumb" href="{{ post.url }}">
-        <div class="post">
-        <div class="post-image">
-          <img src="{{ post.image }}"/>
-        </div>
-        <div class="post-date">
-
-          <!-- display month & year when blog post or talk. Only display year for design work -->
-          {% if category contains "design" %}
-             {{ post.date | date: "%Y" }}
-          {% else %}
-             {{ post.date | date: "%B %Y" }}
-          {% endif %}
-
-          <!-- show for which client I've worked for -->
-          {% unless post.whofor == nil %}
-            <b><span style="color:#cc0000">{{ post.whofor }}</b></span>
-          {% endunless %}
-
-        </div>
-        <h1 class="post-title">
-            {{ post.title }}
-        </h1>
-        <div class="post-summary">
-            {{ post.summary }}
-        </div>
-      </div></a>
-      {% endif %}
-
     {% endfor %}
-
-
   </div>
-  {% endunless %}
-  {% endfor %}
+
+  {% endif %}
+{% endfor %}
 
   <div class="category-header">
     <hr>
@@ -131,6 +117,9 @@ title: Home
     </div>
     {% include aboutme.html %}
 <br>
+</div>
+
+
     <!-- <div class="blogcontainer article-text">
 
     <div class="sidebar-text" style="display:inline;"><a style="color:#cc0000; border-bottom: 0px;" onclick="newQuote()">&rarr; SHOW ANOTHER NICE THING SOMEONE HAS SAID ABOUT ME</a></div>
@@ -143,8 +132,3 @@ title: Home
 <br><br>
 
     </div> -->
-</div>
-
-</div>
-
-<!-- &thinsp; <a class="see-all-link" href="/projects.html">&rarr; SEE ALL PROJECTS</a></p> -->

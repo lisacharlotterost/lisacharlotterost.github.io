@@ -1,0 +1,82 @@
+---
+layout: default
+title: Events
+description: Events I organized.
+---
+
+<div class="completeright">
+
+    <!-- display the name of the category -->
+    <div class="category-header">
+      <hr>
+      <h2>Events</h2>
+
+      <!-- put a little intro text below the category title -->
+      <div class="blogcontainer article-text">
+        <p>I started going to conferences and meetups about data visualization as soon as I had the epiphany that "Whoa, this is a real field, and people actually do this for a living!" At some point, I wanted to bring data vis enthusiasts together myself – to meet them, but to also give back to a community that had given me so much. So far, I’ve organized three things:
+        </p>
+    <br></div>
+
+
+  <div class="grid">
+
+    {% for post in site.categories.event %}
+
+    <!-- don't display about and impressum page -->
+    {% unless post.layout == 'withoutdate' %}
+
+      <!-- open external links -->
+      {% capture url_to_use %}{{ post.url }}{% endcapture %}
+      {% if post.external %}
+        {% capture url_to_use %}{{ post.external }}{% endcapture %}
+      {% endif %}
+
+      <!-- display title, image and date for each post -->
+      <a class="thumb" href="{{ post.url }}">
+      <div class="post">
+        <div class="post-image">
+          <img src="{{ post.image }}"/>
+        </div>
+        <div class="post-date">
+
+          <!-- display month & year when blog post or talk. Only display year for design work -->
+         {{ post.date | date: "%Y" }}
+
+          <!-- show for which client I've worked for -->
+          {% unless post.whofor == nil %}
+            <b><span style="color:#cc0000">{{ post.whofor }}</b></span>
+          {% endunless %}
+
+        </div>
+        <h1 class="post-title">
+            {{ post.title }}
+        </h1>
+        <div class="post-date">
+            {{ post.summary }}
+        </div>
+      </div></a>
+
+      {% endunless %}
+    {% endfor %}
+
+  </div>
+
+<div class="blogcontainer article-text">
+
+        <h2>Nice things people have said about events I organized</h2>
+        <hr>
+        <p>
+        <h2 style="margin-top: 0px; margin-bottom: 5px;">"The planning and documentation were terrific. The buzz built around the community was also impressive, well done!"</h2>
+        <small>— Speaker at <a href="/unwrapped">Unwrapped</a></small><br><br>
+
+        <h2 style="margin-top: 0px; margin-bottom: 5px;">"Straight away you feel like Lisa is the perfect host."</h2>
+        <small>— <a href="https://nightingaledvs.com/review-data-vis-book-club/">Neil Richards</a> about the <a href="/datavisbookclub">Data Vis Book Club</a></small><br><br>
+
+        <h2 style="margin-top: 0px; margin-bottom: 5px;">"Thanks @lisacmuth for the invitation and logistics on yesterday's #visber event. I had a great time."</h2>   <small>— <a href="https://x.com/catalina_ple/status/656409849866145792">Catalina Plé</a> about the <a href="/datavismeetup">Data Vis Meetup</a></small>
+
+        </p>
+
+  </div>
+
+
+</div>
