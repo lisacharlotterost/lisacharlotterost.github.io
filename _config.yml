@@ -19,6 +19,11 @@ author:
   email:          lisacharlottemuth@gmail.com
   twitter_user:   lisacmuth
 
+collections:
+  notes:
+    output: true      # this makes them generate pages you can link to
+    permalink: /notes/:title/  # optional, for nicer URLs
+
 paginate:         5
 
 # Category order on the home page. 
@@ -28,6 +33,7 @@ category_order:
   - design
   - event
   - talk
+  - notes
 
 # Plugins
 whitelist:        []

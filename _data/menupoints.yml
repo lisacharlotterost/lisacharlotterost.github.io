@@ -4,6 +4,9 @@ docs:
 - title: ARTICLES
   url: /articles
 
+- title: NOTES
+  url: /notes
+
 - title: PROJECTS
   url: /projects
 
@@ -15,3 +18,5 @@ docs:
 
 - title: ABOUT
   url: /about
+
+
