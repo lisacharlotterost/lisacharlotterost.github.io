@@ -1,0 +1,103 @@
+---
+layout: default
+title: Notes Index
+description: Quick notes I write down about some of my days. 
+---
+
+<div class="completeright">
+  <div class="blogcontainer">
+
+    <!-- display the name of the category -->
+    <div class="category-header">
+      <hr>
+      <h2>Notes Index</h2>
+
+      <div class="sidebar-text">
+        &rarr; <a href="/notes.html">SEE ALL NOTES IN A STREAM</a>
+      </div>
+
+
+      <!-- put a little intro text below the category title -->
+      <div class="article-text">
+        <p>Quick notes I write down about some of my days. </p>
+      </div>
+    </div>
+
+
+  <div class="grid">
+
+
+    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+    {% for note in sorted_notes %}
+
+
+      <!-- don't display about and impressum page -->
+      {% unless note.layout == 'withoutdate' %}
+
+      <!-- open external links -->
+      {% capture url_to_use %}{{ note.url }}{% endcapture %}
+
+      <!-- display title, image and date for each post -->
+      <a class="thumb" href="{{ note.url }}">
+        <div class="post">
+       
+
+
+ <div class="post-image" style="position: relative; width: 100%; padding-top: 30%; overflow: hidden;">
+  <img src="{{ note.image }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+</div>
+
+<div class="post-date">
+
+            <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+
+            {% if note.categories contains "fav" %}
+              ✦
+            {% endif %}
+
+            {% unless note.whofor == nil %}
+              <b><span style="color:#000">{{ note.whofor }}</span></b>
+            {% endunless %}
+
+            {% assign clean_content = note.content | strip_html %}
+            {% assign word_count = clean_content | number_of_words %}
+            {% assign image_count = note.content | split:"<img" | size | minus:1 %}
+
+             {% if note.tags %}
+              <span class="note-tags">
+              {{ note.tags | first }}
+            </span>
+            {% endif %}
+
+            | {% if word_count > 0 %}
+              {{ word_count }}
+                {% if word_count == 1 %}
+                  word,
+                {% else %}
+                  words,
+                {% endif %}
+              {% endif %}
+
+              {% if image_count > 0 %}
+              {{ image_count }}
+                {% if image_count == 1 %}
+                  image
+                {% else %}
+                  images
+                {% endif %}
+              {% endif %}
+
+          </div>
+
+      <!--   <div class="post-date">
+            {{ note.summary }}
+        </div> -->
+      </div></a>
+
+      {% endunless %}
+    {% endfor %}
+
+
+  </div>
+
+</div>
