@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[
+  {% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+  {% for note in sorted_notes %}
+    {
+      "title": {{ note.title | jsonify }},
+      "url": {{ note.url | absolute_url | jsonify }},
+      "date": "{{ note.date | date: "%B %-d, %Y" }}",
+      "tags": {{ note.tags | jsonify }},
+      "content": {{ note.content | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
