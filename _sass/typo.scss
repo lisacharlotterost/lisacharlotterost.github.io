@@ -196,3 +196,68 @@ a.see-all-link {
     margin-bottom: 2rem;
   }
 }
+
+.source-on-page {
+  position: relative;
+  font-family: $titlefont;
+  font-size: $sans-tiny;
+  line-height: $sans-tiny-lh;
+  margin-bottom: 5px;
+  margin-top: 40px;
+  padding-top: 15px;
+  color: $toneddown;
+
+     a {
+    color: $toneddown;
+    text-decoration: none;
+    border-bottom: 1.8px solid #ccc;
+  }
+  a:hover {
+    color: $highlight;
+    text-decoration: none;
+    border-bottom: 2px solid $highlight;
+  }
+
+}
+
+/* Main div for border to extend to 50% from bottom left corner */
+
+.source-on-page:before {
+  content: "";
+  background: $toneddown;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100px;
+}
+
+.post-navigation {
+  font-size: $sans-small;
+  margin-top: 10px;
+}
+
+.post-navigation a {
+  color: $toneddown;
+}
+
+.post-navigation a:hover {
+  color: $highlight;
+}
+
+.post-navigation-bottom {
+  margin-bottom: 200px;
+  margin-top: 50px;
+}
+
+
+img[alt*="border"] {
+  border: 40px solid #fff;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  img[alt*="border"] {
+    border: 20px solid #fff; /* Smaller border on mobile */
+  }
+}
