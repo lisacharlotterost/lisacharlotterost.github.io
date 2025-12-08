@@ -128,13 +128,14 @@ body {
   p, .highlighter-rouge, h1, h2, h3, h4, .embed, .pullquote, .tweet {
     width: 100%;
   }
-  ul {
+  ul, ol {
     width: 80%;
   }
   img, .embed-120 {
     width: 100%;
     margin: 10px 0;
   }
+
   .biggerimages img {
     width: 100%;
   }
@@ -171,14 +172,15 @@ body {
       max-width: 640px;
     }
 
-    ul {
-      width: 70%;
+    ul, ol {
+      width: 100%;
       max-width: 590px;
     }
     img, .embed-120 {
       width: 120%;
       max-width: 900px;
     }
+
     .biggerimages img {
       width: 130%;
       max-width: 900px;
@@ -206,7 +208,6 @@ body {
 
 
 ////////////// 3 categories in grid //////////////////
-
 
 hr {
   border: 0;
@@ -348,10 +349,43 @@ a.thumb {              //individual grid items = children
 }
 
 
-a:hover.thumb img {
+a:hover.thumb .post-image img {
   filter: drop-shadow(0px 0px 0px grey)
           drop-shadow(0px 0px 50px grey);
 }
+
+a.thumb .post-image img {
+  will-change: filter;
+  transition: filter 120ms ease;
+}
+/* The Container */
+.notes-image {
+  margin-bottom: 10px;
+  position: relative; /* Essential for the child to position against */
+  width: 100%;
+  padding-top: 30%;   /* Creates the aspect ratio height */
+  overflow: hidden;
+}
+
+/* The Content (The actual <img> inside) */
+.notes-image img {
+  position: absolute; /* Takes the image out of flow so it ignores padding */
+  top: -10px;             /* Pins it to the very top */
+  left: 0;
+  width: 100%;        /* Fills the container */
+  height: 100%;       /* Fills the container */
+  object-fit: cover;  /* Ensures image doesn't stretch weirdly */
+}
+
+a:hover.thumb .notes-image {
+  box-shadow: 0px 0px 50px grey;
+}
+
+a.thumb .notes-image img {
+  will-change: filter;
+  transition: box-shadow .12s ease;
+}
+
 
 .imglink {
   border-bottom: 0px !important;

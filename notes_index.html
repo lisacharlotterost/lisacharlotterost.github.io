@@ -40,14 +40,12 @@ description: Quick notes I write down about some of my days.
       <!-- display title, image and date for each post -->
       <a class="thumb" href="{{ note.url }}">
         <div class="post">
-       
 
+           <div class="notes-image">
+            <img src="{{ note.image }}" />
+          </div>
 
- <div class="post-image" style="position: relative; width: 100%; padding-top: 30%; overflow: hidden;">
-  <img src="{{ note.image }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
-</div>
-
-<div class="post-date">
+          <div class="post-date">
 
             <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
 
