@@ -1,0 +1,50 @@
+---
+layout: null
+permalink: /notes.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site.title }} - Notes</title>
+    <link>{{ site.url }}{{ site.baseurl }}/notes</link>
+    <description>Lisa's notes: Often (sometimes daily) little thoughts.</description>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <language>en-us</language>
+
+    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+    {% for note in sorted_notes %}
+    <item>
+      <title>{{ note.title | xml_escape }}</title>
+      <link>{{ site.url }}{{ site.baseurl }}{{ note.url }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ note.url }}</guid>
+      <pubDate>{{ note.date | date_to_rfc822 }}</pubDate>
+
+      {% if note.content contains "dwcdn.net" %}
+        {% assign after_dw = note.content | split: "dwcdn.net/" | last %}
+        {% assign chart_id = after_dw | split: "/" | first %}
+        {% assign dw_image = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/plain.png" %}
+        {% assign chart_page = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/" %}
+
+        {% capture fallback_html %}
+          <p><a href="{{ chart_page | xml_escape }}">View interactive chart on Datawrapper</a></p>
+          <p><img src="{{ dw_image | xml_escape }}" alt="{{ note.title | xml_escape }}"></p>
+          <hr />
+          {{ note.content }}
+        {% endcapture %}
+
+        {% assign safe_html = fallback_html | replace: "]]>", "]]]]><![CDATA[>" %}
+        <description><![CDATA[{{ safe_html }}]]></description>
+
+      {% elsif note.excerpt %}
+        <description><![CDATA[{{ note.excerpt | strip_html | strip_newlines }}]]></description>
+
+      {% else %}
+        {% assign safe_content = note.content | replace: ""]]>", "]]]]><![CDATA[>" %}
+        <description><![CDATA[{{ safe_content }}]]></description>
+      {% endif %}
+
+    </item>
+    {% endfor %}
+
+  </channel>
+</rss>
