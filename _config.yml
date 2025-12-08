@@ -11,7 +11,7 @@ title:            Lisa Charlotte Muth
 tagline:          Portfolio & Blog
 description:      What Lisa writes, designs and talks about.
 url:              https://lisacharlottemuth.com/
-baseurl:
+baseurl:          ""
 
 author:
   name:           "Lisa Charlotte Muth"
