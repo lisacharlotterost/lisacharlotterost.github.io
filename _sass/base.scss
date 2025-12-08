@@ -416,3 +416,31 @@ a:hover.thumb img {
     color: black;
   }
 }
+
+
+// Load more button on the NOTES section (for notes.html)
+
+
+#load-more {
+  /* Core Structure */
+  appearance: none;          /* Removes default ugly browser styles */
+  background-color: transparent;
+  margin: -100px 0 200px 0;
+  font-family: $titlefont;
+  font-size: 0.7rem;
+  font-weight: $fw-medium;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0;
+  color: $highlight;
+  border: 0px;
+  
+  /* Interaction */
+  cursor: pointer;
+
+  /* Hover State */
+  &:hover {
+    font-weight: $fw-thick;
+  }
+
+}

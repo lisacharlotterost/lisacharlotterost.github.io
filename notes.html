@@ -1,115 +1,107 @@
 ---
 layout: default
-title: Notes 
-description: Quick notes I write down about some of my days. 
+title: Notes
+description: Quick notes I write down about some of my days.
 ---
 
 <div class="completeright">
   <div class="blogcontainer">
 
-    <!-- display the name of the category -->
     <div class="category-header">
       <hr>
       <h2>Notes</h2>
-
       <div class="sidebar-text">
         &rarr; <a href="/notes_index.html">SEE AN INDEX OF ALL NOTES</a>
       </div>
-
-
-      <!-- put a little intro text below the category title -->
       <div class="article-text">
-        <p>Quick notes I write down about some of my days. </p>
+        <p>Quick notes I write down about some of my days.</p>
       </div>
     </div>
 
-
-    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-    {% for note in sorted_notes %}
-    <div class="individual-note">
-         
-
-          <!-- show actual article -->
+    <div id="initial-posts">
+      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      {% for note in sorted_notes limit:5 %}
+      <div class="individual-note">
         <div class="article-text">
-
-          {{ note.content }}
-
+           {{ note.content }}
         </div>
-
-         <div class="source-on-page">
-
-          <b>{{ note.title }}</b> • <a href="{{ note.url }}">Link</a>
-          {% assign first_tag = note.tags | first %}
-
-          {% if first_tag == "Color book" %}
-               • First posted on the Datawrapper blog
+        <div class="source-on-page">
+           <b>{{ note.title }}</b> • <a href="{{ note.url }}">Link</a>
+           {% assign first_tag = note.tags | first %}
+           {% if first_tag == "Color book" %}
+              • First posted on the Datawrapper blog
               <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
-          {% endif %}
-
+           {% endif %}
         </div>
-
       </div>
       {% endfor %}
+    </div>
 
-      <div id="notes-list">
-        <!-- initially empty, JS will fill this -->
-      </div>
+    <div id="notes-list"></div>
 
-      <div style="text-align:center; margin:2rem;">
-        <button id="load-more">Load More</button>
-      </div>
-
+    <div style="text-align:left; margin-top:-50px">
+      <button id="load-more">↓ Show me more</button>
+    </div>
 
   </div>
-
 </div>
 
 <script>
-let posts = [];       // will hold all notes
-let index = 0;        // current index of loaded posts
-const batch = 2;     // number of posts per batch
+let posts = [];
+let index = 5; // We already loaded 2 via Liquid, so we start JS at index 2
+const batch = 5; // How many to load per click
 
-// fetch the JSON feed
 async function loadData() {
-  const res = await fetch("/notes.json");
-  posts = await res.json();
-  console.log(posts); // <-- check if posts loaded
-  loadMore(); // load first batch automatically
+  try {
+    const res = await fetch("/notes.json");
+    posts = await res.json();
+    
+    // If we have fewer posts than the initial Liquid load, hide button immediately
+    if (posts.length <= index) {
+      document.getElementById("load-more").style.display = "none";
+    }
+  } catch (error) {
+    console.error("Error loading notes:", error);
+  }
 }
 
-// function to load next batch
 function loadMore() {
   const container = document.getElementById("notes-list");
+  
+  // Slice the array to get the next batch
   const slice = posts.slice(index, index + batch);
 
   slice.forEach(note => {
-    const el = document.createElement("article");
+    // Check tags logic
+    let firstTagContent = "";
+    if (note.tags && note.tags.length > 0 && note.tags[0] === "Color book") {
+       firstTagContent = `• First posted on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.`;
+    }
+
+    const el = document.createElement("div");
+    el.className = "individual-note";
+    
+    // We recreate your HTML structure inside the template literal
     el.innerHTML = `
-      <h1 class="article-title"><a href="${note.url}">${note.title}</a></h1>
-      <span class="article-date">
-        ${note.tags.length ? `<span class="note-tags">${note.tags[0]}</span>` : ''}
-        ${note.date}
-      </span>
       <div class="article-text">
         ${note.content}
       </div>
-      <hr>
+      <div class="source-on-page">
+        <b>${note.title}</b> • <a href="${note.url}">Link</a>
+        ${firstTagContent}
+      </div>
     `;
     container.appendChild(el);
   });
 
   index += batch;
 
-  // hide the button if all posts are loaded
+  // Hide button if we reached the end
   if (index >= posts.length) {
     document.getElementById("load-more").style.display = "none";
   }
 }
 
-// attach click event
 document.getElementById("load-more").addEventListener("click", loadMore);
-
-// start by fetching posts
 loadData();
 </script>
-
