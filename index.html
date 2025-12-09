@@ -105,84 +105,87 @@ title: Home
     {% endfor %}
   </div>
 
+  {% if category_name == "article" %}
+  
+      <div class="category-header">
+        <hr>
+        <a name="notes" class="anchor"></a>
+        <h2>Recent notes</h2>
+        <div class="sidebar-text">
+           &rarr; <a href="/notes.html">SEE ALL NOTES AS A STREAM</a> | <a href="/notes_index.html">INDEX</a> | <a href="/notes.xml">RSS</a>
+        </div>
+    
+        <div class="blogcontainer article-text">
+          <p>Quick notes I write down on some of my days.</p>
+        </div>
+      </div>
+    
+      <div class="grid">
+        {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+        {% assign note_count = 0 %}
+        
+        {% for note in sorted_notes %}
+          {% unless note.layout == 'withoutdate' %}
+          
+            {% assign note_count = note_count | plus: 1 %}
+            {% if note_count > 9 %}{% break %}{% endif %}
+    
+            {% capture url_to_use %}{{ note.url }}{% endcapture %}
+    
+            <a class="thumb" href="{{ note.url }}">
+              <div class="post">
+    
+                 <div class="notes-image no-top">
+                  <img src="{{ note.image }}" />
+                </div>
+    
+                <div class="post-date">
+    
+                  <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+    
+                  {% if note.categories contains "fav" %}
+                    ✦
+                  {% endif %}
+    
+                  {% unless note.whofor == nil %}
+                    <b><span style="color:#000">{{ note.whofor }}</span></b>
+                  {% endunless %}
+    
+                  {% assign clean_content = note.content | strip_html %}
+                  {% assign word_count = clean_content | number_of_words %}
+                  {% assign image_count = note.content | split:"<img" | size | minus:1 %}
+    
+                   {% if note.tags and note.tags.size > 0 %}
+                    <span class="note-tags">
+                    {{ note.tags | first }} | 
+                  </span>
+                  {% endif %}
+    
+                  {% if word_count > 0 %}
+                    {{ word_count }}
+                    {% if word_count == 1 %}
+                      word{% if image_count > 0 %}, {% endif %}
+                    {% else %}
+                      words{% if image_count > 0 %}, {% endif %}
+                    {% endif %}
+                  {% endif %}
+    
+                  {% if image_count > 0 %}
+                    {{ image_count }}
+                    {% if image_count == 1 %}image{% else %}images{% endif %}
+                  {% endif %}
+    
+                </div>
+    
+            </div></a>
+    
+          {% endunless %}
+        {% endfor %}
+      </div>
+  {% endif %}
   {% endif %}
 {% endfor %}
 
-  <div class="category-header">
-    <hr>
-    <a name="notes" class="anchor"></a>
-    <h2>Recent notes</h2>
-    <div class="sidebar-text">
-       &rarr; <a href="/notes.html">SEE ALL NOTES</a> | <a href="/notes.xml">RSS</a>
-    </div>
-
-    <div class="blogcontainer article-text">
-      <p>Quick notes I write down about some of my days.</p>
-    </div>
-  </div>
-
-  <div class="grid">
-    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-    {% assign note_count = 0 %}
-    
-    {% for note in sorted_notes %}
-      {% unless note.layout == 'withoutdate' %}
-      
-        {% assign note_count = note_count | plus: 1 %}
-        {% if note_count > 9 %}{% break %}{% endif %}
-
-        {% capture url_to_use %}{{ note.url }}{% endcapture %}
-
-        <a class="thumb" href="{{ note.url }}">
-          <div class="post">
-
-             <div class="notes-image">
-              <img src="{{ note.image }}" />
-            </div>
-
-            <div class="post-date">
-
-              <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
-
-              {% if note.categories contains "fav" %}
-                ✦
-              {% endif %}
-
-              {% unless note.whofor == nil %}
-                <b><span style="color:#000">{{ note.whofor }}</span></b>
-              {% endunless %}
-
-              {% assign clean_content = note.content | strip_html %}
-              {% assign word_count = clean_content | number_of_words %}
-              {% assign image_count = note.content | split:"<img" | size | minus:1 %}
-
-               {% if note.tags and note.tags.size > 0 %}
-                <span class="note-tags">
-                {{ note.tags | first }} | 
-              </span>
-              {% endif %}
-
-              {% if word_count > 0 %}
-                {{ word_count }}
-                {% if word_count == 1 %}
-                  word{% if image_count > 0 %}, {% endif %}
-                {% else %}
-                  words{% if image_count > 0 %}, {% endif %}
-                {% endif %}
-              {% endif %}
-
-              {% if image_count > 0 %}
-                {{ image_count }}
-                {% if image_count == 1 %}image{% else %}images{% endif %}
-              {% endif %}
-
-            </div>
-
-        </div></a>
-
-      {% endunless %}
-    {% endfor %}
-  </div>
   <div class="category-header">
     <hr>
 
