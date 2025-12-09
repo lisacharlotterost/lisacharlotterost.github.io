@@ -5,7 +5,6 @@ permalink: /notes.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ site.title }} - Notes</title>
@@ -52,35 +51,25 @@ permalink: /notes.xml
         {% assign dw_image = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/plain.png" %}
         {% assign chart_page = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/" %}
 
-        <enclosure url="{{ dw_image | xml_escape }}" type="image/png" />
-        <media:content url="{{ dw_image | xml_escape }}" medium="image" />
-
-        {% capture fallback_html %}
+        {% capture content_html %}
           <p><a href="{{ chart_page | xml_escape }}">View interactive chart on Datawrapper</a></p>
           <p><img src="{{ dw_image | xml_escape }}" alt="{{ note.title | xml_escape }}" /></p>
           <hr />
           {{ note.content }}
         {% endcapture %}
 
-        {% assign content_with_abs = fallback_html
-          | replace: 'src="/', src_prefix_dq
-          | replace: "src='/", src_prefix_sq
-          | replace: 'href="/', href_prefix_dq
-          | replace: "href='/", href_prefix_sq
-        %}
-        {% assign content_protected = content_with_abs | replace: ']]>', ']]]]><![CDATA[>' %}
-        <content:encoded><![CDATA[{{ content_protected }}]]></content:encoded>
-
       {% else %}
-        {% assign content_with_abs = note.content
-          | replace: 'src="/', src_prefix_dq
-          | replace: "src='/", src_prefix_sq
-          | replace: 'href="/', href_prefix_dq
-          | replace: "href='/", href_prefix_sq
-        %}
-        {% assign content_protected = content_with_abs | replace: ']]>', ']]]]><![CDATA[>' %}
-        <content:encoded><![CDATA[{{ content_protected }}]]></content:encoded>
+        {% assign content_html = note.content %}
       {% endif %}
+
+      {% assign content_with_abs = content_html
+        | replace: 'src="/', src_prefix_dq
+        | replace: "src='/", src_prefix_sq
+        | replace: 'href="/', href_prefix_dq
+        | replace: "href='/", href_prefix_sq
+      %}
+      {% assign content_protected = content_with_abs | replace: ']]>', ']]]]><![CDATA[>' %}
+      <content:encoded><![CDATA[{{ content_protected }}]]></content:encoded>
 
     </item>
     {% endfor %}
