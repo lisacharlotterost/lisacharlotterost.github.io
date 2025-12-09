@@ -61,35 +61,28 @@ description: Quick notes I write down about some of my days.
             {% assign word_count = clean_content | number_of_words %}
             {% assign image_count = note.content | split:"<img" | size | minus:1 %}
 
-             {% if note.tags %}
+             {% if note.tags and note.tags.size > 0 %}
               <span class="note-tags">
-              {{ note.tags | first }}
+              {{ note.tags | first }} | 
             </span>
             {% endif %}
 
-            | {% if word_count > 0 %}
+            {% if word_count > 0 %}
               {{ word_count }}
-                {% if word_count == 1 %}
-                  word,
-                {% else %}
-                  words,
-                {% endif %}
+              {% if word_count == 1 %}
+                word{% if image_count > 0 %}, {% endif %}
+              {% else %}
+                words{% if image_count > 0 %}, {% endif %}
               {% endif %}
+            {% endif %}
 
-              {% if image_count > 0 %}
+            {% if image_count > 0 %}
               {{ image_count }}
-                {% if image_count == 1 %}
-                  image
-                {% else %}
-                  images
-                {% endif %}
-              {% endif %}
+              {% if image_count == 1 %}image{% else %}images{% endif %}
+            {% endif %}
 
           </div>
 
-      <!--   <div class="post-date">
-            {{ note.summary }}
-        </div> -->
       </div></a>
 
       {% endunless %}
