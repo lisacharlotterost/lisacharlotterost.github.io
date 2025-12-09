@@ -3,46 +3,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title }} - Notes</title>
-    <description>Lisa's notes: (Sometimes daily) little thoughts.</description>
+    <title>Lisa Charlotte Muth – Notes</title>
+    <description>Lisa's notes: (Sometimes daily) little thoughts.</description> 
     <link>{{ site.url }}{{ site.baseurl }}/notes</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/notes.xml" rel="self" type="application/rss+xml" />
-
-    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-    {% for note in sorted_notes %}
+    {% for note in site.notes %}
       <item>
-        <title>{{ note.title | xml_escape }}</title>
-        <link>{{ site.url }}{{ site.baseurl }}{{ note.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ note.url }}</guid>
+        <title>{{ note.title }}</title>
+        <description>{{ note.content | xml_escape }}</description>
         <pubDate>{{ note.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-
-        {% capture item_content %}
-
-          {% if note.external %}
-            <p>
-              I posted this article somewhere else (most likely on the Datawrapper blog),
-              that's why you don't see anything here in your RSS reader.
-              <b><a href="{{ note.external | xml_escape }}">Read it here</a></b>
-            </p>
-
-          {% elsif note.content contains "dwcdn.net" %}
-            {% assign after_dw = note.content | split: "dwcdn.net/" | last %}
-            {% assign chart_id = after_dw | split: "/" | first %}
-            {% assign dw_image = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/plain.png" %}
-            {% assign chart_page = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/" %}
-            <p><a href="{{ chart_page | xml_escape }}">View interactive chart on Datawrapper</a></p>
-            <p><img src="{{ dw_image | xml_escape }}" alt="{{ note.title | xml_escape }}" /></p>
-            <hr />
-            {{ note.content }}
-
-          {% else %}
-            {{ note.content }}
-          {% endif %}
-
-        {% endcapture %}
-
-        <description><![CDATA[{{ item_content | xml_escape }}]]></description>
-
+        <link>{{ site.url }}{{ note.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ note.url }}</guid>
       </item>
     {% endfor %}
   </channel>
