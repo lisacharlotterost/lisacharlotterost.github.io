@@ -1,78 +1,49 @@
 ---
-layout: null
-permalink: /notes.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
-     xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ site.title }} - Notes</title>
+    <description>Lisa's notes: (Sometimes daily) little thoughts.</description>
     <link>{{ site.url }}{{ site.baseurl }}/notes</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/notes.xml" rel="self" type="application/rss+xml" />
-    <description>Lisa's notes: Often (sometimes daily) little thoughts.</description>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <language>en-us</language>
 
     {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-    {% assign abs_prefix = site.url | append: site.baseurl %}
-    {% assign href_prefix_dq = 'href="' | append: abs_prefix | append: '/' %}
-    {% assign href_prefix_sq = "href='" | append: abs_prefix | append: '/' %}
-    {% assign src_prefix_dq = 'src="' | append: abs_prefix | append: '/' %}
-    {% assign src_prefix_sq = "src='" | append: abs_prefix | append: '/' %}
-
     {% for note in sorted_notes %}
-    <item>
-      <title>{{ note.title | xml_escape }}</title>
-      <link>{{ site.url }}{{ site.baseurl }}{{ note.url }}</link>
-      <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ note.url }}</guid>
-      <pubDate>{{ note.date | date_to_rfc822 }}</pubDate>
+      <item>
+        <title>{{ note.title | xml_escape }}</title>
+        <link>{{ site.url }}{{ site.baseurl }}{{ note.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ note.url }}</guid>
+        <pubDate>{{ note.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
 
-      {% assign excerpt_protected = "" %}
-      {% if note.excerpt %}
-        {% assign excerpt_processed = note.excerpt
-           | replace: 'src="/', src_prefix_dq
-           | replace: "src='/", src_prefix_sq
-           | replace: 'href="/', href_prefix_dq
-           | replace: "href='/", href_prefix_sq
-        %}
-        {% assign excerpt_protected = excerpt_processed | strip_html | strip_newlines %}
-      {% endif %}
+        {% capture item_content %}
 
-      {% if excerpt_protected != "" %}
-        <description><![CDATA[{{ excerpt_protected }}]]></description>
-      {% else %}
-        <description><![CDATA[Read the full note (HTML) in the content field.]]></description>
-      {% endif %}
+          {% if note.external %}
+            <p>
+              I posted this article somewhere else (most likely on the Datawrapper blog),
+              that's why you don't see anything here in your RSS reader.
+              <b><a href="{{ note.external | xml_escape }}">Read it here</a></b>
+            </p>
 
-      {% if note.content contains "dwcdn.net" %}
-        {% assign after_dw = note.content | split: "dwcdn.net/" | last %}
-        {% assign chart_id = after_dw | split: "/" | first %}
-        {% assign dw_image = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/plain.png" %}
-        {% assign chart_page = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/" %}
+          {% elsif note.content contains "dwcdn.net" %}
+            {% assign after_dw = note.content | split: "dwcdn.net/" | last %}
+            {% assign chart_id = after_dw | split: "/" | first %}
+            {% assign dw_image = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/plain.png" %}
+            {% assign chart_page = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/" %}
+            <p><a href="{{ chart_page | xml_escape }}">View interactive chart on Datawrapper</a></p>
+            <p><img src="{{ dw_image | xml_escape }}" alt="{{ note.title | xml_escape }}" /></p>
+            <hr />
+            {{ note.content }}
 
-        {% capture content_html %}
-          <p><a href="{{ chart_page | xml_escape }}">View interactive chart on Datawrapper</a></p>
-          <p><img src="{{ dw_image | xml_escape }}" alt="{{ note.title | xml_escape }}" /></p>
-          <hr />
-          {{ note.content }}
+          {% else %}
+            {{ note.content }}
+          {% endif %}
+
         {% endcapture %}
 
-      {% else %}
-        {% assign content_html = note.content %}
-      {% endif %}
+        <description><![CDATA[{{ item_content | xml_escape }}]]></description>
 
-      {% assign content_with_abs = content_html
-        | replace: 'src="/', src_prefix_dq
-        | replace: "src='/", src_prefix_sq
-        | replace: 'href="/', href_prefix_dq
-        | replace: "href='/", href_prefix_sq
-      %}
-      {% assign content_protected = content_with_abs | replace: ']]>', ']]]]><![CDATA[>' %}
-      <content:encoded><![CDATA[{{ content_protected }}]]></content:encoded>
-
-    </item>
+      </item>
     {% endfor %}
-
   </channel>
 </rss>
