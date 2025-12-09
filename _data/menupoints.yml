@@ -10,11 +10,11 @@ docs:
 - title: PROJECTS
   url: /projects
 
-- title: TALKS
-  url: /talks
-
 - title: EVENTS
   url: /events
+
+- title: TALKS
+  url: /talks
 
 - title: ABOUT
   url: /about
