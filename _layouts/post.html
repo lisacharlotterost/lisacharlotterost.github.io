@@ -13,15 +13,19 @@ layout: default
   <span class="article-date">
 
     <!-- display month & year when blog post or talk. Only display year for design work -->
-    {% if page.categories contains "design" or page.categories contains "event" %}
-       {{ page.date | date: "%Y" }}
-    {% elsif page.categories contains "notes" %}
-       Context: <b>{{ page.tags | first }}</b>
-       {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-       {% assign current_index = 0 %}
-    {% else %}
-       {{ page.date | date_to_long_string }}
+  {% if page.categories contains "design" or page.categories contains "event" %}
+    {{ page.date | date: "%Y" }}
+
+  {% elsif page.categories contains "notes" %}
+    {% if page.tags and page.tags.size > 0 %}
+      Context: <b>{{ page.tags | first }}</b>
     {% endif %}
+    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+    {% assign current_index = 0 %}
+
+  {% else %}
+    {{ page.date | date_to_long_string }}
+  {% endif %}
 
 
     {% if page.categories contains "notes" %}
