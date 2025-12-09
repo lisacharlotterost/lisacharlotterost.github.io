@@ -1,60 +1,29 @@
 ---
-layout: null
-permalink: /atom.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"
-      xmlns:media="http://search.yahoo.com/mrss/">
-  <title>{{ site.title | xml_escape }}</title>
-  <link href="{{ site.url }}{{ site.baseurl }}/atom.xml" rel="self"/>
-  <link href="{{ site.url }}{{ site.baseurl }}/"/>
-  <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.url | xml_escape }}</id>
-  <author>
-    <name>{{ site.author.name | xml_escape }}</name>
-    {% if site.author.email %}
-    <email>{{ site.author.email | xml_escape }}</email>
-    {% endif %}
-  </author>
-
- {% for post in site.posts %}
-  <entry>
-    <title>{{ post.title | xml_escape }}</title>
-    <link href="{{ site.url }}{{ post.url | xml_escape }}" rel="alternate"/>
-    <id>{{ site.url }}{{ post.id }}</id>
-    <updated>{{ post.date | date_to_xmlschema }}</updated>
-
-    {% if post.external %}
-      {% capture external_html %}
-        <p>
-          I posted this article somewhere else (most likely on the Datawrapper blog),
-          that's why you don't see anything here in your RSS reader.
-          <b><a href="{{ post.external | xml_escape }}">Read this article here!</a></b>
-        </p>
-      {% endcapture %}
-      <content type="html"><![CDATA[{{ external_html }}]]></content>
-
-    {% elsif post.content contains "dwcdn.net" %}
-      {% assign after_dw = post.content | split: "dwcdn.net/" | last %}
-      {% assign chart_id = after_dw | split: "/" | first %}
-      {% assign dw_image = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/plain.png" %}
-      {% assign chart_page = "https://datawrapper.dwcdn.net/" | append: chart_id | append: "/" %}
-
-      {% capture entry_html %}
-        <p><a href="{{ chart_page | xml_escape }}">View interactive chart on Datawrapper</a></p>
-        <p><img src="{{ dw_image | xml_escape }}" alt="{{ post.title | xml_escape }}" /></p>
-        <hr />
-        {{ post.content }}
-      {% endcapture %}
-
-      {% assign entry_html_protected = entry_html | replace: "]]>", "]]]]><![CDATA[>" %}
-      <content type="html"><![CDATA[{{ entry_html_protected }}]]></content>
-
-    {% else %}
-      {% assign normal_html = post.excerpt | default: post.content %}
-      {% assign normal_html_protected = normal_html | replace: "]]>", "]]]]><![CDATA[>" %}
-      <content type="html"><![CDATA[{{ normal_html_protected }}]]></content>
-    {% endif %}
-  </entry>
-{% endfor %}
-</feed>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lisa Charlotte Muth – Blog</title>
+    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>    
+    <link>{{ site.url }}</link>
+    <atom:link href="{{ site.url }}/atom.xml" rel="self" type="application/rss+xml" />
+    {% for post in site.posts limit:10 %}
+      <item>
+        <title>{{ post.title }}</title>
+        <description>
+          {% if post.external %}
+            &lt;p style="background-color: #f0f0f0; padding: 15px; border-left: 4px solid #0066cc; margin: 20px 0;"&gt;
+              &lt;strong&gt;📝 This blog post lives somewhere else&lt;/strong&gt;&lt;br/&gt;
+              I posted this article somewhere else (most likely on the Datawrapper blog), that's why you don't see anything here in your RSS reader. &lt;a href="{{ post.external }}"&gt;Read this article here.&lt;/a&gt;
+            &lt;/p&gt;
+          {% else %}
+            {{ content | xml_escape }}
+          {% endif %}
+        </description>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <link>{% if post.external %}{{ post.external }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
