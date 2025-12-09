@@ -354,10 +354,6 @@ a:hover.thumb .post-image img {
           drop-shadow(0px 0px 50px grey);
 }
 
-a.thumb .post-image img {
-  will-change: filter;
-  transition: filter 120ms ease;
-}
 /* The Container */
 .notes-image {
   margin-bottom: 10px;
@@ -377,15 +373,13 @@ a.thumb .post-image img {
   object-fit: cover;  /* Ensures image doesn't stretch weirdly */
 }
 
+.notes-image.no-top img {
+  top: 0px !important;             /* Pins it to the very top */
+}
+
 a:hover.thumb .notes-image {
   box-shadow: 0px 0px 50px grey;
 }
-
-a.thumb .notes-image img {
-  will-change: filter;
-  transition: box-shadow .12s ease;
-}
-
 
 .imglink {
   border-bottom: 0px !important;
