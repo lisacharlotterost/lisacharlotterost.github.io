@@ -13,29 +13,10 @@
 				<description>
 					{% if post.external %}
 						&lt;p style="background-color: #f0f0f0; padding: 15px; border-left: 4px solid #0066cc; margin: 20px 0;"&gt;
-							&lt;strong&gt;📝 External Article&lt;/strong&gt;&lt;br/&gt;
-							I posted this article somewhere else (most likely on the Datawrapper blog), that's why you don't see anything here in your RSS reader. &lt;a href="{{ post.external }}"&gt;Read this article here!&lt;/a&gt;
+							&lt;strong&gt;📝 This blog post lives somewhere else&lt;/strong&gt;&lt;br/&gt;
+							I posted this article somewhere else (most likely on the Datawrapper blog), that's why you don't see anything here in your RSS reader. &lt;a href="{{ post.external }}"&gt;Read this article here.&lt;/a&gt;
 						&lt;/p&gt;
 					{% else %}
-						{% assign content = post.content %}
-						{% comment %}Replace Datawrapper iframes with fallback images{% endcomment %}
-						{% assign content = content | replace: '<iframe title="', '<!--IFRAME_START--><iframe title="' %}
-						{% assign content = content | replace: '</script>', '</script><!--IFRAME_END-->' %}
-						{% assign iframes = content | split: '<!--IFRAME_START-->' %}
-						{% for iframe_block in iframes %}
-							{% if iframe_block contains '<!--IFRAME_END-->' %}
-								{% assign iframe_parts = iframe_block | split: '<!--IFRAME_END-->' %}
-								{% assign iframe_content = iframe_parts[0] %}
-								{% if iframe_content contains 'datawrapper.dwcdn.net' %}
-									{% assign chart_id_start = iframe_content | split: 'datawrapper.dwcdn.net/' %}
-									{% assign chart_id_full = chart_id_start[1] | split: '/' %}
-									{% assign chart_id = chart_id_full[0] %}
-									{% assign content = content | replace: iframe_content, '&lt;p&gt;&lt;a href="https://datawrapper.dwcdn.net/' | append: chart_id | append: '/"&gt;&lt;img src="https://datawrapper.dwcdn.net/' | append: chart_id | append: '/full.png" alt="Chart" style="max-width: 100%; height: auto;"/&gt;&lt;/a&gt;&lt;/p&gt;' %}
-								{% endif %}
-							{% endif %}
-						{% endfor %}
-						{% assign content = content | replace: '<!--IFRAME_START-->', '' %}
-						{% assign content = content | replace: '<!--IFRAME_END-->', '' %}
 						{{ content | xml_escape }}
 					{% endif %}
 				</description>
