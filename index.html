@@ -49,7 +49,7 @@ title: Home
       <div class="sidebar-text">
         &rarr; <a href="/projects.html">SEE ALL PROJECTS</a>
       </div>
-    {% when "talk" %}
+    {% when "talk" %}`
       <a name="talks" class="anchor"></a>
       <h2>Selected talks</h2>
       <div class="sidebar-text">
@@ -62,9 +62,9 @@ title: Home
       {% when "article" %}
         <p>"To understand something, write about it," they say. I'm curious. So I started writing: first on my personal blog, mostly about data vis when I got into the field around 2014. There was so much to learn! Since November 2017, I get paid by Datawrapper to do just that: Figuring things out, and taking you all on a tour with me:</p>
       {% when "talk" %}
-        <p>Talks let me combine images (slides) and text (my speech) in a more tension-building, direct way than blog posts. I taught data vis at different universites and have given general data vis workshops over the years – but here you can find the talks I used as an excuse to research a completely new question:</p>
+        <p>Talks let me combine images (slides) and text (my speech) in a more tension-building, direct way than blog posts. I taught data vis at different universites and have given general data vis workshops over the years – but here you can find the talks I used as an excuse to research a completely new question:</p>
       {% when "event" %}
-        <p>I started going to conferences and meetups about data visualization as soon as I had the epiphany that "Whoa, this is a real field, and people actually do this for a living!" At some point, I wanted to bring data vis enthusiasts together myself – to meet them, but to also give back to a community that had given me so much. So far, I’ve organized three things:</p>
+        <p>I started going to conferences and meetups about data visualization as soon as I had the epiphany that "Whoa, this is a real field, and people actually do this for a living!" At some point, I wanted to bring data vis enthusiasts together myself – to meet them, but to also give back to a community that had given me so much. So far, I’ve organized three things:</p>
       {% else %}
         <p>Before delving into data vis, I studied print design for six years. Here you can find some of these older works, but also data visualizations I've created for newsrooms, in my free time, and, most recently, for the <a href="https://www.datawrapper.de/blog">Datawrapper blog</a>:</p>
       {% endcase %}
@@ -110,6 +110,81 @@ title: Home
 
   <div class="category-header">
     <hr>
+    <a name="notes" class="anchor"></a>
+    <h2>Recent notes</h2>
+    <div class="sidebar-text">
+       &rarr; <a href="/notes.html">SEE ALL NOTES</a> | <a href="/notes.xml">RSS</a>
+    </div>
+
+    <div class="blogcontainer article-text">
+      <p>Quick notes I write down about some of my days.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+    {% assign note_count = 0 %}
+    
+    {% for note in sorted_notes %}
+      {% unless note.layout == 'withoutdate' %}
+      
+        {% assign note_count = note_count | plus: 1 %}
+        {% if note_count > 9 %}{% break %}{% endif %}
+
+        {% capture url_to_use %}{{ note.url }}{% endcapture %}
+
+        <a class="thumb" href="{{ note.url }}">
+          <div class="post">
+
+             <div class="notes-image">
+              <img src="{{ note.image }}" />
+            </div>
+
+            <div class="post-date">
+
+              <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+
+              {% if note.categories contains "fav" %}
+                ✦
+              {% endif %}
+
+              {% unless note.whofor == nil %}
+                <b><span style="color:#000">{{ note.whofor }}</span></b>
+              {% endunless %}
+
+              {% assign clean_content = note.content | strip_html %}
+              {% assign word_count = clean_content | number_of_words %}
+              {% assign image_count = note.content | split:"<img" | size | minus:1 %}
+
+               {% if note.tags and note.tags.size > 0 %}
+                <span class="note-tags">
+                {{ note.tags | first }} | 
+              </span>
+              {% endif %}
+
+              {% if word_count > 0 %}
+                {{ word_count }}
+                {% if word_count == 1 %}
+                  word{% if image_count > 0 %}, {% endif %}
+                {% else %}
+                  words{% if image_count > 0 %}, {% endif %}
+                {% endif %}
+              {% endif %}
+
+              {% if image_count > 0 %}
+                {{ image_count }}
+                {% if image_count == 1 %}image{% else %}images{% endif %}
+              {% endif %}
+
+            </div>
+
+        </div></a>
+
+      {% endunless %}
+    {% endfor %}
+  </div>
+  <div class="category-header">
+    <hr>
 
     <a id="aboutme"></a><h2>About me</h2>
     <div class="sidebar-text">
@@ -118,17 +193,3 @@ title: Home
     {% include aboutme.html %}
 <br>
 </div>
-
-
-    <!-- <div class="blogcontainer article-text">
-
-    <div class="sidebar-text" style="display:inline;"><a style="color:#cc0000; border-bottom: 0px;" onclick="newQuote()">&rarr; SHOW ANOTHER NICE THING SOMEONE HAS SAID ABOUT ME</a></div>
-
-    <p><h1 id="quotegenerator" style="margin-top: 0px; margin-bottom: 5px;">Wonderfully reasoned and illustrated, and will save me loads of time and headaches from explaining this repeatedly.</h1>
-
-    — <small id="quoter">Bill Rapp</small> </p>
-
-    <script src='/quotegenerator.js'></script>
-<br><br>
-
-    </div> -->
