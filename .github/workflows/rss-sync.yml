@@ -1,0 +1,41 @@
+name: Sync RSS to Jekyll
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        pip install feedparser requests pyyaml
+        
+    - name: Sync RSS to Jekyll
+      run: python .github/scripts/rss_sync.py
+      env:
+        RSS_FEED_URL: https://thelisaproject.tumblr.com/rss
+        
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'RSS Sync Bot'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add -A
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Sync posts from RSS feed [skip ci]"
+          git push
+        fi
