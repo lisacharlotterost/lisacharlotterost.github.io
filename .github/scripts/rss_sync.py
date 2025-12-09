@@ -44,9 +44,40 @@ def clean_html(html_text):
     return text.strip()
 
 def extract_images(description):
-    """Extract image URLs from HTML description"""
-    img_pattern = r'<img[^>]+src=["\'](https?://[^"\']+)["\']'
-    return re.findall(img_pattern, description)
+    """Extract highest quality image URLs from HTML description"""
+    images = []
+    
+    # Look for img tags with srcset attribute (Tumblr's responsive images)
+    img_pattern = r'<img[^>]+srcset=["\'](https?://[^"\']+)["\'][^>]*>'
+    img_matches = re.findall(img_pattern, description)
+    
+    for match in img_matches:
+        # Parse srcset: "url1 100w, url2 500w, url3 1280w"
+        srcset_parts = match.split(',')
+        max_width = 0
+        best_url = None
+        
+        for part in srcset_parts:
+            part = part.strip()
+            # Extract URL and width
+            url_width = part.rsplit(' ', 1)
+            if len(url_width) == 2:
+                url, width_str = url_width
+                # Parse width (e.g., "1280w" -> 1280)
+                width = int(width_str.rstrip('w'))
+                if width > max_width:
+                    max_width = width
+                    best_url = url
+        
+        if best_url:
+            images.append(best_url)
+    
+    # Fallback: look for regular src attributes if no srcset found
+    if not images:
+        simple_pattern = r'<img[^>]+src=["\'](https?://[^"\']+)["\']'
+        images = re.findall(simple_pattern, description)
+    
+    return images
 
 def download_image(url, post_id):
     """Download image and return local path"""
