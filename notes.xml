@@ -7,7 +7,8 @@
     <description>Lisa's notes: (Sometimes daily) little thoughts.</description> 
     <link>{{ site.url }}{{ site.baseurl }}/notes</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/notes.xml" rel="self" type="application/rss+xml" />
-    {% for note in site.notes %}
+    {% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+    {% for note in sorted_notes %}
       <item>
         <title>{{ note.title }}</title>
         <description>{{ note.content | xml_escape }}</description>
