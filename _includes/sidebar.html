@@ -1,33 +1,48 @@
 <div class="sidebar sidebar-text">
-
   <!-- show my name at the top -->
   <div class="sidebar-top">
     <div class="sidebar-title">
       <a href="/">LISA&nbsp;<br>CHARLOTTE&nbsp;<br>MUTH</a>
     </div>
   </div>
-
-
   <!-- If the user is within a post, hide the menu when the user scrolls down. Otherwise, show it all the time.  -->
-
   {% if page.layout == "post" %}
   <div class="sidebar-index">
-
   {% else %}
   <div class="sidebar-index-hidden">
   {% endif %}
-
     <nav>
       <ul>
-        <!-- Show the menu (tge structure is in the _data folder)  -->
+        <!-- Show the menu (the structure is in the _data folder)  -->
         {% for item in site.data.menupoints.docs %}
-          <li class="{% if item.url == page.url %}active{% endif %}">
+          {% assign is_active = false %}
+          
+          {% comment %} Check for exact URL match {% endcomment %}
+          {% if item.url == page.url %}
+            {% assign is_active = true %}
+          {% comment %} Check if URL contains the menu item URL (for nested pages) {% endcomment %}
+          {% elsif item.url != "/" and page.url contains item.url %}
+            {% assign is_active = true %}
+          {% comment %} Check categories for content-based matching {% endcomment %}
+          {% elsif page.categories %}
+            {% if item.url == "/articles" and page.categories contains "article" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/notes" and page.categories contains "notes" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/projects" and page.categories contains "design" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/events" and page.categories contains "event" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/talks" and page.categories contains "talk" %}
+              {% assign is_active = true %}
+            {% endif %}
+          {% endif %}
+          
+          <li class="{% if is_active %}active{% endif %}">
             <a href="{{ item.url }}">{{ item.title }}</a>
           </li>
         {% endfor %}
       </ul>
     </nav>
   </div>
-
-
 </div>
