@@ -361,6 +361,7 @@ a:hover.thumb .post-image img {
   width: 100%;
   padding-top: 30%;   /* Creates the aspect ratio height */
   overflow: hidden;
+  background-color: #fff; /* Fallback color */
 }
 
 /* The Content (The actual <img> inside) */
