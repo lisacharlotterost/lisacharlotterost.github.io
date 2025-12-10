@@ -35,12 +35,38 @@ def save_synced_post(guid):
         f.write(f"{guid}\n")
 
 def clean_html(html_text):
-    """Remove HTML tags and clean up text"""
-    # Remove HTML tags
-    text = re.sub(r'<[^>]+>', '', html_text)
+    """Convert HTML to Markdown"""
+    # Convert bold
+    text = re.sub(r'<b>(.*?)</b>', r'**\1**', html_text)
+    text = re.sub(r'<strong>(.*?)</strong>', r'**\1**', text)
+    
+    # Convert italic
+    text = re.sub(r'<i>(.*?)</i>', r'*\1*', text)
+    text = re.sub(r'<em>(.*?)</em>', r'*\1*', text)
+    
+    # Convert links
+    text = re.sub(r'<a[^>]+href=["\'](.*?)["\'][^>]*>(.*?)</a>', r'[\2](\1)', text)
+    
+    # Convert paragraphs to double newlines
+    text = re.sub(r'<p>', '', text)
+    text = re.sub(r'</p>', '\n\n', text)
+    
+    # Convert line breaks
+    text = re.sub(r'<br\s*/?>', '\n', text)
+    
+    # Remove remaining HTML tags
+    text = re.sub(r'<[^>]+>', '', text)
+    
     # Decode HTML entities
     text = text.replace('&lt;', '<').replace('&gt;', '>').replace('&amp;', '&')
     text = text.replace('&quot;', '"').replace('&apos;', "'")
+    text = text.replace('&hellip;', '…').replace('&rsquo;', "\u2019")
+    text = text.replace('&ldquo;', "\u201c").replace('&rdquo;', "\u201d")
+    text = text.replace('&nbsp;', ' ')
+    
+    # Clean up excessive whitespace
+    text = re.sub(r'\n\n\n+', '\n\n', text)
+    
     return text.strip()
 
 def extract_images(description):
@@ -48,26 +74,30 @@ def extract_images(description):
     images = []
     
     # Look for img tags with srcset attribute (Tumblr's responsive images)
-    img_pattern = r'<img[^>]+srcset=["\'](https?://[^"\']+)["\'][^>]*>'
+    img_pattern = r'<img[^>]*srcset=["\'](.*?)["\'][^>]*>'
     img_matches = re.findall(img_pattern, description)
     
-    for match in img_matches:
-        # Parse srcset: "url1 100w, url2 500w, url3 1280w"
-        srcset_parts = match.split(',')
+    for srcset_value in img_matches:
+        # Parse srcset: "url1 75w, url2 500w, url3 1280w"
+        srcset_parts = srcset_value.split(',')
         max_width = 0
         best_url = None
         
         for part in srcset_parts:
             part = part.strip()
-            # Extract URL and width
-            url_width = part.rsplit(' ', 1)
-            if len(url_width) == 2:
-                url, width_str = url_width
+            # Extract URL and width: split from the right to handle URLs with spaces
+            parts = part.split()
+            if len(parts) >= 2:
+                width_str = parts[-1]
+                url = ' '.join(parts[:-1])
                 # Parse width (e.g., "1280w" -> 1280)
-                width = int(width_str.rstrip('w'))
-                if width > max_width:
-                    max_width = width
-                    best_url = url
+                try:
+                    width = int(width_str.rstrip('w'))
+                    if width > max_width:
+                        max_width = width
+                        best_url = url
+                except ValueError:
+                    continue
         
         if best_url:
             images.append(best_url)
@@ -203,8 +233,12 @@ def main():
     
     print(f"Found {len(feed.entries)} entries in feed")
     
-    # Process entries in reverse order (oldest first)
-    for entry in reversed(feed.entries):
+    # Only process the last 3 entries
+    entries_to_process = feed.entries[:3]
+    print(f"Processing only the last {len(entries_to_process)} entries")
+    
+    # Process entries in reverse order (oldest first of the 3)
+    for entry in reversed(entries_to_process):
         guid = entry.get('guid', entry.get('id', ''))
         
         if not guid:
@@ -212,6 +246,7 @@ def main():
             continue
         
         if guid in synced_posts:
+            print(f"Already synced: {guid}")
             continue
         
         try:
@@ -220,6 +255,8 @@ def main():
                 new_posts += 1
         except Exception as e:
             print(f"Error processing entry {guid}: {e}")
+            import traceback
+            traceback.print_exc()
     
     print(f"\nSync complete! Created {new_posts} new posts.")
 
