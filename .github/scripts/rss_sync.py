@@ -75,37 +75,191 @@ def extract_images(description):
     
     # Look for img tags with srcset attribute (Tumblr's responsive images)
     img_pattern = r'<img[^>]*srcset=["\'](.*?)["\'][^>]*>'
-    img_matches = re.findall(img_pattern, description)
+    img_matches = re.findall(img_pattern, description, re.DOTALL)
     
     for srcset_value in img_matches:
-        # Parse srcset: "url1 75w, url2 500w, url3 1280w"
-        srcset_parts = srcset_value.split(',')
+        # Parse srcset: "url1 75w, url2 500w, url3 1280w, url4 2048w"
+        # Split by comma to get individual entries
+        srcset_entries = srcset_value.split(',')
         max_width = 0
         best_url = None
         
-        for part in srcset_parts:
-            part = part.strip()
-            # Extract URL and width: split from the right to handle URLs with spaces
-            parts = part.split()
-            if len(parts) >= 2:
-                width_str = parts[-1]
-                url = ' '.join(parts[:-1])
-                # Parse width (e.g., "1280w" -> 1280)
-                try:
-                    width = int(width_str.rstrip('w'))
-                    if width > max_width:
-                        max_width = width
-                        best_url = url
-                except ValueError:
-                    continue
+        for entry in srcset_entries:
+            entry = entry.strip()
+            # Match pattern: URL followed by width descriptor
+            # Example: "https://...jpg 1280w"
+            match = re.match(r'^(https?://\S+)\s+(\d+)w
+
+def download_image(url, post_id):
+    """Download image and return local path"""
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        
+        # Get file extension from URL or content-type
+        ext = Path(urlparse(url).path).suffix or '.jpg'
+        if ext == '.gifv':
+            ext = '.gif'
+        
+        # Create filename: use post_id plus hash for uniqueness
+        filename = f"{post_id}-{hash(url) & 0xffffffff:08x}{ext}"
+        filepath = IMAGES_DIR / filename
+        
+        # Skip if already downloaded
+        if filepath.exists():
+            return f"/pic/notes/{filename}"
+        
+        filepath.write_bytes(response.content)
+        return f"/pic/notes/{filename}"
+    except Exception as e:
+        print(f"Failed to download {url}: {e}")
+        return url  # Return original URL if download fails
+
+def create_jekyll_post(entry):
+    """Convert RSS entry to Jekyll post"""
+    # Extract post details
+    guid = entry.get('guid', entry.get('id', ''))
+    link = entry.get('link', '')
+    description = entry.get('description', '')
+    pub_date = entry.get('published_parsed')
+    
+    if not pub_date:
+        print(f"Skipping post without date")
+        return False
+    
+    # Convert date
+    date = datetime(*pub_date[:6])
+    date_str = date.strftime('%Y-%m-%d')
+    
+    # Extract images
+    images = extract_images(description)
+    
+    # Clean content
+    content = clean_html(description)
+    
+    # Create post ID from GUID
+    post_id = guid.split('/')[-1]
+    
+    # Download images and update references
+    local_images = []
+    for img_url in images:
+        local_path = download_image(img_url, post_id)
+        local_images.append(local_path)
+    
+    # Create filename: date-notes.md
+    filename = f"{date_str}-notes.md"
+    filepath = POSTS_DIR / filename
+    
+    # Skip if file already exists
+    if filepath.exists():
+        return False
+    
+    # Generate title from date
+    title = date.strftime('%B %d, %Y')  # e.g., "October 16, 2024"
+    
+    # Generate permalink
+    permalink = f"notes/{date.year}/{date.month:02d}/{date.day:02d}"
+    
+    # Generate summary (first 100 chars of content)
+    summary = content[:100] + '...' if len(content) > 100 else content
+    summary = summary.replace('\n', ' ').strip()
+    
+    # Create frontmatter (order matters for your format)
+    frontmatter_lines = [
+        "---",
+        "categories: [notes]",
+        "comments: disabled",
+    ]
+    
+    # Add image if available
+    if local_images:
+        frontmatter_lines.append(f"image: {local_images[0]}")
+    
+    frontmatter_lines.extend([
+        "layout: post",
+        f"permalink: {permalink}",
+        f"summary: {summary}",
+        f"title: {title}",
+        f"date: {date_str}",
+        "---",
+    ])
+    
+    # Create post content
+    post_content = '\n'.join(frontmatter_lines) + '\n\n'
+    
+    # Add images to content
+    for img_path in local_images:
+        post_content += f"![]({img_path})\n\n"
+    
+    # Add text content
+    if content:
+        post_content += f"{content}\n"
+    
+    # Write post file
+    filepath.write_text(post_content, encoding='utf-8')
+    print(f"Created post: {filename}")
+    
+    return True
+
+def main():
+    """Main sync function"""
+    print(f"Fetching RSS feed from {RSS_FEED_URL}...")
+    feed = feedparser.parse(RSS_FEED_URL)
+    
+    if feed.bozo:
+        print(f"Warning: Feed parsing error: {feed.bozo_exception}")
+    
+    synced_posts = load_synced_posts()
+    new_posts = 0
+    
+    print(f"Found {len(feed.entries)} entries in feed")
+    
+    # Only process the last 3 entries
+    entries_to_process = feed.entries[:3]
+    print(f"Processing only the last {len(entries_to_process)} entries")
+    
+    # Process entries in reverse order (oldest first of the 3)
+    for entry in reversed(entries_to_process):
+        guid = entry.get('guid', entry.get('id', ''))
+        
+        if not guid:
+            print("Skipping entry without GUID")
+            continue
+        
+        if guid in synced_posts:
+            print(f"Already synced: {guid}")
+            continue
+        
+        try:
+            if create_jekyll_post(entry):
+                save_synced_post(guid)
+                new_posts += 1
+        except Exception as e:
+            print(f"Error processing entry {guid}: {e}")
+            import traceback
+            traceback.print_exc()
+    
+    print(f"\nSync complete! Created {new_posts} new posts.")
+
+if __name__ == '__main__':
+    main()
+, entry)
+            if match:
+                url = match.group(1)
+                width = int(match.group(2))
+                if width > max_width:
+                    max_width = width
+                    best_url = url
         
         if best_url:
+            print(f"Selected image: {max_width}w - {best_url[:80]}...")
             images.append(best_url)
     
     # Fallback: look for regular src attributes if no srcset found
     if not images:
         simple_pattern = r'<img[^>]+src=["\'](https?://[^"\']+)["\']'
         images = re.findall(simple_pattern, description)
+        print(f"Fallback to src attribute, found {len(images)} images")
     
     return images
 
