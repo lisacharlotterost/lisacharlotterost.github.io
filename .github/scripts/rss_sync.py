@@ -235,33 +235,42 @@ def main():
     new_posts = 0
     
     print(f"Found {len(feed.entries)} entries in feed")
+    print(f"Already synced {len(synced_posts)} posts")
     
     # Only process the last 3 entries
     entries_to_process = feed.entries[:3]
-    print(f"Processing only the last {len(entries_to_process)} entries")
+    print(f"Checking the last {len(entries_to_process)} entries")
     
     # Process entries in reverse order (oldest first of the 3)
     for entry in reversed(entries_to_process):
         guid = entry.get('guid', entry.get('id', ''))
+        title = entry.get('title', 'Untitled')[:50]
         
         if not guid:
             print("Skipping entry without GUID")
             continue
         
         if guid in synced_posts:
-            print(f"Already synced: {guid}")
+            print(f"Already synced: {title} ({guid})")
             continue
+        
+        print(f"Processing new entry: {title} ({guid})")
         
         try:
             if create_jekyll_post(entry):
                 save_synced_post(guid)
                 new_posts += 1
+                print(f"✓ Successfully created post for: {title}")
         except Exception as e:
-            print(f"Error processing entry {guid}: {e}")
+            print(f"✗ Error processing entry {guid}: {e}")
             import traceback
             traceback.print_exc()
     
-    print(f"\nSync complete! Created {new_posts} new posts.")
+    if new_posts == 0:
+        print("\nNo new posts to sync. All recent entries already processed.")
+    else:
+        print(f"\n✓ Sync complete! Created {new_posts} new posts.")
+
 
 if __name__ == '__main__':
     main()
