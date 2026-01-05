@@ -73,37 +73,31 @@ def extract_images(description):
     """Extract highest quality image URLs from HTML description"""
     images = []
     
-    # Look for img tags with srcset attribute
-    img_pattern = r'<img[^>]*srcset=["\'](.*?)["\'][^>]*>'
+    # More robust pattern that captures srcset value across multiple lines
+    img_pattern = r'<img[^>]*?srcset=["\'](.*?)["\'][^>]*?>'
     img_matches = re.findall(img_pattern, description, re.DOTALL)
     
     print(f"Found {len(img_matches)} images with srcset")
     
     for idx, srcset_value in enumerate(img_matches):
         print(f"\n--- Processing image {idx + 1} ---")
-        # Split by comma to get individual entries
-        srcset_entries = srcset_value.split(',')
+        # Split by comma and process each entry
+        srcset_entries = [e.strip() for e in srcset_value.split(',')]
         print(f"Found {len(srcset_entries)} size variants")
         
         max_width = 0
         best_url = None
         
         for entry in srcset_entries:
-            entry = entry.strip()
-            # Split from right to separate URL and width descriptor
-            parts = entry.rsplit(None, 1)
-            if len(parts) == 2:
-                url = parts[0]
-                width_str = parts[1]
-                if width_str.endswith('w'):
-                    try:
-                        width = int(width_str[:-1])
-                        print(f"  {width}w: {url[:60]}...")
-                        if width > max_width:
-                            max_width = width
-                            best_url = url
-                    except ValueError:
-                        continue
+            # Match URL and width descriptor (handle whitespace better)
+            match = re.match(r'^(https?://\S+)\s+(\d+)w$', entry.strip())
+            if match:
+                url = match.group(1)
+                width = int(match.group(2))
+                print(f"  {width}w: {url[:60]}...")
+                if width > max_width:
+                    max_width = width
+                    best_url = url
         
         if best_url:
             print(f"✓ Selected: {max_width}w")
