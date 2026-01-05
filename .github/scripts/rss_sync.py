@@ -77,16 +77,20 @@ def extract_images(description):
     img_pattern = r'<img[^>]*srcset=["\'](.*?)["\'][^>]*>'
     img_matches = re.findall(img_pattern, description, re.DOTALL)
     
-    for srcset_value in img_matches:
+    print(f"Found {len(img_matches)} images with srcset")
+    
+    for idx, srcset_value in enumerate(img_matches):
+        print(f"\n--- Processing image {idx + 1} ---")
         # Split by comma to get individual entries
         srcset_entries = srcset_value.split(',')
+        print(f"Found {len(srcset_entries)} size variants")
+        
         max_width = 0
         best_url = None
         
         for entry in srcset_entries:
             entry = entry.strip()
             # Split from right to separate URL and width descriptor
-            # Example entry: "https://example.com/image.jpg 1280w"
             parts = entry.rsplit(None, 1)
             if len(parts) == 2:
                 url = parts[0]
@@ -94,6 +98,7 @@ def extract_images(description):
                 if width_str.endswith('w'):
                     try:
                         width = int(width_str[:-1])
+                        print(f"  {width}w: {url[:60]}...")
                         if width > max_width:
                             max_width = width
                             best_url = url
@@ -101,14 +106,16 @@ def extract_images(description):
                         continue
         
         if best_url:
-            print(f"Selected image: {max_width}w")
+            print(f"✓ Selected: {max_width}w")
             images.append(best_url)
+        else:
+            print("✗ No valid image found")
     
     # Fallback: look for regular src attributes if no srcset found
     if not images:
         simple_pattern = r'<img[^>]+src=["\'](https?://[^"\']+)["\']'
         images = re.findall(simple_pattern, description)
-        print(f"Fallback to src, found {len(images)} images")
+        print(f"Fallback to src attribute, found {len(images)} images")
     
     return images
 
