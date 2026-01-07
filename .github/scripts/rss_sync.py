@@ -73,8 +73,9 @@ def extract_images(description):
     """Extract highest quality image URLs from HTML description"""
     images = []
     
-    # More robust pattern that captures srcset value across multiple lines
-    img_pattern = r'<img[^>]*?srcset=["\'](.*?)["\'][^>]*?>'
+    # Match srcset attribute more carefully - capture everything until the closing quote
+    # Use a negative lookahead or be more explicit about the content
+    img_pattern = r'<img[^>]*?srcset=["\']([^"\']+)["\'][^>]*?>'
     img_matches = re.findall(img_pattern, description, re.DOTALL)
     
     print(f"Found {len(img_matches)} images with srcset")
