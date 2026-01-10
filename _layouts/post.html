@@ -16,17 +16,41 @@ layout: default
   {% if page.categories contains "design" or page.categories contains "event" %}
     {{ page.date | date: "%Y" }}
 
-  {% elsif page.categories contains "notes" %}
+{% elsif page.categories contains "notes" %}
+
+    {% capture existing_tag_pages %}
+      {% for p in site.pages %}
+        {% if p.target_tag %}
+          |{{ p.target_tag | slugify }}|
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+
     {% if page.tags and page.tags.size > 0 %}
-      Context: <b>{{ page.tags | first }}</b>
+      
+      {% for tag in page.tags %}
+      
+        {% assign tag_slug = tag | slugify %}
+        {% assign check_string = "|" | append: tag_slug | append: "|" %}
+
+        {% if existing_tag_pages contains check_string %}
+         <a href="/notes/{{ tag_slug }}/">{{ tag }}</a>
+        {% else %}
+          {{ tag }}
+        {% endif %}
+
+        {% unless forloop.last %}<span style="color:#808080">|</span> {% endunless %}
+
+      {% endfor %}
+
     {% endif %}
+
     {% assign sorted_notes = site.notes | sort: "date" | reverse %}
     {% assign current_index = 0 %}
 
-  {% else %}
+{% else %}
     {{ page.date | date_to_long_string }}
-  {% endif %}
-
+{% endif %}
 
     {% if page.categories contains "notes" %}
 
@@ -112,7 +136,6 @@ layout: default
   {% endcase %}
 
 
-
   <div class="grid">
 
     <!-- show only related articles if they're a post (not an impressum or about page) and if it's not the same article that is currently displayed. The following code might be able to simplify with a where_exp expression directly in the 'for post in posts limit:6 ' afterward, but I couldn't get it running. Code is from here: https://github.com/jekyll/jekyll/pull/4478 -->
@@ -166,13 +189,25 @@ layout: default
 
     {% if page.categories contains "notes" %}
 
-      {% assign first_tag = page.tags | first %}
-      {% if first_tag == "Color book" %}
-       <div class="source-on-page">
-              First posted on the Datawrapper blog
-              <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
-           {% endif %}
-        </div>
+      <div class="source-on-page">
+
+        {% case page.source %}
+
+          {% when "datawrapper-notion" %}
+            First published on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
+
+          {% when "old-drawings-blog" %}
+            First published on an old drawings blog on Blogger.
+
+          {% when "old-photo-blog" %}
+            First published on an old photos blog on Blogger.
+
+          {% when "the-lisa-project" %}
+            First published on an old Tumblr blog.
+
+        {% endcase %}
+
+      </div>
 
       {% assign sorted_notes = site.notes | sort: "date" | reverse %}
       {% assign current_index = 0 %}
