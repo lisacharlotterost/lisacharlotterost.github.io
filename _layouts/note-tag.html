@@ -1,0 +1,136 @@
+---
+layout: default
+---
+
+{% capture existing_tag_pages %}
+  {% for p in site.pages %}
+    {% if p.target_tag %}
+      |{{ p.target_tag }}|
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+<div class="completeright">
+  <div class="blogcontainer">
+
+    <div class="category-header">
+      <hr>
+      <h2>Notes → {{ page.title }}</h2>
+
+      <div class="sidebar-text">
+        &rarr; <a href="/notes.html">ALL NOTES</a>
+      </div>
+
+    </div>
+
+    <div class="grid">
+
+      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      
+      {% assign target_slug = page.target_tag | slugify %}
+
+      {% for note in sorted_notes %}
+        
+        {% assign match_found = false %}
+
+        {% for tag in note.tags %}
+          {% assign tag_slug = tag | slugify %}
+          {% if tag_slug == target_slug %}
+            {% assign match_found = true %}
+          {% endif %}
+        {% endfor %}
+
+        {% if match_found %}
+        
+          {% unless note.layout == 'withoutdate' %}
+
+            <a class="thumb" href="{{ note.url }}">
+              <div class="post">
+
+                <div class="notes-image">
+                  <img src="{{ note.image }}" />
+                </div>
+
+                <div class="post-date">
+                  <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+
+                  {% if note.categories contains "fav" %}✦{% endif %}
+                  {% unless note.whofor == nil %}
+                    <b><span style="color:#000">{{ note.whofor }}</span></b>
+                  {% endunless %}
+
+                  {% assign clean_content = note.content | strip_html %}
+                  {% assign word_count = clean_content | number_of_words %}
+                  {% assign image_count = note.content | split:"<img" | size | minus:1 %}
+
+                  {% if note.tags and note.tags.size > 0 %}
+                    <span class="note-tags">
+                      {% assign first_tag_slug = note.tags | first | slugify %}
+                      {{ note.tags | first }} | 
+                    </span>
+                  {% endif %}
+
+                  {% if word_count > 0 %}
+                    {{ word_count }}
+                    {% if word_count == 1 %}word{% if image_count > 0 %}, {% endif %}
+                    {% else %}words{% if image_count > 0 %}, {% endif %}
+                    {% endif %}
+                  {% endif %}
+
+                  {% if image_count > 0 %}
+                    {{ image_count }}
+                    {% if image_count == 1 %}image{% else %}images{% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endunless %}
+          
+        {% endif %} {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+function generatePastelColor(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = Math.abs(hash % 360);
+  const chroma = 0.05 + (Math.abs(hash >> 4) % 25) / 1000; 
+  const lightness = 0.95 + (Math.abs(hash >> 16) % 5) / 100; 
+  
+  return `oklch(${lightness} ${chroma} ${hue})`;
+}
+
+document.querySelectorAll('.notes-image').forEach(function(el) {
+  const img = el.querySelector('img');
+  // Check if img exists and src contains cover.png
+  if (img && img.src.includes('cover.png')) {
+    const noteTitleEl = el.closest('.post').querySelector('.post-date b span');
+    // Safety check in case title is missing
+    if (noteTitleEl) {
+      const noteTitle = noteTitleEl.textContent;
+      const baseColor = generatePastelColor(noteTitle);
+      el.style.backgroundColor = baseColor;
+      img.style.display = 'none';
+      
+      const match = baseColor.match(/oklch\([^)]+\s+([0-9.]+)\s+(\d+)\)/);
+      const baseHue = match ? parseInt(match[2]) : 0;
+      
+      el.style.animation = `hue-cycle-${baseHue} 8s ease-in-out infinite`;
+      
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes hue-cycle-${baseHue} {
+          0%, 100% { filter: hue-rotate(0deg); }
+          50% { filter: hue-rotate(180deg); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+});
+</script>
