@@ -1,0 +1,104 @@
+---
+layout: default
+title: Notes → Stream
+description: Unpolished text, blurry photos, quick drawings.
+---
+
+<div class="completeright">
+  <div class="blogcontainer">
+
+    <div class="category-header">
+      <hr>
+      <h2>Notes</h2>
+      <div class="sidebar-text">
+        &rarr; <a href="/notes.html">INDEX OF ALL NOTES</a> | <a href="/notes.xml">RSS</a>
+      </div>
+    </div>
+
+    <div id="initial-posts">
+      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      {% for note in sorted_notes limit:5 %}
+      <div class="individual-note">
+        <div class="article-text">
+           {{ note.content }}
+        </div>
+        <div class="source-on-page">
+           <b>{{ note.title }}</b> • <a href="{{ note.url }}">Link</a>
+           {% assign first_tag = note.tags | first %}
+           {% if first_tag == "Color book" %}
+              • First posted on the Datawrapper blog
+              <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
+           {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div id="notes-list"></div>
+
+    <div style="text-align:left; margin-top:-50px">
+      <button id="load-more">↓ Show me more</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let posts = [];
+let index = 5; // We already loaded 2 via Liquid, so we start JS at index 2
+const batch = 5; // How many to load per click
+
+async function loadData() {
+  try {
+    const res = await fetch("/notes.json");
+    posts = await res.json();
+    
+    // If we have fewer posts than the initial Liquid load, hide button immediately
+    if (posts.length <= index) {
+      document.getElementById("load-more").style.display = "none";
+    }
+  } catch (error) {
+    console.error("Error loading notes:", error);
+  }
+}
+
+function loadMore() {
+  const container = document.getElementById("notes-list");
+  
+  // Slice the array to get the next batch
+  const slice = posts.slice(index, index + batch);
+
+  slice.forEach(note => {
+    // Check tags logic
+    let firstTagContent = "";
+    if (note.tags && note.tags.length > 0 && note.tags[0] === "Color book") {
+       firstTagContent = `• First posted on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.`;
+    }
+
+    const el = document.createElement("div");
+    el.className = "individual-note";
+    
+    // We recreate your HTML structure inside the template literal
+    el.innerHTML = `
+      <div class="article-text">
+        ${note.content}
+      </div>
+      <div class="source-on-page">
+        <b>${note.title}</b> • <a href="${note.url}">Link</a>
+        ${firstTagContent}
+      </div>
+    `;
+    container.appendChild(el);
+  });
+
+  index += batch;
+
+  // Hide button if we reached the end
+  if (index >= posts.length) {
+    document.getElementById("load-more").style.display = "none";
+  }
+}
+
+document.getElementById("load-more").addEventListener("click", loadMore);
+loadData();
+</script>

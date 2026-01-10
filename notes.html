@@ -1,107 +1,140 @@
 ---
 layout: default
 title: Notes
-description: Quick notes I write down on some of my days.
+description: Unpolished text, blurry photos, quick drawings.
 ---
 
 <div class="completeright">
   <div class="blogcontainer">
 
+    <!-- display the name of the category -->
     <div class="category-header">
       <hr>
       <h2>Notes</h2>
+
       <div class="sidebar-text">
-        &rarr; <a href="/notes_index.html">SEE AN INDEX OF ALL NOTES</a> | <a href="/notes.xml">RSS</a>
+        &rarr; <a href="/notes_stream.html">ALL NOTES AS A STREAM</a> | <a href="/notes.xml">RSS</a>
       </div>
+
+      <!-- put a little intro text below the category title -->
       <div class="article-text">
-        <p>Quick notes I write down about some of my days.</p>
+        <p>Unpolished thoughts, blurry <a href="/notes/photos">photos</a>, quick <a href="/notes/drawings">drawings</a>, <a href="/notes/books">book reviews</a>, even a bit of <a href="/notes/datavis">data vis</a>. Lots of notes on the <a href="/notes/color-book">book on colors</a> I'm currently writing, my <a href="/notes/dc">DC fellowship (2016)</a>, and <a href="/notes/masters-thesis">Master's Thesis (2012)</a>.
       </div>
     </div>
 
-    <div id="initial-posts">
-      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-      {% for note in sorted_notes limit:5 %}
-      <div class="individual-note">
-        <div class="article-text">
-           {{ note.content }}
-        </div>
-        <div class="source-on-page">
-           <b>{{ note.title }}</b> • <a href="{{ note.url }}">Link</a>
-           {% assign first_tag = note.tags | first %}
-           {% if first_tag == "Color book" %}
-              • First posted on the Datawrapper blog
-              <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
-           {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
 
-    <div id="notes-list"></div>
+  <div class="grid">
 
-    <div style="text-align:left; margin-top:-50px">
-      <button id="load-more">↓ Show me more</button>
-    </div>
+
+    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+    {% for note in sorted_notes %}
+
+
+      <!-- don't display about and impressum page -->
+      {% unless note.layout == 'withoutdate' %}
+
+      <!-- open external links -->
+      {% capture url_to_use %}{{ note.url }}{% endcapture %}
+
+      <!-- display title, image and date for each post -->
+      <a class="thumb" href="{{ note.url }}">
+        <div class="post">
+
+           <div class="notes-image">
+            <img src="{{ note.image }}" />
+          </div>
+
+          <div class="post-date">
+
+            <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+
+            {% if note.categories contains "fav" %}
+              ✦
+            {% endif %}
+
+            {% unless note.whofor == nil %}
+              <b><span style="color:#000">{{ note.whofor }}</span></b>
+            {% endunless %}
+
+            {% assign clean_content = note.content | strip_html %}
+            {% assign word_count = clean_content | number_of_words %}
+            {% assign image_count = note.content | split:"<img" | size | minus:1 %}
+
+            {% if note.tags and note.tags.size > 0 %}
+              <span class="note-tags">
+              {{ note.tags | first }} | 
+            </span>
+            {% endif %}
+
+            {% if word_count > 0 %}
+              {{ word_count }}
+              {% if word_count == 1 %}
+                word{% if image_count > 0 %}, {% endif %}
+              {% else %}
+                words{% if image_count > 0 %}, {% endif %}
+              {% endif %}
+            {% endif %}
+
+            {% if image_count > 0 %}
+              {{ image_count }}
+              {% if image_count == 1 %}image{% else %}images{% endif %}
+            {% endif %}
+
+          </div>
+
+      </div></a>
+
+      {% endunless %}
+    {% endfor %}
+
 
   </div>
+
 </div>
 
+
+<!-- generates a pastel color for images without feature images, and subtly cycles through the hue -->
+
 <script>
-let posts = [];
-let index = 5; // We already loaded 2 via Liquid, so we start JS at index 2
-const batch = 5; // How many to load per click
-
-async function loadData() {
-  try {
-    const res = await fetch("/notes.json");
-    posts = await res.json();
-    
-    // If we have fewer posts than the initial Liquid load, hide button immediately
-    if (posts.length <= index) {
-      document.getElementById("load-more").style.display = "none";
-    }
-  } catch (error) {
-    console.error("Error loading notes:", error);
+function generatePastelColor(str) {
+  // Create a hash from the string
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-}
-
-function loadMore() {
-  const container = document.getElementById("notes-list");
   
-  // Slice the array to get the next batch
-  const slice = posts.slice(index, index + batch);
-
-  slice.forEach(note => {
-    // Check tags logic
-    let firstTagContent = "";
-    if (note.tags && note.tags.length > 0 && note.tags[0] === "Color book") {
-       firstTagContent = `• First posted on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.`;
-    }
-
-    const el = document.createElement("div");
-    el.className = "individual-note";
-    
-    // We recreate your HTML structure inside the template literal
-    el.innerHTML = `
-      <div class="article-text">
-        ${note.content}
-      </div>
-      <div class="source-on-page">
-        <b>${note.title}</b> • <a href="${note.url}">Link</a>
-        ${firstTagContent}
-      </div>
-    `;
-    container.appendChild(el);
-  });
-
-  index += batch;
-
-  // Hide button if we reached the end
-  if (index >= posts.length) {
-    document.getElementById("load-more").style.display = "none";
-  }
+  // Generate brighter pastel colors using OKLCH
+  const hue = Math.abs(hash % 360);
+  const chroma = 0.05 + (Math.abs(hash >> 4) % 25) / 1000; // 0.08-0.105 (moderate chroma for pastels)
+  const lightness = 0.95 + (Math.abs(hash >> 16) % 5) / 100; // 0.90-0.94 (90-94%)
+  
+  return `oklch(${lightness} ${chroma} ${hue})`;
 }
 
-document.getElementById("load-more").addEventListener("click", loadMore);
-loadData();
+// Apply colors to notes without images
+document.querySelectorAll('.notes-image').forEach(function(el) {
+  const img = el.querySelector('img');
+  if (img && img.src.includes('cover.png')) {
+    const noteTitle = el.closest('.post').querySelector('.post-date b span').textContent;
+    const baseColor = generatePastelColor(noteTitle);
+    el.style.backgroundColor = baseColor;
+    img.style.display = 'none';
+    
+    // Add subtle hue cycling animation
+    const match = baseColor.match(/oklch\([^)]+\s+([0-9.]+)\s+(\d+)\)/);
+    const baseHue = match ? parseInt(match[2]) : 0;
+    
+    el.style.animation = `hue-cycle-${baseHue} 8s ease-in-out infinite`;
+    
+    // Create unique keyframe animation for this hue
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes hue-cycle-${baseHue} {
+        0%, 100% { filter: hue-rotate(0deg); }
+        50% { filter: hue-rotate(180deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+});
 </script>
