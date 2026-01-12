@@ -63,6 +63,7 @@ def clean_html(html_text):
     text = text.replace('&hellip;', '…').replace('&rsquo;', "'")
     text = text.replace('&ldquo;', '"').replace('&rdquo;', '"')
     text = text.replace('&nbsp;', ' ')
+    text = text.replace('&bdquo;', '„').replace('&ldquo;', '"')
     
     # Clean up excessive whitespace
     text = re.sub(r'\n\n\n+', '\n\n', text)
@@ -70,11 +71,10 @@ def clean_html(html_text):
     return text.strip()
 
 def extract_images(description):
-    """Extract highest quality image URLs from HTML description"""
+    """Extract highest quality image URLs from srcset attributes"""
     images = []
     
-    # Match srcset attribute more carefully - capture everything until the closing quote
-    # Use a negative lookahead or be more explicit about the content
+    # Find all img tags with srcset
     img_pattern = r'<img[^>]*?srcset=["\']([^"\']+)["\'][^>]*?>'
     img_matches = re.findall(img_pattern, description, re.DOTALL)
     
@@ -82,29 +82,24 @@ def extract_images(description):
     
     for idx, srcset_value in enumerate(img_matches):
         print(f"\n--- Processing image {idx + 1} ---")
-        # Split by comma and process each entry
+        
+        # Split by comma to get all size variants
         srcset_entries = [e.strip() for e in srcset_value.split(',')]
         print(f"Found {len(srcset_entries)} size variants")
         
-        max_width = 0
-        best_url = None
-        
-        for entry in srcset_entries:
-            # Match URL and width descriptor (handle whitespace better)
-            match = re.match(r'^(https?://\S+)\s+(\d+)w$', entry.strip())
+        if srcset_entries:
+            # Get the last entry (largest image)
+            last_entry = srcset_entries[-1].strip()
+            
+            # Extract just the URL (everything before the width descriptor)
+            # Format is: "URL WIDTHw"
+            match = re.match(r'^(https?://\S+)\s+\d+w$', last_entry)
             if match:
                 url = match.group(1)
-                width = int(match.group(2))
-                print(f"  {width}w: {url[:60]}...")
-                if width > max_width:
-                    max_width = width
-                    best_url = url
-        
-        if best_url:
-            print(f"✓ Selected: {max_width}w")
-            images.append(best_url)
-        else:
-            print("✗ No valid image found")
+                print(f"✓ Selected largest image: {url[:60]}...")
+                images.append(url)
+            else:
+                print(f"✗ Could not parse: {last_entry[:60]}...")
     
     # Fallback: look for regular src attributes if no srcset found
     if not images:
