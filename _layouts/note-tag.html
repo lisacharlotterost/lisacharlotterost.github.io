@@ -47,39 +47,56 @@ layout: default
             <a class="thumb" href="{{ note.url }}">
               <div class="post">
 
-                <div class="notes-image">
-                  <img src="{{ note.image }}" />
+              {% if page.title contains "Books" %}
+                <div class="notes-image" style="padding-top: 100% !important;">
+                  <img src="{{ note.image }}" alt="{{ note.title }}" />
                 </div>
+              {% else %}
+                <div class="notes-image">
+                  <img src="{{ note.image }}" alt="{{ note.title }}" />
+                </div>
+              {% endif %}
+
 
                 <div class="post-date">
-                  <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+
+                  {% if page.title contains "Books" %}
+                    <span style="color:#cc0000">{{ note.summary }}</span><br>
+                  {% else %}
+                   <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+                  {% endif %}
 
                   {% if note.categories contains "fav" %}✦{% endif %}
                   {% unless note.whofor == nil %}
                     <b><span style="color:#000">{{ note.whofor }}</span></b>
                   {% endunless %}
 
-                  {% assign clean_content = note.content | strip_html %}
-                  {% assign word_count = clean_content | number_of_words %}
-                  {% assign image_count = note.content | split:"<img" | size | minus:1 %}
+                  {% if page.title contains "Books" %}
+                    {{ note.title }}
+                  {% else %}
+                  
+                    {% assign clean_content = note.content | strip_html %}
+                    {% assign word_count = clean_content | number_of_words %}
+                    {% assign image_count = note.content | split:"<img" | size | minus:1 %}
 
-                  {% if note.tags and note.tags.size > 0 %}
-                    <span class="note-tags">
-                      {% assign first_tag_slug = note.tags | first | slugify %}
-                      {{ note.tags | first }} | 
-                    </span>
-                  {% endif %}
-
-                  {% if word_count > 0 %}
-                    {{ word_count }}
-                    {% if word_count == 1 %}word{% if image_count > 0 %}, {% endif %}
-                    {% else %}words{% if image_count > 0 %}, {% endif %}
+                    {% if note.tags and note.tags.size > 0 %}
+                      <span class="note-tags">
+                        {% assign first_tag_slug = note.tags | first | slugify %}
+                        {{ note.tags | first }} | 
+                      </span>
                     {% endif %}
-                  {% endif %}
 
-                  {% if image_count > 0 %}
-                    {{ image_count }}
-                    {% if image_count == 1 %}image{% else %}images{% endif %}
+                    {% if word_count > 0 %}
+                      {{ word_count }}
+                      {% if word_count == 1 %}word{% if image_count > 0 %}, {% endif %}
+                      {% else %}words{% if image_count > 0 %}, {% endif %}
+                      {% endif %}
+                    {% endif %}
+
+                    {% if image_count > 0 %}
+                      {{ image_count }}
+                      {% if image_count == 1 %}image{% else %}images{% endif %}
+                    {% endif %}
                   {% endif %}
                 </div>
               </div>
