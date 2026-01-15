@@ -8,8 +8,16 @@ layout: default
 <div class="blogheader">
   <hr>
   <h1 class="article-title">
-      {{ page.title }}
-  </h1>
+  {% if page.tags contains "Books" %}
+    {{ page.summary }}
+  {% elsif page.categories contains "notes" %}
+    {{ page.date | date: "%B %d, %Y" }}
+  {% elsif page.title %}
+    {{ page.title }}
+  {% else %}
+    {{ page.date | date: "%B %d, %Y" }}
+  {% endif %}
+</h1>
   <span class="article-date">
 
     <!-- display month & year when blog post or talk. Only display year for design work -->
@@ -17,7 +25,7 @@ layout: default
     {{ page.date | date: "%Y" }}
 
 {% elsif page.categories contains "notes" %}
-
+  {% if page.tags contains "Books" %}{{ page.date | date: "%B %d, %Y" }} | {% endif %} 
     {% capture existing_tag_pages %}
       {% for p in site.pages %}
         {% if p.target_tag %}
@@ -187,53 +195,61 @@ layout: default
 </div>
 {% endunless %}
 
-    {% if page.categories contains "notes" %}
+{% if page.categories contains "notes" %}
 
-      <div class="source-on-page">
+  <div class="source-on-page">
+    
+    {% assign formatted_source = page.source | downcase | strip %}
 
-        {% case page.source %}
+    {% case formatted_source %}
 
-          {% when "datawrapper-notion" %}
-            First published on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
+      {% when "datawrapper-notion" %}
+        First published on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
 
-          {% when "old-drawings-blog" %}
-            First published on an old drawings blog on Blogger.
+      {% when "old-drawings-blog" %}
+        First published on an old drawings blog on Blogger.
 
-          {% when "old-photo-blog" %}
-            First published on an old photos blog on Blogger.
+      {% when "goodreads" %}
+        First published on <a href="https://www.goodreads.com/user/show/76557418-lisa-muth">Goodreads</a>.
 
-          {% when "the-lisa-project" %}
-            First published on an old Tumblr blog.
+      {% when "datawrapper-book-club" %}
+        First published in a discussion of the <a href="/datavisbookclub">Data Vis Book Club</a>, an initiative by Datawrapper.
 
-        {% endcase %}
+      {% when "old-photo-blog" %}
+        First published on an old photos blog on Blogger.
 
-      </div>
+      {% when "the-lisa-project" %}
+        First published on an old Tumblr blog.
 
-      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-      {% assign current_index = 0 %}
+    {% endcase %}
 
-      {% for note in sorted_notes %}
-        {% if note.url == page.url %}
-          {% assign current_index = forloop.index0 %}
-        {% endif %}
-      {% endfor %}
+  </div>
 
-      {% assign prev_index = current_index | minus: 1 %}
-      {% assign next_index = current_index | plus: 1 %}
+  {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+  {% assign current_index = 0 %}
 
-      <div class="post-navigation post-navigation-bottom">
-        {% if prev_index >= 0 %}
-          {% assign prev_note = sorted_notes[prev_index] %}
-          <a class="prev-post" href="{{ prev_note.url }}">&larr;</a>
-        {% endif %}
-        <a href="/notes">●</a>
-        {% if next_index < sorted_notes.size %}
-          {% assign next_note = sorted_notes[next_index] %}
-          <a class="next-post" href="{{ next_note.url }}">&rarr;</a>
-        {% endif %}
-      </div>
-
+  {% for note in sorted_notes %}
+    {% if note.url == page.url %}
+      {% assign current_index = forloop.index0 %}
     {% endif %}
+  {% endfor %}
+
+  {% assign prev_index = current_index | minus: 1 %}
+  {% assign next_index = current_index | plus: 1 %}
+
+  <div class="post-navigation post-navigation-bottom">
+    {% if prev_index >= 0 %}
+      {% assign prev_note = sorted_notes[prev_index] %}
+      <a class="prev-post" href="{{ prev_note.url }}">&larr;</a>
+    {% endif %}
+    <a href="/notes">●</a>
+    {% if next_index < sorted_notes.size %}
+      {% assign next_note = sorted_notes[next_index] %}
+      <a class="next-post" href="{{ next_note.url }}">&rarr;</a>
+    {% endif %}
+  </div>
+
+{% endif %}
 
 
 </div>
