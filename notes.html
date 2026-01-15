@@ -29,7 +29,6 @@ description: Unpolished text, blurry photos, quick drawings.
     {% assign sorted_notes = site.notes | sort: "date" | reverse %}
     {% for note in sorted_notes %}
 
-
       <!-- don't display about and impressum page -->
       {% unless note.layout == 'withoutdate' %}
 
@@ -46,7 +45,7 @@ description: Unpolished text, blurry photos, quick drawings.
 
           <div class="post-date">
 
-            <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+            <b><span style="color:#cc0000">{{ note.date | date: "%B %d, %Y" }}</span></b><br>
 
             {% if note.categories contains "fav" %}
               ✦

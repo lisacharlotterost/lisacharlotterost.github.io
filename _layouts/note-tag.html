@@ -49,11 +49,11 @@ layout: default
 
               {% if page.title contains "Books" %}
                 <div class="notes-image" style="padding-top: 100% !important;">
-                  <img src="{{ note.image }}" alt="{{ note.title }}" />
+                  <img src="{{ note.image }}" alt="Cover image for note {{ note.date | date: "%B %d, %Y" }}" />
                 </div>
               {% else %}
                 <div class="notes-image">
-                  <img src="{{ note.image }}" alt="{{ note.title }}" />
+                  <img src="{{ note.image }}" alt="Cover image for note {{ note.date | date: "%B %d, %Y" }}" />
                 </div>
               {% endif %}
 
@@ -63,7 +63,7 @@ layout: default
                   {% if page.title contains "Books" %}
                     <span style="color:#cc0000">{{ note.summary }}</span><br>
                   {% else %}
-                   <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+                   <b><span style="color:#cc0000">{{ note.date | date: "%B %d, %Y" }}</span></b><br>
                   {% endif %}
 
                   {% if note.categories contains "fav" %}✦{% endif %}
@@ -72,7 +72,7 @@ layout: default
                   {% endunless %}
 
                   {% if page.title contains "Books" %}
-                    {{ note.title }}
+                    {{ note.date | date: "%B %d, %Y" }}
                   {% else %}
                   
                     {% assign clean_content = note.content | strip_html %}
