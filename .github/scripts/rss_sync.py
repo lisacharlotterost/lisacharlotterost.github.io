@@ -180,7 +180,13 @@ def create_jekyll_post(entry):
     # Extract post details
     guid = entry.get('guid', entry.get('id', ''))
     link = entry.get('link', '')
-    description = entry.get('description', '')
+    
+    # FIX: Try to get raw content (with srcset intact) first, otherwise fallback to description
+    if 'content' in entry:
+        description = entry.content[0].value
+    else:
+        description = entry.get('description', '')
+
     pub_date = entry.get('published_parsed')
     
     if not pub_date:
