@@ -71,62 +71,83 @@ def clean_html(html_text):
     return text.strip()
 
 def extract_images(description):
-    """Extract highest quality image URLs from srcset attributes by parsing widths"""
+    """
+    Extract highest quality image URLs with HEAVY LOGGING to debug selection issues.
+    """
+    print(f"\n[{datetime.now().strftime('%H:%M:%S')}] DEBUG: Starting image extraction...")
+    
+    # 1. Check if srcset exists in the input at all
+    if 'srcset' not in description:
+        print("!!! WARNING: No 'srcset' attribute found in the raw HTML description.")
+        print("    This usually means feedparser stripped it out or it's not in the RSS feed.")
+        print(f"    Raw HTML start: {description[:200]}...")
+    else:
+        print("    Good news: 'srcset' found in raw HTML.")
+
     images = []
     
-    # Find all img tags with srcset
-    # We use a non-greedy match that looks for srcset attribute specifically
-    img_pattern = r'<img[^>]*?srcset=["\']([^"\']+)["\'][^>]*?>'
-    img_matches = re.findall(img_pattern, description, re.DOTALL)
+    # 2. Try to find the srcset content
+    # We use a robust regex that captures the content inside quotes after srcset=
+    img_pattern = r'srcset=["\']([^"\']+)["\']'
+    srcset_matches = re.findall(img_pattern, description)
     
-    print(f"Found {len(img_matches)} images with srcset")
-    
-    for idx, srcset_value in enumerate(img_matches):
-        print(f"\n--- Processing image {idx + 1} ---")
+    if srcset_matches:
+        print(f"    Found {len(srcset_matches)} 'srcset' attributes to parse.")
         
-        # Split by comma to get all size variants
-        srcset_entries = [e.strip() for e in srcset_value.split(',')]
-        
-        candidates = []
-        
-        for entry in srcset_entries:
-            # Each entry looks like: "https://url...jpg 500w" or just "https://url...jpg"
-            parts = entry.split()
+        for i, raw_srcset in enumerate(srcset_matches):
+            print(f"    --- Analyzing Image Group {i+1} ---")
             
-            if len(parts) >= 2:
-                url = parts[0]
-                spec = parts[-1] # This should be like '2048w'
+            # Split by comma to get variants
+            variants = raw_srcset.split(',')
+            candidates = []
+            
+            for v in variants:
+                v = v.strip()
+                parts = v.split()
                 
-                # Check if it is a width descriptor
-                if spec.endswith('w'):
-                    try:
-                        width = int(spec[:-1])
-                        candidates.append((width, url))
-                    except ValueError:
-                        continue
-            elif len(parts) == 1:
-                # If no width specified, assume it's small or default, give it 0 weight
-                candidates.append((0, parts[0]))
+                # We expect: "https://...jpg 2048w"
+                if len(parts) >= 2:
+                    url = parts[0]
+                    size_str = parts[-1]
+                    
+                    if size_str.endswith('w'):
+                        try:
+                            width = int(size_str[:-1])
+                            candidates.append((width, url))
+                            # print(f"        Found candidate: {width}px -> {url.split('/')[-1]}")
+                        except ValueError:
+                            print(f"        Ignored (bad width): {v}")
+                    else:
+                        # Handle cases with no 'w', maybe 'x' or just URL
+                        candidates.append((0, url))
+                elif len(parts) == 1:
+                     candidates.append((0, parts[0]))
 
-        if candidates:
-            # Sort by width (highest first)
+            # Sort by width (largest first)
             candidates.sort(key=lambda x: x[0], reverse=True)
             
-            best_width, best_url = candidates[0]
-            print(f"✓ Selected largest image ({best_width}w): {best_url}")
-            images.append(best_url)
-        else:
-            print(f"✗ Could not parse widths from srcset, skipping...")
+            if candidates:
+                best_width, best_url = candidates[0]
+                print(f"    ✓ WINNER for Group {i+1}: {best_width}w")
+                print(f"      URL: {best_url}")
+                images.append(best_url)
+            else:
+                print("    ✗ No valid candidates found in this srcset.")
 
-    # Fallback: look for regular src attributes ONLY if no images were found via srcset
+    else:
+        print("    ✗ Regex found ZERO srcset matches.")
+
+    # 3. Fallback to src if srcset yielded nothing
     if not images:
-        print("No srcset images found, attempting fallback to src...")
-        simple_pattern = r'<img[^>]+src=["\'](https?://[^"\']+)["\']'
-        # Only use this regex on the parts where we didn't find a srcset to avoid duplicates
-        # Simplified for now: if list is empty, grab srcs
-        images = re.findall(simple_pattern, description)
-        print(f"Fallback found {len(images)} images")
-    
+        print("    ! FALLBACK TRIGGERED: Searching for standard 'src' attributes...")
+        src_pattern = r'<img[^>]+src=["\'](https?://[^"\']+)["\']'
+        src_matches = re.findall(src_pattern, description)
+        
+        for url in src_matches:
+            print(f"      Found fallback src: {url}")
+            images.append(url)
+            
+    print(f"DEBUG: Extraction finished. Returning {len(images)} images.\n")
     return images
 
 def download_image(url, post_id):
