@@ -90,13 +90,14 @@ def extract_images(description):
         if srcset_entries:
             # Get the last entry (largest image)
             last_entry = srcset_entries[-1].strip()
+            print(f"Last entry: {last_entry}")
             
-            # Extract just the URL (everything before the width descriptor)
-            # Format is: "URL WIDTHw"
-            match = re.match(r'^(https?://\S+)\s+\d+w$', last_entry)
-            if match:
-                url = match.group(1)
-                print(f"✓ Selected largest image: {url[:60]}...")
+            # Extract just the URL (everything before the space and width descriptor)
+            # Split by space and take the first part (the URL)
+            parts = last_entry.split()
+            if parts:
+                url = parts[0]
+                print(f"✓ Selected largest image: {url}")
                 images.append(url)
             else:
                 print(f"✗ Could not parse: {last_entry[:60]}...")
