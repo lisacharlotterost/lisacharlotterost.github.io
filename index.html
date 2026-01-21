@@ -141,7 +141,7 @@ title: Home
     
                 <div class="post-date">
     
-                  <b><span style="color:#cc0000">{{ note.title }}</span></b><br>
+                  <b><span style="color:#cc0000">{{ note.date | date: "%B %d, %Y" }}</span></b><br>
     
                   {% if note.categories contains "fav" %}
                     ✦
