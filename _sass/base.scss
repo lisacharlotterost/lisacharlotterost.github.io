@@ -1,21 +1,18 @@
-
-// what's in here?
-
-// 1 SIDEBAR
+// 1 SIDEBAR & MOBILE MENU
 // 2 BLOGPOSTS: styling for individual articles
-// 3 CATEGEGORIES IN INDEX: e.g. articles, etc
+// 3 CATEGORIES IN INDEX: e.g. articles, etc
 // 4 GRID: post thumb, title, date etc.
-// 5 COOKIE WARNUNG styling
-
-
+// 5 COOKIE WARNING styling
 
 body {
   background: $background;
-
-  font-feature-settings: ss01, frac, cpsp, cv07,
-  // font features, chosen here: https://rsms.me/inter/lab/?feat-frac=1&feat-cv07=1&feat-cpsp=1&feat-ss01=1
+  font-feature-settings: ss01, frac, cpsp, cv07;
 }
 
+// Prevent scrolling when mobile menu is open
+body.menu-open {
+  overflow: hidden;
+}
 
 .completeright {
   margin-left: 0.5rem;
@@ -28,9 +25,7 @@ body {
 }
 
 
-
-////////////// 1 SIDEBAR //////////////////
-
+////////////// 1 SIDEBAR & MOBILE MENU //////////////////
 
 .sidebar {
   margin-left: 7px;
@@ -47,6 +42,11 @@ body {
     display: none;
   }
 
+  // Hide desktop sidebar-top on mobile
+  .sidebar-top {
+    display: none;
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -57,20 +57,144 @@ body {
     display: inline-block;
     position: relative; 
   }
+
   .name-strikethrough-strike {
     position: absolute;
     content: "";
-    display:block;
-    left:0;
-    right:2px;
-    top:50%;
+    display: block;
+    left: 0;
+    right: 2px;
+    top: 50%;
     transform: translateY(-50%);
-    height:1.5px;
+    height: 1.5px;
     background-color: rgba(0,0,0,0.5);
   }
 }
 
+// Mobile header with hamburger
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.mobile-title {
+  font-family: $titlefont;
+  font-size: 0.7rem;
+  font-weight: $fw-medium;
+  letter-spacing: 2px;
+  line-height: 1.2rem;
+  
+  a {
+    color: $toneddown;
+    text-decoration: none;
+  }
+  
+  a.mobile-current {
+    color: $highlight;
+  }
+}
+
+// Hamburger button
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 12px;
+  height: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  
+  span {
+    display: block;
+    width: 12px;
+    height: 1px;
+    background-color: $toneddown;
+    transition: all 0.3s ease;
+  }
+  
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 3px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(3px, -3px);
+    }
+  }
+}
+
+// Mobile menu overlay
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $background;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  li {
+    margin: 2rem 0;
+  }
+  
+  a {
+    font-family: $titlefont;
+    font-size: 0.7rem;
+    font-weight: $fw-medium;
+    letter-spacing: 2px;
+    color: $toneddown;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    display: inline-block;
+    
+    &:hover {
+      color: $highlight;
+    }
+  }
+  
+  li.active a {
+    color: $highlight;
+    font-weight: $fw-thick;
+  }
+}
+
+// Desktop sidebar styles
 @media screen and (min-width: $break-small) {
+  .mobile-header,
+  .mobile-menu-overlay {
+    display: none;
+  }
+
   .sidebar {
     height: 300px;
     width: 200px;
@@ -82,6 +206,7 @@ body {
     }
 
     .sidebar-top {
+      display: block;
       position: fixed;
       background-color: $background;
       padding: 60px 40px 0px;
@@ -120,7 +245,6 @@ body {
 
 ////////////// 2 BLOGPOSTS //////////////////
 
-
 .blogcontainer {
   margin: 0;
   padding: 0;
@@ -128,9 +252,11 @@ body {
   p, .highlighter-rouge, h1, h2, h3, h4, .embed, .pullquote, .tweet {
     width: 100%;
   }
+  
   ul, ol {
     width: 80%;
   }
+  
   img, .embed-120 {
     width: 100%;
     margin: 10px 0;
@@ -139,18 +265,22 @@ body {
   .biggerimages img {
     width: 100%;
   }
+  
   .pullquote {
     margin: 30px 0;
   }
+  
   .relatedarticles {
     margin-top: 100px;
   }
+  
   #commentsection {
     max-width: 640px;
     margin-top: 100px;
     margin-bottom: 100px;
     display: none;
   }
+  
   blockquote {
     background-color: white;
     padding: 20px 40px;
@@ -166,7 +296,6 @@ body {
   }
 
   @media screen and (min-width: $break-small) {
-
     p, .highlighter-rouge, h1, h2, h3, h4, .embed, .pullquote, .tweet {
       width: 80%;
       max-width: 640px;
@@ -176,6 +305,7 @@ body {
       width: 100%;
       max-width: 590px;
     }
+    
     img, .embed-120 {
       width: 120%;
       max-width: 900px;
@@ -185,21 +315,23 @@ body {
       width: 130%;
       max-width: 900px;
     }
+    
     blockquote {
       padding: 20px 40px;
       margin: 30px 0;
       width: 65%;
       max-width: 560px;
+      
       p {
         width: 100% !important;
       }
     }
+    
     .tweet {
       padding: 30px 0;
     }
   }
 }
-
 
 .blogheader {
   margin-bottom: 150px;
@@ -207,7 +339,7 @@ body {
 }
 
 
-////////////// 3 categories in grid //////////////////
+////////////// 3 CATEGORIES IN GRID //////////////////
 
 hr {
   border: 0;
@@ -224,6 +356,7 @@ hr {
   .article-text {
     margin-top: 0.8em;
   }
+  
   .button {
     background-color: white;
     color: $highlight;
@@ -240,11 +373,12 @@ hr {
     transition: all 0.2s ease 0s;
     vertical-align: middle;
     float: right;
-  }
-  .button:hover {
+    
+    &:hover {
       background-color: $highlight;
       color: white;
       border: 2px solid white;
+    }
   }
 }
 
@@ -258,15 +392,14 @@ hr {
   }
 }
 
-// trick to leave some margin-top for anchor jumps
+// Anchor jump margin trick
 a.anchor {
-position: relative;
-top:-60px;
-display: block;
-height: 0;
-width:0;
+  position: relative;
+  top: -60px;
+  display: block;
+  height: 0;
+  width: 0;
 }
-
 
 
 ////////////// 3.5 NOTES //////////////////
@@ -278,7 +411,7 @@ width:0;
 
 ////////////// 4 GRID //////////////////
 
-.grid {             // the flexbox container
+.grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -287,7 +420,6 @@ width:0;
   align-content: space-between;
 }
 
-
 @media screen and (min-width: 1277px) {
   .grid {
     justify-content: flex-start;
@@ -295,8 +427,7 @@ width:0;
   }
 }
 
-//mobile
-a.thumb {              //individual grid items = children
+a.thumb {
   margin-bottom: 4.5rem;
 }
 
@@ -317,7 +448,7 @@ a.thumb {              //individual grid items = children
     flex-grow: 1;
     margin-right: 2.5rem;
     width: 100%;
-    max-width: 250px;  //how wide should the grid item be MAX
+    max-width: 250px;
   }
 }
 
@@ -335,8 +466,8 @@ a.thumb {              //individual grid items = children
 
 .post-image {
   margin-bottom: 10px;
-
 }
+
 .post-image img {
   max-width: 100%;
 }
@@ -348,34 +479,30 @@ a.thumb {              //individual grid items = children
   line-height: 1.2rem;
 }
 
-
 a:hover.thumb .post-image img {
-  filter: drop-shadow(0px 0px 0px grey)
-          drop-shadow(0px 0px 50px grey);
+  filter: drop-shadow(0px 0px 0px grey) drop-shadow(0px 0px 50px grey);
 }
 
-/* The Container */
 .notes-image {
   margin-bottom: 10px;
-  position: relative; /* Essential for the child to position against */
+  position: relative;
   width: 100%;
-  padding-top: 30%;   /* Creates the aspect ratio height */
+  padding-top: 30%;
   overflow: hidden;
-  background-color: #fff; /* Fallback color */
+  background-color: #fff;
 }
 
-/* The Content (The actual <img> inside) */
 .notes-image img {
-  position: absolute; /* Takes the image out of flow so it ignores padding */
-  top: -10px;             /* Pins it to the very top */
+  position: absolute;
+  top: -10px;
   left: 0;
-  width: 100%;        /* Fills the container */
-  height: 100%;       /* Fills the container */
-  object-fit: cover;  /* Ensures image doesn't stretch weirdly */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .notes-image.no-top img {
-  top: 0px !important;             /* Pins it to the very top */
+  top: 0px !important;
 }
 
 a:hover.thumb .notes-image {
@@ -387,16 +514,14 @@ a:hover.thumb .notes-image {
 }
 
 
+////////////// 5 COOKIE WARNING //////////////////
 
-////////////// 5 COOKIE WARNUNG //////////////////
-
-// cookie warning bottom
 #cookie {
   display: flex;
   flex-wrap: wrap;
   background: $highlight;
   align-items: flex-start;
-	position: fixed;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -407,23 +532,23 @@ a:hover.thumb .notes-image {
   font-family: $bodyfont;
   font-size: $sans-tiny;
   line-height: $sans-tiny-lh;
+  
   @media screen and (min-width: 634px) {
     flex-wrap: nowrap;
   }
 }
 
-// make cookie warning visible if javascript is enabled in browser
 .visible {
   display: flex !important;
 }
 
-// make comments visible if cookie is accepted
 .visible-comments {
   display: block !important;
 }
 
 .cookie-leftSide {
   width: 100%;
+  
   @media screen and (min-width: 634px) {
     width: 70%;
   }
@@ -434,6 +559,7 @@ a:hover.thumb .notes-image {
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
+  
   @media screen and (min-width: 634px) {
     width: 30%;
     margin-top: 0px;
@@ -450,18 +576,16 @@ a:hover.thumb .notes-image {
   margin-top: 2px;
   margin-right: 10px;
 
-  :hover {
+  &:hover {
     color: black;
   }
 }
 
 
-// Load more button on the NOTES section (for notes.html)
-
+////////////// LOAD MORE BUTTON //////////////////
 
 #load-more {
-  /* Core Structure */
-  appearance: none;          /* Removes default ugly browser styles */
+  appearance: none;
   background-color: transparent;
   margin: -100px 0 200px 0;
   font-family: $titlefont;
@@ -472,13 +596,9 @@ a:hover.thumb .notes-image {
   padding: 0;
   color: $highlight;
   border: 0px;
-  
-  /* Interaction */
   cursor: pointer;
 
-  /* Hover State */
   &:hover {
     font-weight: $fw-thick;
   }
-
 }

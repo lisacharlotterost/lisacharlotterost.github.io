@@ -1,11 +1,89 @@
 <div class="sidebar sidebar-text">
-  <!-- show my name at the top -->
+  <!-- Desktop: show my name at the top (hidden on mobile) -->
   <div class="sidebar-top">
     <div class="sidebar-title">
       <a href="/">LISA&nbsp;<br>CHARLOTTE&nbsp;<br>MUTH</a>
     </div>
   </div>
-  <!-- If the user is within a post, hide the menu when the user scrolls down. Otherwise, show it all the time.  -->
+
+  <!-- Mobile: name + current page + hamburger -->
+  <div class="mobile-header">
+    <div class="mobile-title">
+      <a href="/">LISA CHARLOTTE MUTH</a>
+      {% assign current_url = "" %}
+      {% assign current_title = "" %}
+      {% for item in site.data.menupoints.docs %}
+        {% assign is_active = false %}
+        
+        {% if item.url == page.url %}
+          {% assign is_active = true %}
+        {% elsif item.url != "/" and page.url contains item.url %}
+          {% assign is_active = true %}
+        {% elsif page.categories %}
+          {% if item.url == "/articles" and page.categories contains "article" %}
+            {% assign is_active = true %}
+          {% elsif item.url == "/notes" and page.categories contains "notes" %}
+            {% assign is_active = true %}
+          {% elsif item.url == "/projects" and page.categories contains "design" %}
+            {% assign is_active = true %}
+          {% elsif item.url == "/events" and page.categories contains "event" %}
+            {% assign is_active = true %}
+          {% elsif item.url == "/talks" and page.categories contains "talk" %}
+            {% assign is_active = true %}
+          {% endif %}
+        {% endif %}
+        
+        {% if is_active and item.url != "/" and current_url == "" %}
+          {% assign current_url = item.url %}
+          {% assign current_title = item.title %}
+        {% endif %}
+      {% endfor %}
+      {% if current_url != "" %}
+        <a href="{{ current_url }}" class="mobile-current"> → {{ current_title | upcase }}</a>
+      {% endif %}
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <nav>
+      <ul>
+        <a href="/">HOME</a>
+        {% for item in site.data.menupoints.docs %}
+          {% assign is_active = false %}
+          
+          {% if item.url == page.url %}
+            {% assign is_active = true %}
+          {% elsif item.url != "/" and page.url contains item.url %}
+            {% assign is_active = true %}
+          {% elsif page.categories %}
+            {% if item.url == "/articles" and page.categories contains "article" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/notes" and page.categories contains "notes" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/projects" and page.categories contains "design" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/events" and page.categories contains "event" %}
+              {% assign is_active = true %}
+            {% elsif item.url == "/talks" and page.categories contains "talk" %}
+              {% assign is_active = true %}
+            {% endif %}
+          {% endif %}
+          
+          <li class="{% if is_active %}active{% endif %}">
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Desktop menu (if the user is within a post, hide when scrolling) -->
   {% if page.layout == "post" %}
   <div class="sidebar-index">
   {% else %}
@@ -13,17 +91,13 @@
   {% endif %}
     <nav>
       <ul>
-        <!-- Show the menu (the structure is in the _data folder)  -->
         {% for item in site.data.menupoints.docs %}
           {% assign is_active = false %}
           
-          {% comment %} Check for exact URL match {% endcomment %}
           {% if item.url == page.url %}
             {% assign is_active = true %}
-          {% comment %} Check if URL contains the menu item URL (for nested pages) {% endcomment %}
           {% elsif item.url != "/" and page.url contains item.url %}
             {% assign is_active = true %}
-          {% comment %} Check categories for content-based matching {% endcomment %}
           {% elsif page.categories %}
             {% if item.url == "/articles" and page.categories contains "article" %}
               {% assign is_active = true %}
@@ -46,3 +120,23 @@
     </nav>
   </div>
 </div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+  
+  // Close menu when clicking on a link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+</script>
