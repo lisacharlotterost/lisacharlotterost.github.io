@@ -110,15 +110,16 @@ layout: default
 
 
 <!-- show comments-->
+
 {% if page.comments != "disabled" %}
 
-<div id="commentsection">
+<div id="lisa-discussion-wrap">
     <hr>
     <h1>Comments</h1><br>
 
-    <div id="disqus_privacy_consent" style="margin-bottom: 20px;">
-        <p>This post has comments. I do need to save a cookie to show them to you, though. Interested?</p>
-        <button id="load_disqus_btn" onclick="loadDisqus()" style="cursor: pointer; padding: 10px 15px; background: #eee; border: 1px solid #ddd; border-radius: 4px;">Yes, show them to me!</button>
+    <div id="disqus_privacy_consent" style="margin-bottom: 20px; background: #f9f9f9; border-radius: 5px;">
+        <p style="margin-top: 0;">This post has comments. I do need to save a cookie to show them to you, though. Interested?</p>
+        <button id="load_disqus_btn" onclick="loadDisqus()" style="cursor: pointer; padding: 10px 15px; background: #fff; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;">Yes, show them to me!</button>
     </div>
 
     <div id="disqus_thread"></div>
