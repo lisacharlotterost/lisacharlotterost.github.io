@@ -41,7 +41,5 @@ During the last few (well, eight) months, with big breaks and in tiny sessions, 
 
 **Thanks to [Jonathan Muth](https://twitter.com/jonathanmuth)** for his help with building the website – especially the super-custom home-baked cookie warning couldn't have happened without him. (I've never been happier to see a cookie warning.)
 
-<!-- Well, maybe not entirely happy yet: When designing the website, my biggest problem was to find a readable text font for my articles, in the perfect size. But sometimes I opened the local version of my new blog and I thought "huh, that's SMALL, let me make that font bigger"...and then the next time I opened the website, it felt too giant and I set the font size down again. So let me ask you: **Do you think that the font on my blog is too small, too big, or perfectly sized at it is?** Let me know in this Twitter poll: -->
-
 
 That’s it! If you're interested in learning about the code & want to help me improve it, [find the code on Github](https://github.com/lisacharlotterost/lisacharlotterost.github.io). I'll be very, very grateful. And like always, you'll find me on [Twitter](https://twitter.com/lisacrost) or via email: [lisacharlotterost@gmail.com](mailto:lisacharlotterost@gmail.com).

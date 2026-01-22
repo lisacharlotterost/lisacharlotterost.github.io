@@ -110,7 +110,7 @@ layout: default
 
 
 <!-- show comments-->
-{% unless page.comments contains "disabled" %}
+{% if page.comments != "disabled" %}
 
 <div id="commentsection">
     <hr>
@@ -129,7 +129,6 @@ layout: default
             document.getElementById('disqus_privacy_consent').style.display = 'none';
 
             // 2. Define the Disqus configuration
-            // We use Liquid tags to dynamically set the URL and Identifier based on the current post
             var disqus_config = function () {
                 this.page.url = '{{ page.url | absolute_url }}'; 
                 this.page.identifier = '{{ page.url }}'; 
@@ -149,7 +148,7 @@ layout: default
 
 </div>
 
-{% endunless %}
+{% endif %}
 
 
 <!-- find out the **last** category in the frontmatter-category-array to display more articles in that category. E.g, if the frontmatter-array is [fav, article, talks], the following code displays a "Other talks" section -->
