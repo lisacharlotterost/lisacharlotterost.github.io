@@ -116,7 +116,36 @@ layout: default
     <hr>
     <h1>Comments</h1><br>
 
+    <div id="disqus_privacy_consent" style="margin-bottom: 20px;">
+        <p>This post has comments. I do need to save a cookie to show them to you, though. Interested?</p>
+        <button id="load_disqus_btn" onclick="loadDisqus()" style="cursor: pointer; padding: 10px 15px; background: #eee; border: 1px solid #ddd; border-radius: 4px;">Yes, show them to me!</button>
+    </div>
+
     <div id="disqus_thread"></div>
+
+    <script>
+        function loadDisqus() {
+            // 1. Hide the privacy message and button
+            document.getElementById('disqus_privacy_consent').style.display = 'none';
+
+            // 2. Define the Disqus configuration
+            // We use Liquid tags to dynamically set the URL and Identifier based on the current post
+            var disqus_config = function () {
+                this.page.url = '{{ page.url | absolute_url }}'; 
+                this.page.identifier = '{{ page.url }}'; 
+            };
+
+            // 3. Inject the Disqus script
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://lisacharlotterost.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        };
+    </script>
+    
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
