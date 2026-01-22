@@ -24,6 +24,17 @@ body.menu-open {
   }
 }
 
+/* 1. Hide the break by default (for mobile/tablets) */
+.desktop-break {
+  display: none;
+}
+
+/* 2. Only show the break if width is ABOVE 1064px */
+@media (min-width: 1065px) {
+  .desktop-break {
+    display: block;
+  }
+}
 
 ////////////// 1 SIDEBAR & MOBILE MENU //////////////////
 
@@ -429,6 +440,7 @@ a.anchor {
 
 a.thumb {
   margin-bottom: 4.5rem;
+  width: 100%;
 }
 
 @media screen and (min-width: 370px) {
