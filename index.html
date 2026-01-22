@@ -49,7 +49,7 @@ title: Home
       <div class="sidebar-text">
         &rarr; <a href="/projects.html">SEE ALL PROJECTS</a>
       </div>
-    {% when "talk" %}`
+    {% when "talk" %}
       <a name="talks" class="anchor"></a>
       <h2>Selected talks</h2>
       <div class="sidebar-text">
@@ -64,7 +64,7 @@ title: Home
       {% when "talk" %}
         <p>Talks let me combine images (slides) and text (my speech) in a more tension-building, direct way than blog posts. I taught data vis at different universites and have given general data vis workshops over the years – but here you can find the talks I used as an excuse to research a completely new question:</p>
       {% when "event" %}
-        <p>I started going to conferences and meetups about data visualization as soon as I had the epiphany that "Whoa, this is a real field, and people actually do this for a living!" At some point, I wanted to bring data vis enthusiasts together myself – to meet them, but to also give back to a community that had given me so much. So far, I’ve organized three things:</p>
+        <p>I started going to conferences and meetups about data visualization as soon as I had the epiphany that "Whoa, this is a real field, and people actually do this for a living!" At some point, I wanted to bring data vis enthusiasts together myself – to meet them, but to also give back to a community that had given me so much. So far, I've organized three things:</p>
       {% else %}
         <p>Before delving into data vis, I studied print design for six years. Here you can find some of these older works, but also data visualizations I've created for newsrooms, in my free time, and, most recently, for the <a href="https://www.datawrapper.de/blog">Datawrapper blog</a>:</p>
       {% endcase %}
@@ -72,16 +72,19 @@ title: Home
   </div>
 
   <div class="grid">
+    {% assign post_count = 0 %}
     {% for post in posts_in_category %}
       {% capture category_name_actual %}{{ post.categories | last }}{% endcapture %}
       {% if post.categories contains "fav" and category_name_actual == category_name %}
+
+        {% assign post_count = post_count | plus: 1 %}
 
         {% capture url_to_use %}{{ post.url }}{% endcapture %}
         {% if post.external %}
           {% capture url_to_use %}{{ post.external }}{% endcapture %}
         {% endif %}
 
-        <a class="thumb" href="{{ post.url }}">
+        <a class="thumb responsive-hide-{{ post_count }}" href="{{ post.url }}">
           <div class="post">
             <div class="post-image">
               <img src="{{ post.image }}"/>
@@ -132,7 +135,7 @@ title: Home
     
             {% capture url_to_use %}{{ note.url }}{% endcapture %}
     
-            <a class="thumb" href="{{ note.url }}">
+            <a class="thumb responsive-hide-{{ note_count }}" href="{{ note.url }}">
               <div class="post">
     
                  <div class="notes-image no-top">
@@ -196,3 +199,50 @@ title: Home
     {% include aboutme.html %}
 <br>
 </div>
+
+<!-- generates a pastel color for images without feature images, and subtly cycles through the hue -->
+
+<script>
+function generatePastelColor(str) {
+  // Create a hash from the string
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  
+  // Generate brighter pastel colors using OKLCH
+  const hue = Math.abs(hash % 360);
+  const chroma = 0.05 + (Math.abs(hash >> 4) % 25) / 1000; // 0.08-0.105 (moderate chroma for pastels)
+  const lightness = 0.95 + (Math.abs(hash >> 16) % 5) / 100; // 0.90-0.94 (90-94%)
+  
+  return `oklch(${lightness} ${chroma} ${hue})`;
+}
+
+// Apply colors to notes without images
+document.querySelectorAll('.notes-image').forEach(function(el) {
+  const img = el.querySelector('img');
+  if (img && img.src.includes('cover.png')) {
+    const noteTitle = el.closest('.post').querySelector('.post-date b span').textContent;
+    const baseColor = generatePastelColor(noteTitle);
+    el.style.backgroundColor = baseColor;
+    img.style.display = 'none';
+    
+    // Add subtle hue cycling animation
+    const match = baseColor.match(/oklch\([^)]+\s+([0-9.]+)\s+(\d+)\)/);
+    const baseHue = match ? parseInt(match[2]) : 0;
+    
+    el.style.animation = `hue-cycle-${baseHue} 8s ease-in-out infinite`;
+    
+    // Create unique keyframe animation for this hue
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes hue-cycle-${baseHue} {
+        0%, 100% { filter: hue-rotate(0deg); }
+        50% { filter: hue-rotate(180deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+});
+</script>
+

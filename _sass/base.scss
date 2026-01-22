@@ -513,6 +513,26 @@ a:hover.thumb .notes-image {
   border-bottom: 0px !important;
 }
 
+@media screen and (min-width: 370px) and (max-width: 949px) {
+  /* When in 2-column mode: 
+     Hide any post after the first 8 
+  */
+  .responsive-hide-9,
+  .responsive-hide-10,
+  .responsive-hide-11,
+  .responsive-hide-12 { // Continue for as many as you might have
+    display: none;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  /* When switching to 3 columns (or desktop):
+     Ensure they are visible again (unless you want to limit them there too)
+  */
+  [class*="responsive-hide-"] {
+    display: block; 
+  }
+}
 
 ////////////// 5 COOKIE WARNING //////////////////
 
