@@ -7,6 +7,7 @@ categories: [article, talk]
 image: /pic/150605_cityislands-f.png
 summary: If we change our maps, we change how we think about the world.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/150605_cityislands.jpg)

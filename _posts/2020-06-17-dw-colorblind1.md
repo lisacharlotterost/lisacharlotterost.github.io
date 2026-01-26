@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/colorblindness-part1/
 summary: "What’s the difference between colorweak and colorblind people, and how they see the world."
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

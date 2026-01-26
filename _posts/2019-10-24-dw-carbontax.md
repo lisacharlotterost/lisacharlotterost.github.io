@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/co2-tax-fee-and-dividend-explained/
 summary: Explaining the Carbon Fee & Dividend.
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

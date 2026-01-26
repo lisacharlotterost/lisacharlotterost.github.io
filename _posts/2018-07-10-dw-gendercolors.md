@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/gendercolor/
 summary: "A reality check which colors newsrooms use to present gender data. Spoiler: Pink & blue are not dead, but there's lots of hope."
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

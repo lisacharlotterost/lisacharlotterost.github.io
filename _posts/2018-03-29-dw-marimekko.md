@@ -7,4 +7,5 @@ tag: thoughts
 summary: 'I explain my favorite chart: The Marimekko chart. It looks simple & accessible, but contains a lot of information.'
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

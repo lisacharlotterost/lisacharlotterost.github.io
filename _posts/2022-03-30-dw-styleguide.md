@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/colors-for-data-vis-style-guides/
 summary: "A very, very detailed guide on how to create an organizational color palette"
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

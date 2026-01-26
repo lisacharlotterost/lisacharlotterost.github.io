@@ -5,6 +5,7 @@ image: /pic/211231_datawrappercharts.png
 categories: []
 whofor: for Datawrapper
 summary: "What I visualized for Datawrapper in 2021."
+comments: disabled
 ---
 
 In November 2017, we published the first Weekly Chart on the Datawrapper Blog – and since then, every single week. In the beginning, it was only me who visualized some dataset and wrote a few words about it. In June 2019, that [changed](https://www.datawrapper.de/blog/weekly-chart-why-you-will-hear-more-from-other-datawrapper-employees/): All of my coworkers are writing Weekly Charts these days; every one of them at least once a year. 

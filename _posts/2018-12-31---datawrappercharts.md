@@ -5,6 +5,7 @@ image: /pic/181231_datawrappercharts.png
 categories: [design]
 whofor: for Datawrapper
 summary: In November 2017, I started to blog for Datawrapper and to create charts, maps & tables with the tool.
+comments: disabled
 ---
 
 If you work at a charting tool, you create some charts. In November 2017, I started to blog for [Datawrapper](https://www.datawrapper.de/). Since then we've been posting a [Weekly Chart](https://www.datawrapper.de/blog/category/weekly-chart/) in which one of us (or a guest author) explain chart design tricks. Here are some of the best charts I created in 2018 for and at Datawrapper. Most of them show the underlying data when you hover over the data points.

@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/beautifulcolors/
 summary: "Common color mistakes and how to avoid them"
 whofor: on Datawrapper ↗
 categories: [fav, article]
+comments: disabled
 ---

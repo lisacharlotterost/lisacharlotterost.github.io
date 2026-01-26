@@ -5,6 +5,7 @@ image: /pic/191231_datawrappercharts.png
 categories: [design]
 whofor: for Datawrapper
 summary: "Greenland ice, life expectancy, EU elections, subway stations: What I visualized for Datawrapper in 2019."
+comments: disabled
 ---
 
 In November 2017, we published the first Weekly Chart on the Datawrapper Blog – and since then, every single week. In the beginning, it was only me who visualized some dataset and wrote a few words about it. In June this year, that [changed](https://www.datawrapper.de/blog/weekly-chart-why-you-will-hear-more-from-other-datawrapper-employees/): All of my coworkers are writing Weekly Charts these days; every one of them at least once a year. 

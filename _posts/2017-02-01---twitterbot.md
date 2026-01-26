@@ -6,4 +6,5 @@ external: https://twitter.com/studyknowact
 summary: You got to believe in something. Tweeting mottos from universities, military, nations, states, cities, brands.
 whofor: on Twitter ↗
 categories: [design]
+comments: disabled
 ---

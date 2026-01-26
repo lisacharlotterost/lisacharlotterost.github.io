@@ -6,6 +6,7 @@ image: /pic/140808-talk-mastersthesis-f.png
 categories: [talk]
 summary: Maybe my best-designed slides to date. Answers the question if one can improve graphic design through feedback.
 permalink: mastersthesisdefense
+comments: disabled
 ---
 
 ![talk slides](/pic/0000_talks/140701-mastersthesisslides.gif)

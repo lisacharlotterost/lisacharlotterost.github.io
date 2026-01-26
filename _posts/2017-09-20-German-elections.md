@@ -6,6 +6,7 @@ image: /pic/170920_election-f.png
 categories: [article]
 summary: I was curious what we're actually voting for in Germany. So I wrote an explainer.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/170920_election1.png)

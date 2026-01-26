@@ -5,6 +5,7 @@ image: /pic/201231_datawrappercharts.png
 categories: [design]
 whofor: for Datawrapper
 summary: "2020 was packed with corona charts. Besides that: US elections, university degrees, public holidays, and lots of tooltip charts."
+comments: disabled
 ---
 
 2020 was full of corona charts. On March 6, I published the article ["17 (or so) responsible live visualizations about the coronavirus, for you to use"](https://www.datawrapper.de/blog/coronaviruscharts/) and spent a lot of time maintaining it. It still updates now, in September 2021, while I'm writing these words. 

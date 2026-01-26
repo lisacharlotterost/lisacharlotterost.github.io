@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/10-ways-to-use-fewer-colors-in-your-da
 summary: "How can we avoid using twelve or so colors in a chart? Here are a few options."
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

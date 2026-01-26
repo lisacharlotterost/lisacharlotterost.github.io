@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/the-older-you-get-the-higher-your-life
 summary: "Our life expectancy increases with every minute we live. Here's why."
 whofor: on Datawrapper ↗
 categories: [design]
+comments: disabled
 ---

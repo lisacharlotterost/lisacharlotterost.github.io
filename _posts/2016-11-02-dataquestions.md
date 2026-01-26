@@ -6,6 +6,7 @@ categories: [article]
 summary: Self-taught as many of us are, we have gaps in our knowledge and skills that other people can fill.
 image: /pic/161102_dataquestions-f.gif
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/161102_dataquestionsslide.png)

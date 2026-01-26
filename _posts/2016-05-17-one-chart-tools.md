@@ -6,6 +6,7 @@ image: /pic/160426-learningcurves-14.png
 categories: [article]
 summary: I recreated the same chart with twelve drag&drop charting apps, like Excel, Tableau, Plotly, RAW and Adobe Illustrator.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 ![image](/pic/160426-learningcurves-14.png)
 

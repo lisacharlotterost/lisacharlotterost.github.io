@@ -5,6 +5,7 @@ categories: [article]
 summary: '"The big challenge is to put our population numbers in the color intervals that make the most sense."'
 image: /pic/141214_categories-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 So, [Choropleth maps](http://en.wikipedia.org/wiki/Choropleth_map). Lots of fun. It's amazing that this simple map has such a complicated name. It's also amazing how many complicated tools you sometimes have to use to build such a simple map ([OpenStreetMaps](http://www.openstreetmap.org/) &rarr; [Overpass-Turbo](http://overpass-turbo.eu) &rarr; Excel &rarr; [qGis](http://www.qgis.org/de/site/) &rarr; [Color-Brewer](http://colorbrewer2.org/)/[chroma.js](http://vis4.net/labs/multihue) &rarr; [TileMill](https://www.mapbox.com/tilemill/)). Only after you've gotten into shapefiles, geo-jsons, joining data and qGis styling modes, you're allowed to look at something awesome.

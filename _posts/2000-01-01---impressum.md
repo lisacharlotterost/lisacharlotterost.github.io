@@ -4,6 +4,7 @@ title: Impressum
 image:
 permalink: impressum
 image: /pic/000000-impressum.png
+comments: disabled
 ---
 
 ### According to § 5 TMG:

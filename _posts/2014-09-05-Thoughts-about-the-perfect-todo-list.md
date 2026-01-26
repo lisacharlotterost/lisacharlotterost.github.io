@@ -6,6 +6,7 @@ categories: [article]
 summary: '"There are two things I appreciate in life (ok, there are more, but these two are big ones): lists and tables."'
 image: /pic/140905_todo-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 <p>There are two things I appreciate in life (ok, there are more, but these two are big ones): lists and tables. There were moments when I thought lists are enough &ndash; especially the ones with infinite hierarchy like the amazing <a href="https://workflowy.com/" target="_blank">WorkFlowy</a>. And then I realised: They are not.</p>

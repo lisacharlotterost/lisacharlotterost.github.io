@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/partycolors/
 summary: Which party colors do we choose when reporting election results? I explain three approaches.
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

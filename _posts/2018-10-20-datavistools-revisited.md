@@ -6,6 +6,7 @@ summary: 2.5 years I wrote down my thoughts about the data vis tool landscape. I
 image: /pic/0000_talks/181001-datavistool-f.png
 permalink: datavistools-revisited-talk
 categories: [talk]
+comments: disabled
 ---
 
 ![talk slides](/pic/0000_talks/181001-datavistool.gif)

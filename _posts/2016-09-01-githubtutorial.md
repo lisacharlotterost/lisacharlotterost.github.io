@@ -6,6 +6,7 @@ image: /pic/160901_github-f.png
 categories: [talk]
 summary: Small Github Tutorial that explains basic principles like forking and branching in a visual way.
 permalink: githubtutorial
+comments: disabled
 ---
 
 ![talk slides](/pic/0000_talks/160901-githubtorial.gif)

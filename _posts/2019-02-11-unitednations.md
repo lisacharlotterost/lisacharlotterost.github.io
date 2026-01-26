@@ -6,6 +6,7 @@ image: /pic//0000_talks/180211_UN_ComplexityVsUnderstanding_Page-f3.png
 categories: [talk]
 summary: Understanding what role design can play to increase the audience when communicating scientific ideas.
 permalink: complexity-simplicity
+comments: disabled
 ---
 
 ![talk slides](/pic/0000_talks/190211-UnitedNatons.gif)

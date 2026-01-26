@@ -6,6 +6,7 @@ categories: [article]
 summary: '"With time, only harmony gets dull and boring. The human species needs variety and diversion."'
 image: /pic/master_tension-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/master_balance.jpg)

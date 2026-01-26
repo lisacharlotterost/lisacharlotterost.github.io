@@ -5,6 +5,7 @@ image: /pic/160423-colorguide-f.png
 categories: [article]
 summary: The original version of my guide to color tools. I published an updated version in 2019.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 *Edit:* This post got [translated into Japanese](http://lab.sugimototatsuo.com/2016/05/colors-for-datavis/). I also published an updated version of this blogpost in 2018 for Datawrapper. [Find it here](https://www.datawrapper.de/blog/colorguide/).

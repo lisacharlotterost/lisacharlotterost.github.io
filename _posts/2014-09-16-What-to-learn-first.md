@@ -5,6 +5,7 @@ categories: [article]
 summary: '"The idea is simple: Some software is hard to learn, some is easy to learn."'
 image: /pic/140916_learning-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![learning first data vis](/pic/140916_learning.jpg)

@@ -6,6 +6,7 @@ categories: [fav, article]
 image: /pic/160422_mapsVsTerritory-f.png
 summary: '"Everything simple is false. Everything which is complex is unusable." – Paul Valéry'
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/160422_mapsVsTerritory-01.png)

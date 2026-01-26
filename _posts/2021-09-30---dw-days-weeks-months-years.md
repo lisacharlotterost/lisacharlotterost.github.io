@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/different-time-scales-in-one-chart
 summary: "A chart experiment: Different time scales in a single time series."
 whofor: on Datawrapper ↗
 categories: [fav, design]
+comments: disabled
 ---

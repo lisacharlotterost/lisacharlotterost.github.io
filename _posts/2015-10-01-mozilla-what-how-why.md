@@ -6,6 +6,7 @@ image: /pic/161001-fellowtalk-nail-f.png
 categories: [talk]
 summary: Explaining the “Golden Circle” by Simon Sinek and how it relates to data vis.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![talk slides](/pic/0000_talks/151001-whyhowwhat.gif)

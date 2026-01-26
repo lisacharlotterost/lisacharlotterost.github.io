@@ -6,6 +6,7 @@ categories: [article]
 summary:
 image: /pic/150920_table-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 Text analysis! That's where the fun begins in R. That's where we go more and more away from "Excel could do that, too", to "Woah, I didn't know that is only a matter of a few lines of code." For that magic, you need to install the [tm](https://cran.r-project.org/web/packages/tm/index.html) (="text mining") library in R. And then we can do awesome stuff, like removing the whitespace of your text in one line. Or removing punctuation. Or removing the most common words in English, called "stopwords": "the", "a", "such", "those", "doing", etc. And that's only the beginning.

@@ -6,6 +6,7 @@ categories: [article]
 summary: '"Harmony means exactly that everybody is on the same page, not the opposite."'
 image: /pic/master_balance-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 ![harmony](/pic/master_balance3.jpg)
 

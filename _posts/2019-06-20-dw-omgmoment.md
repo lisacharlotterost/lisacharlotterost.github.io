@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/weekly-chart-greenland-ice-melting-glo
 summary: "I felt uncomfortable writing this article."
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

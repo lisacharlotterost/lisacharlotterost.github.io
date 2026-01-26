@@ -5,6 +5,7 @@ categories: [fav, event]
 image: /pic/meetup-berlin-thumb.jpg
 summary: Between 2014 and the pandemic, I (co-)organized the data vis meetup Berlin.
 permalink: datavismeetup
+comments: disabled
 ---
 
 

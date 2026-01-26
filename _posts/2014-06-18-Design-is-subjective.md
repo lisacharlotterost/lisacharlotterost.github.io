@@ -6,6 +6,7 @@ categories: [article]
 summary: '"There can be a whole world to discover if you go to another »circle of taste« than the one you are used to."'
 image: /pic/master-subjective.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![header image](/pic/master-subjective.png)

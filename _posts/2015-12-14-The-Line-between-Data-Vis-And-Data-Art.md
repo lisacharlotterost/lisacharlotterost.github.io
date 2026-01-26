@@ -6,6 +6,7 @@ image: /pic/151214_DataVisDataArt-2f.png
 categories: [article]
 summary: '"I believe that the field of data vis would benefit from a clear line between art and design." Maybe my most discussed opinion piece.'
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/151214_DataVisDataArt.jpg)

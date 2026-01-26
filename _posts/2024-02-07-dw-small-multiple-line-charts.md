@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/what-to-consider-when-creating-small-m
 summary: "When should you use line charts and when small multiple line charts?"
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/coronaviruscharts/
 summary: The most visited article on the Datawrapper blog, by far.
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

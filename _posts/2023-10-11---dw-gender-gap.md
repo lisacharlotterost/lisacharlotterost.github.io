@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/gender-pay-gap-weekly-chart
 summary: "Why the gender gap is widening within age cohorts in the U.S."
 whofor: on Datawrapper ↗
 categories: [design]
+comments: disabled
 ---

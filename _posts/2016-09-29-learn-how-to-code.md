@@ -6,6 +6,7 @@ image: /pic/160928_Learnhowtocode-f.png
 categories: [fav, article]
 summary: "Aaaall the feels: Pride, Panic, Despair, Overwhelm, Annoyance."
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 

@@ -6,6 +6,7 @@ categories: [article]
 summary: '"I am happy to announce that I will give my first data vis talk ever (well, you have to start somewhere)."'
 image: /pic/150219_poster-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![poster Daniel Poppele](/pic/150219_poster.jpg)

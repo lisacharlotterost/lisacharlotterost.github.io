@@ -6,6 +6,7 @@ categories: [fav, event]
 image: /pic/180821-tufte.gif
 summary: 15 virtual, introvert-friendly book club discussions about data vis books.
 permalink: datavisbookclub
+comments: disabled
 ---
 
 ![image](/pic/180821-tufte.gif)

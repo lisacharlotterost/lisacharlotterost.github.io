@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/weekly42-berlin-election-result-map/
 summary: "What to map: Vote shares? Differences? Ratio? A comparison."
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

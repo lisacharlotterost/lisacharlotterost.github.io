@@ -7,4 +7,5 @@ tag: thoughts
 summary: 'If you want to make sure that readers don’t miss your points, don’t just show them. Tell them.'
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

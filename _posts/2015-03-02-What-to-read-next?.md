@@ -6,6 +6,7 @@ categories: [article]
 summary: '"I guess every person in the data vis field thinks about that from time to time: &apos;I need to understand better what data vis is all about.&apos;"'
 image: /pic/150304_spreadsheet-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 [![image](/pic/150304_spreadsheet2.jpg)](https://docs.google.com/spreadsheets/d/1pSpk9CUoo9gjgdJOJ5ubqjPRiC3QGaf83m-Nf2qLLDM/edit?usp=sharing)

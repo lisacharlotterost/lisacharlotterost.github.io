@@ -5,6 +5,7 @@ image: /pic/180105_whentotalk-f.png
 categories: [article, fav]
 summary: Which conferences to speak at – some thoughts.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 *In this blog post, I write about observations I made while [speaking at a fair amount of conferences for three years](https://github.com/lisacharlotterost/talk-slides). There's another one in the making in which I'll try to help you figure out if you should rather write a blog post instead of speaking at a conference.*

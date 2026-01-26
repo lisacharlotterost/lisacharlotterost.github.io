@@ -6,4 +6,5 @@ external: https://docs.google.com/spreadsheets/d/1KfKD50omvygNQwzuxGbJxSvkEtdMnQ
 summary: How does Germany calculate parliament seats from absolute votes? In a quest to understand overhang mandates, I created an essay on Google Sheets.
 whofor: on Google Sheets ↗
 categories: [article]
+comments: disabled
 ---

@@ -7,6 +7,7 @@ image: /pic/210212_crowssword-f.png
 desc: Here are all the correct words in the data vis crossword puzzle from last week.
 permalink: dataviscrossword-solutions
 categories: [article]
+comments: disabled
 ---
 
 ![](/pic/210212_crowssword-f.png)

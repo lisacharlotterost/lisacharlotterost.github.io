@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/dualaxis/
 whofor: on Datawrapper ↗
 categories: [article]
 summary: The case against dual axis charts
+comments: disabled
 ---

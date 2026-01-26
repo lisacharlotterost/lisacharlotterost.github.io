@@ -7,6 +7,7 @@ image: /pic/161218_end_ALL-f.png
 categories: [article]
 summary: The questions I pondered in 2016, and my blog posts that resulted out of this pondering.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/161218_end_ALL_text.png)

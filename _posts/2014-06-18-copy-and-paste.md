@@ -6,6 +6,7 @@ categories: [article]
 summary: '"Here’s where I have to tell a little secret: I copy; shamelessly."'
 image: /pic/master_copy-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 Ok, here’s where I have to tell a little secret: **I copy; shamelessly.** I think one of the best works I’ve ever designed before this master’s thesis was copied, too. I'm speaking about the documentation of my internship at Bloomberg Businessweek. Why do I think it turned out so amazing? Because I designed this documentation after my super inspiring time at Bloomberg. I sucked up their design and their attitude, let it float through my brain and then spit it on paper. With other words: I copied.

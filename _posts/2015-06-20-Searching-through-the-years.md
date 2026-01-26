@@ -6,6 +6,7 @@ categories: [fav, article, design]
 image: /pic/portfolio/googleold-f.png
 summary: I visualized the 40,000 search queries I asked Google between June 2010 and April 2015.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/150620_GoogleSearch_.jpg)

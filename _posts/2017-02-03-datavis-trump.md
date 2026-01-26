@@ -6,6 +6,7 @@ image: /pic/170203_TrumpCat-f.jpg
 categories: article
 summary: As a reaction to Trump, lots of us felt like we need to DO something. SOMETHING. This post tries to give structure to the desperation.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 [![image](/pic/170203_TrumpCat2.jpg)](http://trump.kimalbrecht.com/network/)

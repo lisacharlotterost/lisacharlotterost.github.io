@@ -6,6 +6,7 @@ categories: [article]
 summary: '"Have I even lost time while being away from the computer for 24 hours?"'
 image: /pic/master_prod-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 One goal of my Master’s Thesis is to first understand and then to improve my working methods. As a matter of fact, I think a lot about how I work and how I can improve it. I’m reading quite a lot articles about productivity and try little hacks that can make procedures more efficient (like shortcut keys).

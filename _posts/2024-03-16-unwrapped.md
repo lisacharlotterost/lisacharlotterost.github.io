@@ -6,6 +6,7 @@ categories: [fav, event]
 image: /pic/speakers/unwrapped-header.png
 summary: "3 days, 33 speakers, 1400 sign-ups: The first conference I organized."
 permalink: unwrapped
+comments: disabled
 ---
 
 ![lisa-photo](/pic/speakers/unwrapped-header.png)

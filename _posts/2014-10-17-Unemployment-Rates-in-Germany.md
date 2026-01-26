@@ -6,6 +6,7 @@ categories: [article]
 image: /pic/141017_unemployment-f.png
 summary: My first (and last) d3.js project, showing how the unemployment rate in all German counties between 2006 and 2014.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![IMAGE](/pic/141017_unemployment3.png)

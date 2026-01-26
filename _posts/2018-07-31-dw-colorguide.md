@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/colorguide/
 summary: A collection of tools that help you deal with color gradients and color palettes.
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

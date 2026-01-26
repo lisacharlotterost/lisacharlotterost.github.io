@@ -7,6 +7,7 @@ categories: [fav, article, talk]
 image: /pic/161020_mappoetry-f.png
 summary: Drawing our internal maps lets us explore how we and others see the world.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 *This is the transcript of a talk I gave at [NACIS 2016](https://nacis2016.sched.org/event/7Lmy/storylines-in-the-map) in Colorado Springs. I didn't include all of the slides, to make it more readable.*

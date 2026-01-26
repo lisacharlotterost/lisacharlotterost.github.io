@@ -5,6 +5,7 @@ categories: [article]
 summary: '"Everybody values different desires high and low. But what you should want, is to find people who value similar things than you."'
 image: /pic/140917_personalityScales.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![personality scales](/pic/140917_personalityScales.jpg)

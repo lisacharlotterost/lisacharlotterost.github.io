@@ -6,6 +6,7 @@ categories: [article]
 summary: '"Lately I have been wandering around the parts of the data vis field that yields brave men and women who dare to teach."'
 image: /pic/150301-teachingideas.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![](/pic/150301-teachingideas.png)

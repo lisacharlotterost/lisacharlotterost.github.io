@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/guide-what-to-consider-when-creating-t
 summary: When to use a table instead of a chart and how to improve table designs.
 whofor: on Datawrapper ↗
 categories: [article]
+comments: disabled
 ---

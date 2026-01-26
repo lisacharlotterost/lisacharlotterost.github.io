@@ -6,6 +6,7 @@ image: /pic/180628_netzwerkrecherche-f.png
 categories: [talk]
 summary: Talk in German about controversies in the data vis scene in the past few years.
 permalink: dataviscontroversies
+comments: disabled
 ---
 
 ![talk slides](/pic/0000_talks/180630-netzwerkrecherche.gif)

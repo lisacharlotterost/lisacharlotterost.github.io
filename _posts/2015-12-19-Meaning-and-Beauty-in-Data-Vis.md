@@ -6,6 +6,7 @@ image: /pic/151220_DataVisDataArt-f.png
 categories: [fav, article]
 summary: In Data Vis, we should see aesthetics as a tool to increase understanding. In Data Art, we can see aesthetics as the purpose.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 **tl;dr: In Data Vis, we should see aesthetics as a tool to increase understanding. In Data Art, we can see aesthetics as the purpose.**

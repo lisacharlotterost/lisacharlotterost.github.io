@@ -6,6 +6,7 @@ image: /pic/171024_newsrooms-f.png
 categories: [article]
 summary: Why I decided to start working at Datawrapper
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 or: Why I started to work at Datawrapper
 

@@ -6,6 +6,7 @@ categories: [article]
 summary: '"The chart has almost the same immediate power of a statement like the other two graphs, but offers more possibilities to explore."'
 image: /pic/150110_zeitungssterben_draft-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 So, yeah, it's bad. We knew that before: Periodical print publications seem to be no fun anymore for humanity. Even the Germans, by tradition very traditional people, started to dislike them. How much? That's what the data reveals, that [OpenDataCity shared a few days ago](https://opendatacity.de/der-zerfall-der-printmedien/). I like their search function, I like their bold design – but I dislike the missing possibility to compare all the magazines.  
 

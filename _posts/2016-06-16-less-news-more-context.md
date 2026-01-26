@@ -7,6 +7,7 @@ image: /pic/160616_vancouver_1_Page-f.png
 summary: '"With which information can my audience navigate this world better?" Looking at goals of journalism, and how data vis fits in.'
 categories: [fav, article, talk]
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 *This is the transcript of a lightning talk, given at the 16th of June 2016 at the [Information+ conference](http://informationplusconference.com/) in Vancouver.*
 

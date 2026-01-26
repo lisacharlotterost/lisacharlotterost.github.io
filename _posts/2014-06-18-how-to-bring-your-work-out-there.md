@@ -6,6 +6,7 @@ categories: [article]
 summary: '"There is a »taste niche« for everything and everybody."'
 image: /pic/140718_workoutthere-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![](/pic/140718_workoutthere-f.png)

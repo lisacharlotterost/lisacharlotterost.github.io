@@ -6,6 +6,7 @@ categories: [article]
 summary: '"In the last few days I found some joy reading papers about decision theory and motivational theory; about choices, needs and desires."'
 image: /pic/140719_needs-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![table with comparison values](/pic/140719_needs.jpg)

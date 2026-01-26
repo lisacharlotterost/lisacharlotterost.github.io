@@ -6,6 +6,7 @@ image: /pic/201120_S-H-O-W-talk-f2.png
 categories: [article, talk]
 summary: Which kind of data vis rules I like, and how the theory of art can explain why rules contradict each other.
 permalink: datavisrules
+comments: disabled
 ---
 
 ![GIF showing all the slides as a fast GIF](/pic/201120_S-H-O-W-talk.gif)

@@ -6,6 +6,7 @@ categories: [article, design]
 summary: '"That was the most complex coding experience I have ever had where I still understood what I am doing."'
 image: /pic/141122_GraphicUnemploymen-f.png
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 

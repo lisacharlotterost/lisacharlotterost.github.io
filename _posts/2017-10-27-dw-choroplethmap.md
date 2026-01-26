@@ -6,4 +6,5 @@ external: https://www.datawrapper.de/blog/how-to-choose-a-color-palette-for-chor
 whofor: on Datawrapper ↗
 categories: [article]
 summary: "The colors we choose have a massive impact on our map: How it is perceived, how well our statement is communicated and how honest we present the data."
+comments: disabled
 ---

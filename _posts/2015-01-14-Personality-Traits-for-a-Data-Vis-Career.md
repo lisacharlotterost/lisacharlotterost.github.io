@@ -6,6 +6,7 @@ image: /pic/150114_values-f.png
 categories: [article]
 summary: How values like curiosity and a need for overview motivate us <s>to go to meetups</s> to create data vis.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 ![image](/pic/150114_values2.png)
 

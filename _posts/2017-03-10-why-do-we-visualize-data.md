@@ -7,6 +7,7 @@ image: /pic/170310_INCH_DataVis_short-f.png
 categories: [fav, article, talk]
 summary: Categorising the different reasons for visualizing data, and looking at examples & different industries on the way.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/170308_INCHgif.gif)

@@ -5,6 +5,7 @@ image: /pic/251231-Datawrapper-charts-2025.png
 categories: [fav, design]
 whofor: for Datawrapper
 summary: "World records, population growth, and German baby boomers: What I visualized for Datawrapper in 2025."
+comments: disabled
 ---
 
 2025 isn't over yet, but we already published quite a few [feature announcements](https://www.datawrapper.de/blog/category/datawrapper-news) for which I created charts:

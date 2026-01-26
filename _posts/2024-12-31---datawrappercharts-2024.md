@@ -5,6 +5,7 @@ image: /pic/241231-Datawrapper-charts-2024d.png
 categories: [design]
 whofor: for Datawrapper
 summary: "Nuclear power, English proficiency, and the height of men: What I visualized for Datawrapper in 2024."
+comments: disabled
 ---
 
 In 2024, we released a lot of new features into the world and hence published an unusual high number of [feature announcements](https://www.datawrapper.de/blog/category/datawrapper-news). For some of them, I created charts showing off the new options. 

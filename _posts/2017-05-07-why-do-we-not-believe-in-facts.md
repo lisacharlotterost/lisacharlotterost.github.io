@@ -6,6 +6,7 @@ image: /pic/170509_Republica_Talk-f.png
 categories: [fav, article, talk]
 summary: It's not about truth vs lie, it's about them vs us. Plus some data vis that made me think.
 permalink: /:year/:month/:day/:title/
+comments: disabled
 ---
 
 ![image](/pic/170509_facts1.gif)
