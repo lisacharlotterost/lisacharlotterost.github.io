@@ -6,7 +6,7 @@ image: /pic/140614_weeks-f.png
 categories: [article]
 summary: '"My life so far will be very different from my life seen in total..."'
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![life in weeks](/pic/140614_weeks.jpg)

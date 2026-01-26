@@ -6,7 +6,7 @@ image: /pic/161122_drawing-f.jpg
 categories: [article]
 summary: Why pen & paper is favorite thinking (and data vis!) tool.
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 

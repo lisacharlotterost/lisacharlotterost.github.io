@@ -6,7 +6,7 @@ image: /pic/170407_curiosity-f.png
 categories: [article]
 summary: Finding the sweet spot between discovery and explanation.
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/170407_curiosity-09.png)

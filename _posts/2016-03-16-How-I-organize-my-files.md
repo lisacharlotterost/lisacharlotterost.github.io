@@ -5,7 +5,7 @@ categories: [article]
 summary: '"In the beginning, there was organisation. Then, files flooded in."'
 image: /pic/160316_FilesOrg-f.jpg
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 **tl;dr: File organisation means avoiding crammed folders. On my highest folder hierarchy, I only have my most used categories and current projects. Also, my desktop is my file inbox: Every file I touch on a day goes there.**

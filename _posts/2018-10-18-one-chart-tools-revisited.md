@@ -7,7 +7,7 @@ image: /pic/180929-twitter.png
 desc: Recreating the same chart with nine different charting tools.
 permalink: datavistools-revisited
 categories: [fav, article]
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/180929-header.png)

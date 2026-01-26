@@ -6,7 +6,7 @@ categories: [article]
 summary: '"Mapbox and I seem to have a typical love-hate-relationship."'
 image: /pic/141104_mapbox-f.png
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![IMAGE](/pic/141104_mapbox.jpg)

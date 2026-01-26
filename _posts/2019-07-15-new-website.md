@@ -7,7 +7,7 @@ image: /pic/190715_newwebsite-f.png
 desc: How it looked like before the redesign, and why I decided to change it & built everything from scratch.
 permalink: newsite
 categories: [article]
-comments: disabled
+comments: enabled
 ---
 ![](/pic/190715_newwebsite-f.png)
 

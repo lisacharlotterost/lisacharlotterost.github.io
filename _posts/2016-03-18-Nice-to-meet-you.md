@@ -6,7 +6,7 @@ categories: [article]
 image: /pic/160318_smalltalk-f.png
 summary: "American small talk is a perfect example for the definition of Information in Information Theory & for data compression."
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/160318_smalltalk_1.png)

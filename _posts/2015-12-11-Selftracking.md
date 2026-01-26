@@ -6,7 +6,7 @@ categories: [article]
 summary: '"Self-tracking these days often results in irrelevant visualizations which give a fake comfort of meaning, but don’t help neither the tracked person nor the viewer."'
 image: /pic/151211_selftracking-f.png
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 **tl;dr: Self-tracking these days often results in irrelevant visualizations which give a fake comfort of meaning, but don’t help neither the tracked person nor the viewer**.

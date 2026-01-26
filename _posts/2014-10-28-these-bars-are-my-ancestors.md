@@ -5,7 +5,7 @@ categories: [article]
 summary: '"In my family tree, the birth year is a certain point at at timeline."'
 image: /pic/141028_ahnen-f.png
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![family tree](/pic/141028_ahnen1.jpg)

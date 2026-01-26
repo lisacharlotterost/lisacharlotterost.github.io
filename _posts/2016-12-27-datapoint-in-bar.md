@@ -7,7 +7,7 @@ image: /pic/161227_CCC-f.gif
 categories: [fav, article, talk]
 summary: '"If I look at the mass I will never act. If I look at the one, I will." A look at data (vis) vs anecdotes.'
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/161227_CCC3.gif)

@@ -7,7 +7,7 @@ categories: [fav, article, talk]
 image: /pic/161114_elex-f.png
 summary: Why we should map the popular votes, even in US elections.
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 *I updated this blog post with a rough transcript of a talk I gave at the [GeoNYC Meetup](https://www.meetup.com/geonyc/events/235274559/) at the 14th of November, 2016. Please note that most of the displayed data are [FiveThirtyEight forecasts](https://projects.fivethirtyeight.com/2016-election-forecast/?ex_cid=2016-forecast) from three weeks before the election, NOT the final election results.*

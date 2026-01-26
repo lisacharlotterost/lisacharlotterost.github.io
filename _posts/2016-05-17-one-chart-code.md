@@ -6,7 +6,7 @@ image: /pic/160426-learningcurves-15.png
 categories: [article]
 summary: I recreated the same chart with twelve frameworks & libraries, like d3.js, Vega, ggplot 2, matplotlip and Processing.
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 ![image](/pic/160426-learningcurves-15.png)
 

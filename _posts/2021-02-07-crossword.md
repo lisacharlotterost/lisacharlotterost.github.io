@@ -7,7 +7,7 @@ image: /pic/210207_crossword-f.png
 desc: Find the 13 vis types, 5 tools, 14 people, and 22 concepts from the field of data vis and win a data vis book.
 permalink: dataviscrossword
 categories: [fav, article]
-comments: disabled
+comments: enabled
 ---
 
 *Edit (three hours after publishing the first version): Added the hint for 21-Down and added a number (19b) and a hint for it.* 
@@ -133,7 +133,7 @@ I hope there are some words that are easy to solve for everyone with an interest
 
 I don't normally solve crossword puzzles. And I never designed one. So when writing the clues, I wasn't sure if they're too hard or to easy. I erred on the side of "too hard", to make it a challenge for you all – and to give you some chance to collaborate! **Ask around on Twitter, or find somebody to solve that puzzle with (I'm happy to send two books a 25 Euro, too).**
 
-## Where's the solution? 
+## Where's the solution?
 
 ~~It's not online yet. I'll post it in a week or so!~~ <br>[**Here's the solution**](/dataviscrossword-solutions/).
 <br><br>

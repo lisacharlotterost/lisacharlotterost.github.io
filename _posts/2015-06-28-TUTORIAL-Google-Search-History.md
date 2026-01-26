@@ -6,7 +6,7 @@ categories: [article]
 summary: An (sadly outdated) tutorial how to download, analyse & visualize your Google Search history.
 image: /pic/150702_Tut-f.png
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/150620_GoogleSearch_3.jpg)

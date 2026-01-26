@@ -6,7 +6,7 @@ categories: [article]
 summary: "How to create histograms in R and in ggplot2 with facet_grid"
 image: /pic/150920_Rstudio_screenshot-f.png
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/150920_Rstudio_screenshot.png)

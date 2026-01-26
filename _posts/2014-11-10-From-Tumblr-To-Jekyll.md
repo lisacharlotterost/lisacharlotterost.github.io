@@ -6,7 +6,7 @@ categories: [article]
 summary: '"I like the simplicity. I like that I have the overview over what I can change (including the simple CSS)."'
 image: /pic/141110_yeah-f.png
 permalink: /:year/:month/:day/:title/
-comments: disabled
+comments: enabled
 ---
 
 ![image](/pic/141110_yeah.jpg)
