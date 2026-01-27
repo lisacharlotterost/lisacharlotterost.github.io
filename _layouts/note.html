@@ -1,0 +1,83 @@
+---
+layout: default
+---
+<div class="completeright">
+<div class="blogcontainer">
+
+  <div class="blogheader">
+    <hr>
+    <h1 class="article-title">
+      {% if page.tags contains "Books" %}
+        {{ page.summary }}
+      {% else %}
+        {{ page.date | date: "%B %d, %Y" }}
+      {% endif %}
+    </h1>
+    
+    <span class="article-date">
+      {% if page.tags contains "Books" %}{{ page.date | date: "%B %d, %Y" }} | {% endif %} 
+      
+      {% capture existing_tag_pages %}
+        {% for p in site.pages %}{% if p.target_tag %}|{{ p.target_tag | slugify }}|{% endif %}{% endfor %}
+      {% endcapture %}
+
+      {% for tag in page.tags %}
+        {% assign tag_slug = tag | slugify %}
+        {% assign check_string = "|" | append: tag_slug | append: "|" %}
+        {% if existing_tag_pages contains check_string %}
+          <a href="/notes/{{ tag_slug }}/">{{ tag }}</a>
+        {% else %}
+          {{ tag }}
+        {% endif %}
+        {% unless forloop.last %}<span style="color:#808080">|</span> {% endunless %}
+      {% endfor %}
+
+      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      {% for note in sorted_notes %}
+        {% if note.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}
+      {% endfor %}
+
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign next_index = current_index | plus: 1 %}
+
+      <div class="post-navigation">
+        {% if prev_index >= 0 %}
+          <a class="prev-post" href="{{ sorted_notes[prev_index].url }}">&larr;</a>
+        {% endif %}
+        {% if next_index < sorted_notes.size %}
+          <a class="next-post" href="{{ sorted_notes[next_index].url }}">&rarr;</a>
+        {% endif %}
+      </div>
+    </span>
+  </div>
+
+  <div class="article-text">
+    {{ content }}
+  </div>
+
+ {% if page.source %}
+  <div class="source-on-page">
+    {% assign formatted_source = page.source | downcase | strip %}
+    {% case formatted_source %}
+      {% when "datawrapper-notion" %}First published on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
+      {% when "old-drawings-blog" %}First published on an old drawings blog on Blogger.
+      {% when "goodreads" %}First published on <a href="https://www.goodreads.com/user/show/76557418-lisa-muth">Goodreads</a>.
+      {% when "datawrapper-book-club" %}First published in a discussion of the <a href="/datavisbookclub">Data Vis Book Club</a>.
+      {% when "old-photo-blog" %}First published on an old photos blog on Blogger.
+      {% when "the-lisa-project" %}First published on an old Tumblr blog.
+    {% endcase %}
+  </div>
+  {% endif %}
+
+  <div class="post-navigation post-navigation-bottom">
+    {% if prev_index >= 0 %}
+      <a class="prev-post" href="{{ sorted_notes[prev_index].url }}">&larr;</a>
+    {% endif %}
+    <a href="/notes">●</a>
+    {% if next_index < sorted_notes.size %}
+      <a class="next-post" href="{{ sorted_notes[next_index].url }}">&rarr;</a>
+    {% endif %}
+  </div>
+
+</div>
+</div>

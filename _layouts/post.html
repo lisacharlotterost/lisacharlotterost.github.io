@@ -4,138 +4,44 @@ layout: default
 <div class="completeright">
 <div class="blogcontainer">
 
-<!-- show blog post header-->
 <div class="blogheader">
   <hr>
-  <h1 class="article-title">
-  {% if page.tags contains "Books" %}
-    {{ page.summary }}
-  {% elsif page.categories contains "notes" %}
-    {{ page.date | date: "%B %d, %Y" }}
-  {% elsif page.title %}
-    {{ page.title }}
-  {% else %}
-    {{ page.date | date: "%B %d, %Y" }}
-  {% endif %}
-</h1>
+  <h1 class="article-title">{{ page.title }}</h1>
   <span class="article-date">
-
-    <!-- display month & year when blog post or talk. Only display year for design work -->
-  {% if page.categories contains "design" or page.categories contains "event" %}
-    {{ page.date | date: "%Y" }}
-
-{% elsif page.categories contains "notes" %}
-  {% if page.tags contains "Books" %}{{ page.date | date: "%B %d, %Y" }} | {% endif %} 
-    {% capture existing_tag_pages %}
-      {% for p in site.pages %}
-        {% if p.target_tag %}
-          |{{ p.target_tag | slugify }}|
-        {% endif %}
-      {% endfor %}
-    {% endcapture %}
-
-    {% if page.tags and page.tags.size > 0 %}
-      
-      {% for tag in page.tags %}
-      
-        {% assign tag_slug = tag | slugify %}
-        {% assign check_string = "|" | append: tag_slug | append: "|" %}
-
-        {% if existing_tag_pages contains check_string %}
-         <a href="/notes/{{ tag_slug }}/">{{ tag }}</a>
-        {% else %}
-          {{ tag }}
-        {% endif %}
-
-        {% unless forloop.last %}<span style="color:#808080">|</span> {% endunless %}
-
-      {% endfor %}
-
+    {% if page.categories contains "design" or page.categories contains "event" %}
+      {{ page.date | date: "%Y" }}
+    {% else %}
+      {{ page.date | date_to_long_string }}
     {% endif %}
 
-    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-    {% assign current_index = 0 %}
-
-{% else %}
-    {{ page.date | date_to_long_string }}
-{% endif %}
-
-    {% if page.categories contains "notes" %}
-
-      {% for note in sorted_notes %}
-        {% if note.url == page.url %}
-          {% assign current_index = forloop.index0 %}
-        {% endif %}
-      {% endfor %}
-
-      {% assign prev_index = current_index | minus: 1 %}
-      {% assign next_index = current_index | plus: 1 %}
-
-      <div class="post-navigation">
-        {% if prev_index >= 0 %}
-          {% assign prev_note = sorted_notes[prev_index] %}
-          <a class="prev-post" href="{{ prev_note.url }}">&larr;</a>
-        {% endif %}
-        <!-- <a href="/notes">●</a> -->
-        {% if next_index < sorted_notes.size %}
-          {% assign next_note = sorted_notes[next_index] %}
-          <a class="next-post" href="{{ next_note.url }}">&rarr;</a>
-        {% endif %}
-      </div>
-
+    {% if page.whofor %}
+      <b><span style="color:#cc0000">{{ page.whofor }}</span></b>
     {% endif %}
-
-    <!-- show for which client I've worked for on portfolio piece -->
-    {% unless page.whofor == nil %}
-      <b><span style="color:#cc0000">{{ page.whofor }}</b></span>
-    {% endunless %}
-
   </span>
 </div>
 
-<!-- show actual article -->
 <div class="article-text">
-
-  <!-- show bigger images for portfolio pieces -->
-  {% if page.categories contains "design" %}
-     <div class="biggerimages">
-       {{ content }}
-     </div>
-  <!-- show normal content -->
-  {% else %}
-     {{ content }}
-  {% endif %}
-
+  <div class="{% if page.categories contains 'design' %}biggerimages{% endif %}">
+    {{ content }}
+  </div>
 </div>
 
-
-<!-- show comments-->
-
 {% if page.comments == "enabled" %}
-
 <div id="lisa-discussion-wrap">
     <hr>
     <h1>Comments</h1><br>
-
-    <div id="disqus_privacy_consent" style="margin-bottom: 20px; background: #f9f9f9; border-radius: 5px;">
-        <p style="margin-top: 0;">This post has some old comments. I do need to save a cookie to show them to you, though. Interested?</p>
-        <button id="load_disqus_btn" onclick="loadDisqus()" style="cursor: pointer; padding: 10px 15px; background: #fff; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;">Yes, show me the comments!</button>
+    <div id="disqus_privacy_consent" style="...">
+        <p>This post has some old comments. Interested?</p>
+        <button id="load_disqus_btn" onclick="loadDisqus()">Yes, show me the comments!</button>
     </div>
-
     <div id="disqus_thread"></div>
-
     <script>
         function loadDisqus() {
-            // 1. Hide the privacy message and button
             document.getElementById('disqus_privacy_consent').style.display = 'none';
-
-            // 2. Define the Disqus configuration
             var disqus_config = function () {
                 this.page.url = '{{ page.url | absolute_url }}'; 
                 this.page.identifier = '{{ page.url }}'; 
             };
-
-            // 3. Inject the Disqus script
             (function() {
                 var d = document, s = d.createElement('script');
                 s.src = 'https://lisacharlotterost.disqus.com/embed.js';
@@ -144,143 +50,37 @@ layout: default
             })();
         };
     </script>
-    
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
 </div>
-
 {% endif %}
 
-
-<!-- find out the **last** category in the frontmatter-category-array to display more articles in that category. E.g, if the frontmatter-array is [fav, article, talks], the following code displays a "Other talks" section -->
 {% capture category_name %}{{ page.categories | last }}{% endcapture %}
-
-<!-- display headlines accordingly -->
-{% unless page.categories contains "notes" %}
 <div class="relatedarticles">
-
   <hr>
-
-  {% case category_name %}
-  {% when "article" %}
-    <h1>Most recent articles</h1><br>
-  {% when "talk" %}
-    <h1>Other talks I gave</h1><br>
-  {% when "design" %}
-    <h1>Other projects</h1><br>
-  {% when "event" %}
-    <h1>Other events I organized</h1><br>
-  {% endcase %}
-
-
-  <div class="grid">
-
-    <!-- show only related articles if they're a post (not an impressum or about page) and if it's not the same article that is currently displayed. The following code might be able to simplify with a where_exp expression directly in the 'for post in posts limit:6 ' afterward, but I couldn't get it running. Code is from here: https://github.com/jekyll/jekyll/pull/4478 -->
-    {% assign posts = "" | split: "|" %}
-      {% for item in site.categories[category_name] %}
-        {% if item.layout == 'post' and item.title != page.title %}
-          {% assign posts = posts | push: item %}
-        {% endif %}
-      {% endfor %}
-
-      <!-- show 6 related articles-->
-      {% for post in posts limit:6 %}
-
-      <!-- open external links -->
-      {% capture url_to_use %}{{ post.url }}{% endcapture %}
-      {% if post.external %}
-        {% capture url_to_use %}{{ post.external }}{% endcapture %}
-      {% endif %}
-
-      <!-- display title, image and date for each post -->
-      <a class="thumb" href="{{ post.url }}">
-      <div class="post">
-        <div class="post-image">
-          <img src="{{ post.image }}"/>
-        </div>
-        <div class="post-date">
-
-          <!-- display month & year when blog post or talk. Only display year for design work -->
-          {% if category contains "design" %}
-             {{ post.date | date: "%Y" }}
-          {% else %}
-             {{ post.date | date: "%B %Y" }}
-          {% endif %}
-
-          <!-- show for which client I've worked for -->
-          {% unless post.whofor == nil %}
-            <b><span style="color:#cc0000">{{ post.whofor }}</b></span>
-          {% endunless %}
-
-        </div>
-        <h1 class="post-title">
-            {{ post.title }}
-        </h1>
-        <div class="post-summary">
-            {{ post.summary }}
-        </div>
-      </div></a>
-    {% endfor %}
-</div>
-{% endunless %}
-
-{% if page.categories contains "notes" %}
-
-  <div class="source-on-page">
-    
-    {% assign formatted_source = page.source | downcase | strip %}
-
-    {% case formatted_source %}
-
-      {% when "datawrapper-notion" %}
-        First published on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
-
-      {% when "old-drawings-blog" %}
-        First published on an old drawings blog on Blogger.
-
-      {% when "goodreads" %}
-        First published on <a href="https://www.goodreads.com/user/show/76557418-lisa-muth">Goodreads</a>.
-
-      {% when "datawrapper-book-club" %}
-        First published in a discussion of the <a href="/datavisbookclub">Data Vis Book Club</a>, an initiative by Datawrapper.
-
-      {% when "old-photo-blog" %}
-        First published on an old photos blog on Blogger.
-
-      {% when "the-lisa-project" %}
-        First published on an old Tumblr blog.
-
+  <h1>
+    {% case category_name %}
+      {% when "article" %}Most recent articles
+      {% when "talk" %}Other talks I gave
+      {% when "design" %}Other projects
+      {% when "event" %}Other events I organized
     {% endcase %}
-
+  </h1>
+  <br>
+  <div class="grid">
+    {% assign posts = site.categories[category_name] | where_exp: "item", "item.layout == 'post'" | where_exp: "item", "item.title != page.title" %}
+    {% for post in posts limit:6 %}
+      <a class="thumb" href="{{ post.url }}">
+        <div class="post">
+          <div class="post-image"><img src="{{ post.image }}"/></div>
+          <div class="post-date">
+            {{ post.date | date: "%B %Y" }}
+            {% if post.whofor %}<b><span style="color:#cc0000">{{ post.whofor }}</span></b>{% endif %}
+          </div>
+          <h1 class="post-title">{{ post.title }}</h1>
+          <div class="post-summary">{{ post.summary }}</div>
+        </div>
+      </a>
+    {% endfor %}
   </div>
-
-  {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-  {% assign current_index = 0 %}
-
-  {% for note in sorted_notes %}
-    {% if note.url == page.url %}
-      {% assign current_index = forloop.index0 %}
-    {% endif %}
-  {% endfor %}
-
-  {% assign prev_index = current_index | minus: 1 %}
-  {% assign next_index = current_index | plus: 1 %}
-
-  <div class="post-navigation post-navigation-bottom">
-    {% if prev_index >= 0 %}
-      {% assign prev_note = sorted_notes[prev_index] %}
-      <a class="prev-post" href="{{ prev_note.url }}">&larr;</a>
-    {% endif %}
-    <a href="/notes">●</a>
-    {% if next_index < sorted_notes.size %}
-      {% assign next_note = sorted_notes[next_index] %}
-      <a class="next-post" href="{{ next_note.url }}">&rarr;</a>
-    {% endif %}
-  </div>
-
-{% endif %}
-
-
 </div>
 
 </div>
