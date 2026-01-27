@@ -21,8 +21,17 @@ author:
 
 collections:
   notes:
-    output: true      # this makes them generate pages you can link to
-    permalink: /notes/:title/  # optional, for nicer URLs
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "notes" # This targets everything in your _notes folder
+    values:
+      layout: "note"
+      comments: "disabled"
+      # This creates the /notes/2026/01/25 structure based on the file date
+      permalink: "/notes/:year/:month/:day"
 
 paginate:         5
 
