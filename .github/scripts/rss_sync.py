@@ -196,14 +196,11 @@ def main():
         frontmatter = [
             "---",
             "categories: [notes]",
-            "comments: disabled",
         ]
         if local_images:
             frontmatter.append(f"image: {local_images[0]}")
             
         frontmatter.extend([
-            "layout: post",
-            f"permalink: notes/{date_obj.year}/{date_obj.month:02d}/{date_obj.day:02d}",
             "---",
             ""
         ])
