@@ -284,13 +284,49 @@ body.menu-open {
   .relatedarticles {
     margin-top: 100px;
   }
+
+#lisa-discussion-wrap {
+  // Matches your existing blog container constraints
+  max-width: 640px; 
+  margin-top: 100px;
   
-  #commentsection {
-    max-width: 640px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    display: none;
+  #disqus_privacy_consent {
+    margin-bottom: 40px;
+    padding: 20px 0;
+    
+    p {
+      font-size: $sans-tiny;
+      line-height: $sans-tiny-lh;
+      color: $toneddown;
+      margin-bottom: 15px;
+      width: 100%; // Matches your blogcontainer logic
+    }
   }
+
+  #load_disqus_btn {
+    appearance: none;
+    background-color: transparent;
+    padding: 20px;
+    border: 1px solid $toneddown;
+    cursor: pointer;
+    
+    // Typography matching your Sidebar/Load-More style
+    font-family: $titlefont;
+    font-size: 0.7rem;
+    font-weight: $fw-medium;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $highlight;
+    
+    transition: font-weight 0.2s ease;
+
+    &:hover {
+      font-weight: $fw-thick;
+      border: 0px;
+      box-shadow: 0px 0px 80px grey;
+    }
+  }
+}
   
   blockquote {
     background-color: white;
