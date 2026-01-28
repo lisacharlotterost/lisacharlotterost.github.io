@@ -1,28 +1,34 @@
 ---
+layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss-style.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lisa Charlotte Muth – Blog</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>    
+    <description>{% if site.description %}{{ site.description }}{% endif %}</description>    
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/atom.xml" rel="self" type="application/rss+xml" />
+    
     {% for post in site.posts limit:10 %}
       <item>
-        <title>{{ post.title }}</title>
-        <description>
-          {% if post.external %}
-            &lt;p style="background-color: #f0f0f0; padding: 15px; border-left: 4px solid #0066cc; margin: 20px 0;"&gt;
-              &lt;strong&gt;📝 This blog post lives somewhere else&lt;/strong&gt;&lt;br/&gt;
-              I posted this article somewhere else (most likely on the Datawrapper blog), that's why you don't see anything here in your RSS reader. &lt;a href="{{ post.external }}"&gt;Read this article here.&lt;/a&gt;
-            &lt;/p&gt;
-          {% else %}
-            {{ content | xml_escape }}
-          {% endif %}
-        </description>
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <title>{{ post.title | xml_escape }}</title>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y" }}</pubDate>
         <link>{% if post.external %}{{ post.external }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        <guid isPermaLink="true">{% if post.external %}{{ post.external }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</guid>
+        
+       <description><![CDATA[
+      {% if post.external %}
+        <div style="background-color: #fff; padding: 20px; border: 2px solid #cc0000; margin: 20px 0; font-family: sans-serif;">
+          <strong style="display: block; margin-bottom: 10px;">📝 This blog post lives somewhere else</strong>
+          <p>I posted this article elsewhere (most likely on the Datawrapper blog), which is why you don't see the full content here.</p>
+          <a href="{{ post.external }}">Read the full article on the original site &#8594;</a>
+        </div>
+        {% if post.summary %}<p>{{ post.summary }}</p>{% endif %}
+      {% else %}
+        {{ post.content }}
+      {% endif %}
+    ]]></description>
       </item>
     {% endfor %}
   </channel>
