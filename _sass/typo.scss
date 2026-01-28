@@ -122,24 +122,17 @@ a {
 
   .rss-link {
     display: inline-flex;
-    align-items: center;
     text-decoration: none;
-    
-    &:hover {
-      .rss-icon {
-        // Optional: match the hover weight change if you like
-        stroke-width: 3; 
-      }
-    }
+    gap: 3px;       
+    line-height: 1; 
   }
 
   .rss-icon {
-    width: 12px;  /* Matches your hamburger icon width */
+    width: 12px;  
     height: 12px;
-    margin-left: 5px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: stroke-width 0.2s ease;
+    display: block; 
+    position: relative;
+    top: -1px; 
   }
 }
 
