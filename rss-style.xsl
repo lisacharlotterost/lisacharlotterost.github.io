@@ -53,12 +53,23 @@
       </head>
       <body>
         <div class="header">
-      <h1>RSS feed<br/>for Lisa's articles, projects, talks, etc.</h1>
-      
-      <div class="alert">
-        <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest articles, projects, and talks will appear directly in your reader.<br/><br/>Thanks for adding this feed!
-      </div>
-    </div>
+          <xsl:choose>
+            <xsl:when test="contains(rss/channel/title, 'Notes')">
+              <h1>RSS feed for Lisa's notes</h1>
+              <div class="alert">
+                <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest notes will appear directly in your reader.<br/>Thanks for adding this feed!
+              </div>
+            </xsl:when>
+            
+            <xsl:otherwise>
+              <h1>RSS feed for Lisa's articles, projects, talks, etc.</h1>
+              <div class="alert">
+                <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest articles, projects, and talks will appear directly in your reader.<br/>Thanks for adding this feed!
+              </div>
+            </xsl:otherwise>
+          </xsl:choose>
+          <p>Here are the latest posts:</p>
+        </div>
         <xsl:for-each select="rss/channel/item">
           <div class="item">
             <span class="date"><xsl:value-of select="pubDate"/></span>

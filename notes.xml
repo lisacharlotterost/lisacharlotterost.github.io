@@ -1,20 +1,24 @@
 ---
+layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss-style.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lisa Charlotte Muth – Notes</title>
     <description>Lisa's notes: (Sometimes daily) little thoughts.</description> 
-    <link>{{ site.url }}{{ site.baseurl }}/notes</link>
-    <atom:link href="{{ site.url }}{{ site.baseurl }}/notes.xml" rel="self" type="application/rss+xml" />
+    <link>{{ site.url }}/notes</link>
+    <atom:link href="{{ site.url }}/notes.xml" rel="self" type="application/rss+xml" />
+    
     {% assign sorted_notes = site.notes | sort: 'date' | reverse %}
-    {% for note in sorted_notes %}
+    {% for note in sorted_notes limit:20 %}
       <item>
         <title>{{ note.date | date: "%B %d, %Y" }}</title>
-        <description>{{ note.content | xml_escape }}</description>
-        <pubDate>{{ note.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
         <link>{{ site.url }}{{ note.url }}</link>
         <guid isPermaLink="true">{{ site.url }}{{ note.url }}</guid>
+        <description><![CDATA[
+          {{ note.content }}
+        ]]></description>
       </item>
     {% endfor %}
   </channel>
