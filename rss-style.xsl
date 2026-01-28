@@ -8,7 +8,7 @@
         <meta charset="utf-8" />
         <style type="text/css">
           body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: "inter", sans-serif;
             background: #fff;
             color: #000;
             line-height: 1.6;
@@ -21,10 +21,17 @@
             margin-bottom: 50px;
           }
           h1 { 
-            font-size: 1.2rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
+            font-size: 2rem; 
+            line-height: 3rem;
+            font-weight: 500;
             margin: 0 0 10px 0;
+          }
+          hr {
+            border: 0;
+            height: 2px;
+            width: 100px;
+            margin-left: 0;
+            background: #000;
           }
           .alert {
             background: #f9f9f9;
@@ -34,9 +41,9 @@
             margin-bottom: 20px;
           }
           .item { margin-bottom: 60px; }
-          .item h2 { margin: 0; font-size: 1.5rem; }
-          .item h2 a { color: #000; text-decoration: none; }
-          .item h2 a:hover { color: #cc0000; }
+          .item h1 { margin: 0; font-size: 1.5rem; }
+          .item h1 a { color: #000; text-decoration: none; }
+          .item h1 a:hover { color: #cc0000; }
           .date { 
             font-size: 0.8rem; 
             color: #808080; 
@@ -53,9 +60,11 @@
       </head>
       <body>
         <div class="header">
+          <hr/>
           <xsl:choose>
             <xsl:when test="contains(rss/channel/title, 'Notes')">
               <h1>RSS feed for Lisa's notes</h1>
+              <small><p><a href="/">Back to the home page</a> | <a href="/feed.xml">RSS feed for Lisa's articles etc.</a></p></small>
               <div class="alert">
                 <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest notes will appear directly in your reader.<br/>Thanks for adding this feed!
               </div>
@@ -63,6 +72,7 @@
             
             <xsl:otherwise>
               <h1>RSS feed for Lisa's articles, projects, talks, etc.</h1>
+              <small><p><a href="/">Back to the home page</a> | <a href="/notes.xml">RSS feed for Lisa's notes</a></p></small>
               <div class="alert">
                 <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest articles, projects, and talks will appear directly in your reader.<br/>Thanks for adding this feed!
               </div>
@@ -73,7 +83,8 @@
         <xsl:for-each select="rss/channel/item">
           <div class="item">
             <span class="date"><xsl:value-of select="pubDate"/></span>
-            <h2><a href="{link}"><xsl:value-of select="title"/></a></h2>
+            <hr/>
+            <h1><a href="{link}"><xsl:value-of select="title"/></a></h1>
             <div class="content">
               <xsl:value-of select="description" disable-output-escaping="yes" />
             </div>
