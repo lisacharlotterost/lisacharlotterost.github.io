@@ -51,6 +51,23 @@ h2 {
   }
 }
 
+.intro h2 a {
+  // This targets the specific link that contains the image
+  &:has(img) {
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: none; // Keeps border off on hover too
+      
+      img {
+        // Applies your thumb shadow effect
+        filter: drop-shadow(0px 0px 50px grey);
+        transition: filter 0.2s ease;
+      }
+    }
+  }
+}
+
 .intro-highlight {
   color: $highlight;
   a {
@@ -91,6 +108,7 @@ a {
   letter-spacing: 2px;
   line-height: 1.2rem;
   text-decoration: none;
+  text-transform: uppercase;
 
   a {
     color: $toneddown;
@@ -100,6 +118,28 @@ a {
   a:hover {
     color: $highlight;
     text-decoration: none;
+  }
+
+  .rss-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    
+    &:hover {
+      .rss-icon {
+        // Optional: match the hover weight change if you like
+        stroke-width: 3; 
+      }
+    }
+  }
+
+  .rss-icon {
+    width: 12px;  /* Matches your hamburger icon width */
+    height: 12px;
+    margin-left: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: stroke-width 0.2s ease;
   }
 }
 
