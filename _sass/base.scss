@@ -268,12 +268,12 @@ body.menu-open {
     width: 80%;
   }
   
-  img, .embed-120 {
+  img, video, .embed-120 {
     width: 100%;
     margin: 10px 0;
   }
 
-  .biggerimages img {
+  .biggerimages img, video {
     width: 100%;
   }
   
@@ -358,9 +358,19 @@ body.menu-open {
       max-width: 900px;
     }
 
+    video {
+      width: 100%;
+      max-width: 768px;
+    }
+
     .biggerimages img {
       width: 130%;
       max-width: 900px;
+    }
+
+    .biggerimages video {
+      width: 100%;
+      max-width: 768px;
     }
     
     blockquote {
@@ -516,7 +526,7 @@ a.thumb {
   margin-bottom: 10px;
 }
 
-.post-image img {
+.post-image img, video {
   max-width: 100%;
 }
 
@@ -581,6 +591,7 @@ a:hover.thumb .notes-image {
     display: block; 
   }
 }
+
 
 ////////////// LOAD MORE BUTTON //////////////////
 
