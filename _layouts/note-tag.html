@@ -80,9 +80,8 @@ layout: default
                     {% assign image_count = note.content | split:"<img" | size | minus:1 %}
 
                     {% if note.tags and note.tags.size > 0 %}
-                      <span class="note-tags">
-                        {% assign first_tag_slug = note.tags | first | slugify %}
-                        {{ note.tags | first }} | 
+                      <span class="note-tags" style="text-transform: capitalize;">
+                        {{ note.tags | first | replace: "-", " " }} | 
                       </span>
                     {% endif %}
 

@@ -14,42 +14,51 @@ layout: default
       {% endif %}
     </h1>
     
-    <span class="article-date">
-      {% if page.tags contains "Books" %}{{ page.date | date: "%B %d, %Y" }} | {% endif %} 
-      
-      {% capture existing_tag_pages %}
-        {% for p in site.pages %}{% if p.target_tag %}|{{ p.target_tag | slugify }}|{% endif %}{% endfor %}
-      {% endcapture %}
+<span class="article-date">
+  {% if page.tags contains "Books" %}
+    {{ page.date | date: "%B %d, %Y" }} | 
+  {% endif %} 
+  
+  {% capture existing_tag_pages %}
+    {% for p in site.pages %}{% if p.target_tag %}|{{ p.target_tag | slugify }}|{% endif %}{% endfor %}
+  {% endcapture %}
 
-      {% for tag in page.tags %}
-        {% assign tag_slug = tag | slugify %}
-        {% assign check_string = "|" | append: tag_slug | append: "|" %}
-        {% if existing_tag_pages contains check_string %}
-          <a href="/notes/{{ tag_slug }}/">{{ tag }}</a>
-        {% else %}
-          {{ tag }}
-        {% endif %}
-        {% unless forloop.last %}<span style="color:#808080">|</span> {% endunless %}
-      {% endfor %}
-
-      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-      {% for note in sorted_notes %}
-        {% if note.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}
-      {% endfor %}
-
-      {% assign prev_index = current_index | minus: 1 %}
-      {% assign next_index = current_index | plus: 1 %}
-
-      <div class="post-navigation">
-        {% if prev_index >= 0 %}
-          <a class="prev-post" href="{{ sorted_notes[prev_index].url }}">&larr;</a>
-        {% endif %}
-        {% if next_index < sorted_notes.size %}
-          <a class="next-post" href="{{ sorted_notes[next_index].url }}">&rarr;</a>
-        {% endif %}
-      </div>
+  {% for tag in page.tags %}
+    {% assign tag_slug = tag | slugify %}
+    {% assign check_string = "|" | append: tag_slug | append: "|" %}
+    
+    <span style="text-transform: capitalize;">
+      {% if existing_tag_pages contains check_string %}
+        <a href="/notes/{{ tag_slug }}/">{{ tag | replace: "-", " " }}</a>
+      {% else %}
+        {{ tag | replace: "-", " " }}
+      {% endif %}
     </span>
+
+    {% unless forloop.last %}
+      <span style="color:#808080"> | </span> 
+    {% endunless %}
+  {% endfor %}
+
+  {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+  {% for note in sorted_notes %}
+    {% if note.url == page.url %}
+      {% assign current_index = forloop.index0 %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign prev_index = current_index | minus: 1 %}
+  {% assign next_index = current_index | plus: 1 %}
+
+  <div class="post-navigation">
+    {% if prev_index >= 0 %}
+      <a class="prev-post" href="{{ sorted_notes[prev_index].url }}">&larr;</a>
+    {% endif %}
+    {% if next_index < sorted_notes.size %}
+      <a class="next-post" href="{{ sorted_notes[next_index].url }}">&rarr;</a>
+    {% endif %}
   </div>
+</span>
 
   <div class="article-text">
     {{ content }}
