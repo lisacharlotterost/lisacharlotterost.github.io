@@ -139,8 +139,11 @@ title: Home
               <div class="post">
     
                  <div class="notes-image no-top">
-                  <img src="{{ note.image }}" />
-                </div>
+                    {% if note.image %}
+                      {% assign thumb_url = note.image | replace: '/pic/', '/pic/thumbs/' %}
+                      <img src="{{ thumb_url }}" loading="lazy" />
+                    {% endif %}
+                  </div>
     
                 <div class="post-date">
     
@@ -219,20 +222,19 @@ function generatePastelColor(str) {
 document.querySelectorAll('.notes-image').forEach(function(el) {
   const img = el.querySelector('img');
   const postElement = el.closest('.post');
-  
-  // Get the title for the hash - added optional chaining for safety
   const titleEl = postElement?.querySelector('.post-date b span');
   const noteTitle = titleEl ? titleEl.textContent : "default";
 
-  // CONDITION: Trigger if image is missing, is the placeholder 'cover.png', or fails to load
-  const isPlaceholder = img && img.getAttribute('src').includes('cover.png');
-  const isMissing = !img;
-
-  if (isPlaceholder || isMissing) {
+  if (!img || img.getAttribute('src').includes('cover.png')) {
     applyPastelStyle(el, img, noteTitle);
-  } else if (img) {
-    // Catch cases where the image path might be broken
-    img.onerror = () => applyPastelStyle(el, img, noteTitle);
+  } else {
+    if (img.complete && img.naturalWidth === 0) {
+      applyPastelStyle(el, img, noteTitle);
+    } else {
+      img.onerror = function() {
+        applyPastelStyle(el, img, noteTitle);
+      };
+    }
   }
 });
 
@@ -261,4 +263,5 @@ function applyPastelStyle(container, image, title) {
   }
 }
 </script>
+
 
