@@ -273,6 +273,13 @@ body.menu-open {
     margin: 10px 0;
   }
 
+  img.inline-icon {
+    width: 15px;
+    margin: 0;
+    display: inline;
+    vertical-align: middle;
+  }
+
   .biggerimages img, video {
     width: 100%;
   }

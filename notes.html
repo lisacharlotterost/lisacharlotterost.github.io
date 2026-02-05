@@ -62,11 +62,16 @@ description: Unpolished text, blurry photos, quick drawings.
             {% assign word_count = clean_content | number_of_words %}
             {% assign image_count = note.content | split:"<img" | size | minus:1 %}
 
-            {% if note.tags and note.tags.size > 0 %}
-              <span class="note-tags">
-              {{ note.tags | first }} | 
-            </span>
-            {% endif %}
+            {% assign formatted_source = note.source | downcase | strip %}
+            {% case formatted_source %}
+              {% when "datawrapper-notion" %}<img src="/pic/icons/rgb.svg"class="inline-icon"> |
+              {% when "old-drawings-blog" %}<img src="/pic/icons/pencil.svg"class="inline-icon"> |
+              {% when "goodreads" %}<img src="/pic/icons/book.svg"class="inline-icon"> |
+              {% when "datawrapper-book-club" %}<img src="/pic/icons/book.svg"class="inline-icon"> |
+              {% when "old-photo-blog" %}<img src="/pic/icons/camera.svg"class="inline-icon"> |
+              {% when "twitter" %}<img src="/pic/icons/twitter-icon.svg" class="inline-icon"> |
+              {% when "the-lisa-project" %}TUMBLR
+            {% endcase %}
 
             {% if word_count > 0 %}
               {{ word_count }}
