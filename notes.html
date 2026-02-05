@@ -96,44 +96,60 @@ description: Unpolished text, blurry photos, quick drawings.
 
 <script>
 function generatePastelColor(str) {
-  // Create a hash from the string
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
   
-  // Generate brighter pastel colors using OKLCH
   const hue = Math.abs(hash % 360);
-  const chroma = 0.05 + (Math.abs(hash >> 4) % 25) / 1000; // 0.08-0.105 (moderate chroma for pastels)
-  const lightness = 0.95 + (Math.abs(hash >> 16) % 5) / 100; // 0.90-0.94 (90-94%)
+  const chroma = 0.05 + (Math.abs(hash >> 4) % 25) / 1000; 
+  const lightness = 0.92 + (Math.abs(hash >> 16) % 5) / 100; 
   
   return `oklch(${lightness} ${chroma} ${hue})`;
 }
 
-// Apply colors to notes without images
 document.querySelectorAll('.notes-image').forEach(function(el) {
   const img = el.querySelector('img');
-  if (img && img.src.includes('cover.png')) {
-    const noteTitle = el.closest('.post').querySelector('.post-date b span').textContent;
-    const baseColor = generatePastelColor(noteTitle);
-    el.style.backgroundColor = baseColor;
-    img.style.display = 'none';
-    
-    // Add subtle hue cycling animation
-    const match = baseColor.match(/oklch\([^)]+\s+([0-9.]+)\s+(\d+)\)/);
-    const baseHue = match ? parseInt(match[2]) : 0;
-    
-    el.style.animation = `hue-cycle-${baseHue} 8s ease-in-out infinite`;
-    
-    // Create unique keyframe animation for this hue
+  const postElement = el.closest('.post');
+  
+  // Get the title for the hash - added optional chaining for safety
+  const titleEl = postElement?.querySelector('.post-date b span');
+  const noteTitle = titleEl ? titleEl.textContent : "default";
+
+  // CONDITION: Trigger if image is missing, is the placeholder 'cover.png', or fails to load
+  const isPlaceholder = img && img.getAttribute('src').includes('cover.png');
+  const isMissing = !img;
+
+  if (isPlaceholder || isMissing) {
+    applyPastelStyle(el, img, noteTitle);
+  } else if (img) {
+    // Catch cases where the image path might be broken
+    img.onerror = () => applyPastelStyle(el, img, noteTitle);
+  }
+});
+
+function applyPastelStyle(container, image, title) {
+  const baseColor = generatePastelColor(title);
+  container.style.backgroundColor = baseColor;
+  
+  if (image) image.style.display = 'none';
+
+  // Extract hue for the animation ID
+  const match = baseColor.match(/(\d+(\.\d+)?)\)$/);
+  const baseHue = match ? parseFloat(match[1]) : 0;
+
+  container.style.animation = `hue-cycle-${Math.floor(baseHue)} 8s ease-in-out infinite`;
+
+  if (!document.getElementById(`style-${Math.floor(baseHue)}`)) {
     const style = document.createElement('style');
+    style.id = `style-${Math.floor(baseHue)}`;
     style.textContent = `
-      @keyframes hue-cycle-${baseHue} {
+      @keyframes hue-cycle-${Math.floor(baseHue)} {
         0%, 100% { filter: hue-rotate(0deg); }
-        50% { filter: hue-rotate(180deg); }
+        50% { filter: hue-rotate(20deg); } 
       }
     `;
     document.head.appendChild(style);
   }
-});
+}
 </script>
