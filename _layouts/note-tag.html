@@ -21,6 +21,11 @@ layout: default
         &rarr; <a href="/notes.html">ALL NOTES</a>
       </div>
 
+      <!-- put a little intro text below the tag title -->
+      <div class="article-text">
+        <p>{{ page.description }} </p>
+      </div>
+
     </div>
 
     <div class="grid">
@@ -30,33 +35,48 @@ layout: default
       {% assign target_slug = page.target_tag | slugify %}
 
       {% for note in sorted_notes %}
-        
-        {% assign match_found = false %}
+  
+  {% assign match_found = false %}
 
-        {% for tag in note.tags %}
-          {% assign tag_slug = tag | slugify %}
-          {% if tag_slug == target_slug %}
-            {% assign match_found = true %}
-          {% endif %}
-        {% endfor %}
+  {% for tag in note.tags %}
+    {% assign tag_slug = tag | slugify %}
+    {% if tag_slug == target_slug %}
+      {% assign match_found = true %}
+    {% endif %}
+  {% endfor %}
 
-        {% if match_found %}
-        
-          {% unless note.layout == 'withoutdate' %}
+  {% if match_found %}
+      
+    {% assign show_note = false %}
 
-            <a class="thumb" href="{{ note.url }}">
-              <div class="post">
+    {% if page.filter_creator %}
+      {% if note.created_by contains page.filter_creator %}
+        {% assign show_note = true %}
+      {% endif %}
+    {% else %}
+      {% assign show_note = true %}
+    {% endif %}
+    
+    {% if show_note %}
+      {% unless note.layout == 'withoutdate' %}
 
-              {% if page.title contains "Books" %}
-                <div class="notes-image" style="padding-top: 100% !important;">
-                  <img src="{{ note.image }}" alt="Cover image for note {{ note.date | date: "%B %d, %Y" }}" />
-                </div>
-              {% else %}
-                <div class="notes-image">
-                  <img src="{{ note.image }}" alt="Cover image for note {{ note.date | date: "%B %d, %Y" }}" />
-                </div>
+        <a class="thumb" href="{{ note.url }}">
+          <div class="post">
+          {% if page.title contains "Books" %}
+            <div class="notes-image" style="padding-top: 100% !important;">
+              {% if note.image %}
+                {% assign thumb_url = note.image | replace: '/pic/', '/pic/thumbs/' %}
+                <img src="{{ thumb_url }}" loading="lazy" />
               {% endif %}
-
+            </div>
+          {% else %}
+          <div class="notes-image">
+            {% if note.image %}
+                {% assign thumb_url = note.image | replace: '/pic/', '/pic/thumbs/' %}
+                <img src="{{ thumb_url }}" loading="lazy" />
+              {% endif %}
+            </div>
+          {% endif %}
 
                 <div class="post-date">
 
@@ -97,12 +117,15 @@ layout: default
                       {% if image_count == 1 %}image{% else %}images{% endif %}
                     {% endif %}
                   {% endif %}
-                </div>
-              </div>
-            </a>
-          {% endunless %}
-          
-        {% endif %} {% endfor %}
+             </div>
+          </div>
+        </a>
+        
+      {% endunless %}
+    {% endif %}
+    
+  {% endif %}
+{% endfor %}
 
     </div>
   </div>
@@ -166,3 +189,4 @@ function applyPastelStyle(container, image, title) {
   }
 }
 </script>
+
