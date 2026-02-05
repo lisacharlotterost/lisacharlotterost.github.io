@@ -2,9 +2,12 @@ name: Sync RSS to Jekyll
 
 on:
   schedule:
-    # Run every 6 hours
     - cron: '0 */6 * * *'
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
+
+# Added permissions to allow the bot to commit files
+permissions:
+  contents: write
 
 jobs:
   sync:
@@ -21,7 +24,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        pip install feedparser requests pyyaml
+        pip install requests Pillow
         
     - name: Sync RSS to Jekyll
       run: python .github/scripts/rss_sync.py
@@ -36,6 +39,6 @@ jobs:
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "Sync posts from RSS feed [skip ci]"
+          git commit -m "Sync posts and generate thumbs [skip ci]"
           git push
         fi
