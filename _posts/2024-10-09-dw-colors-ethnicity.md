@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/colors-for-race-ethnicity-world-region
 summary: "...so that all readers feel respected."
 whofor: on Datawrapper ↗
 categories: [article]
+tags: [Data Vis Article, Color, Datawrapper]
+created_by: me
 comments: disabled
 ---

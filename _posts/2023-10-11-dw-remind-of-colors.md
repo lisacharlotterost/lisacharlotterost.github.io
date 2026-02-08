@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/text-in-data-visualizations
 summary: "How to remind your readers which colors mean what in your data visualization."
 whofor: on Datawrapper ↗
 categories: [article]
+tags: [Data Vis Article, Color, Datawrapper]
+created_by: me
 comments: disabled
 ---

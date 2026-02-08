@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/span-chart-range-value-overlays-in-col
 summary: '"Wait, that chart above is a column chart?" I hear you asking. Yes – and no.'
 whofor: on Datawrapper ↗
 categories: [design]
+tags: [Data Vis, Datawrapper]
+created_by: me
 comments: disabled
 ---

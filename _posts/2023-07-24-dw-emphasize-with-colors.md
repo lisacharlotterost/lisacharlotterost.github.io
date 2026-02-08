@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/emphasize-with-color-in-data-visualiza
 summary: "Use colors to decide which information readers should see first, second, third, or last."
 whofor: on Datawrapper ↗
 categories: [article]
+tags: [Data Vis Article, Color, Datawrapper]
+created_by: me
 comments: disabled
 ---

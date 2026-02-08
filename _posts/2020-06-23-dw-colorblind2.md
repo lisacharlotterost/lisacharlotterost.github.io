@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/colorblindness-part2/
 summary: "Everything you can use to make your charts and maps decipherable for colorblind readers."
 whofor: on Datawrapper ↗
 categories: [article]
+tags: [Data Vis Article, Color, Datawrapper]
+created_by: me
 comments: disabled
 ---

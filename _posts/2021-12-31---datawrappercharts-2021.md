@@ -4,6 +4,8 @@ title: Datawrapper visualizations I created in 2021
 image: /pic/211231_datawrappercharts.png
 categories: []
 whofor: for Datawrapper
+tags: [Data Vis, Datawrapper]
+created_by: me
 summary: "What I visualized for Datawrapper in 2021."
 comments: disabled
 ---

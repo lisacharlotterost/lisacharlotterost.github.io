@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/bivariate-map-scatter-plot
 summary: "Solving a color riddle."
 whofor: on Datawrapper ↗
 categories: [design]
+tags: [Data Vis]
+created_by: mş
 comments: disabled
 ---

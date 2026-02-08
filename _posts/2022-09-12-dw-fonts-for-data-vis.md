@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/fonts-for-data-visualization/
 summary: "Sans-serif or serif typefaces? Lining or oldstyle figures? Here's which fonts and customizations work best for your charts & tables."
 whofor: on Datawrapper ↗
 categories: [article]
+tags: [Data Vis Article]
+created_by: me
 comments: disabled
 ---

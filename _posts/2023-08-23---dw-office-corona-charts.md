@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/how-we-slowly-return-to-the-office
 summary: "Remote? Hybrid? On-site? These charts show."
 whofor: on Datawrapper ↗
 categories: [design]
+tags: [Data Vis]
+created_by: me
 comments: disabled
 ---

@@ -6,5 +6,7 @@ external: https://www.datawrapper.de/blog/interpolation-for-color-scales-and-map
 summary: "How to assign each of your data values to a certain color."
 whofor: on Datawrapper ↗
 categories: [fav, article]
+tags: [Data Vis Article]
+created_by: me
 comments: disabled
 ---

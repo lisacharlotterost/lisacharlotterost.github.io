@@ -3,6 +3,8 @@ layout: post
 title: Datawrapper visualizations I created in 2024
 image: /pic/241231-Datawrapper-charts-2024d.png
 categories: [design]
+tags: [Data Vis]
+created_by: me
 whofor: for Datawrapper
 summary: "Nuclear power, English proficiency, and the height of men: What I visualized for Datawrapper in 2024."
 comments: disabled

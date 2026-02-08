@@ -6,6 +6,8 @@ image: /pic/201120_S-H-O-W-talk-f2.png
 categories: [article, talk]
 summary: Which kind of data vis rules I like, and how the theory of art can explain why rules contradict each other.
 permalink: datavisrules
+tags: [Data Vis Article]
+created_by: me
 comments: disabled
 ---
 
@@ -283,7 +285,7 @@ In this way, this [raincloud plot](https://micahallen.org/2018/03/15/introducing
 
 When thinking about imitationalist data visualization, it's important to think about the difference between **analysis and communication**. A raincloud plot in the analysis phase of a data visualization project is an *instrumental* choice: You're trying to find something out, and maybe this raincloud plot will help you. But communicating your data like this, I'd say, comes with an *imitationalist* motivation: You're trying to be as truthful to the data as possible, even if that means that it becomes unreadable for some.
 
-### Institutionalism 
+### Institutionalism
 
 The last theory of art I want to talk about is "Institutionalism". This is a banana: 
 

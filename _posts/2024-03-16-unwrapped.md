@@ -6,6 +6,8 @@ categories: [fav, event]
 image: /pic/speakers/unwrapped-header.png
 summary: "3 days, 33 speakers, 1400 sign-ups: The first conference I organized."
 permalink: unwrapped
+tags: [Data Vis conference]
+created_by: me
 comments: disabled
 ---
 
