@@ -4,7 +4,6 @@ Syncs Tumblr posts to Jekyll and generates 600px thumbnails.
 Requires: pip install requests Pillow
 """
 
-os, re, requests, xml.etree.ElementTree as ET, Path, urlparse, parsedate_to_datetime from imports...
 import os
 import re
 import requests
