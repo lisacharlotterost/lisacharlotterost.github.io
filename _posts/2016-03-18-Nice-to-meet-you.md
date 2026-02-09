@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Nice to Meet You, Information Theory
-tag: books,
 categories: [article]
 image: /pic/160318_smalltalk-f.png
 summary: "American small talk is a perfect example for the definition of Information in Information Theory & for data compression."
