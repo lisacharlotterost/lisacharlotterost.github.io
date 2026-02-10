@@ -6,7 +6,7 @@ external: https://www.datawrapper.de/blog/beautifulcolors/
 summary: "Common color mistakes and how to avoid them"
 whofor: on Datawrapper ↗
 categories: [fav, article]
-tags: [Data Vis Article, Color, Datawrapper]
+tags: [Data Vis Theory, Color, Datawrapper]
 created_by: me
 comments: disabled
 ---

@@ -6,7 +6,7 @@ external: https://www.datawrapper.de/blog/colorblindness-part3/
 summary: "Experiences from ten colorblind people & three in-depth interviews with two cartographers and one Datawrapper CEO."
 whofor: on Datawrapper ↗
 categories: [article]
-tags: [Data Vis Article, Color, Datawrapper]
+tags: [Data Vis Theory, Color, Datawrapper]
 created_by: me
 comments: disabled
 ---
