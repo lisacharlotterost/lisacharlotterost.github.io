@@ -36,6 +36,28 @@ def save_synced_post(guid):
     with TRACK_FILE.open('a') as f:
         f.write(f"{guid}\n")
 
+def extract_hashtags(text):
+    """
+    Finds lines starting with hashtags, extracts the tags, 
+    and returns the cleaned text (without the hashtag lines) and the list of tags.
+    """
+    tags = []
+    lines = text.split('\n')
+    remaining_lines = []
+
+    for line in lines:
+        stripped = line.strip()
+        # Look for lines starting with # (but not markdown headers like # Title)
+        if stripped.startswith('#') and not re.match(r'^#\s', stripped):
+            # Find all hashtags in this line: #word or #multi word string
+            # This regex looks for # followed by text until the next # or end of line
+            found = re.findall(r'#([^#\n]+)', stripped)
+            tags.extend([t.strip() for t in found if t.strip()])
+        else:
+            remaining_lines.append(line)
+            
+    return "\n".join(remaining_lines).strip(), tags
+
 def clean_html(html_text):
     if not html_text: return ""
     text = re.sub(r'<b>(.*?)</b>', r'**\1**', html_text)
@@ -143,8 +165,6 @@ def main():
 
     synced_posts = load_synced_posts()
     new_posts = 0
-    
-    # Process the 10 most recent items from the feed
     items_to_process = items[:10]
     
     for item in reversed(items_to_process):
@@ -163,9 +183,12 @@ def main():
         except: continue
 
         images = extract_images(description)
-        content = clean_html(description)
+        raw_content = clean_html(description)
+        
+        # NEW: Process hashtags
+        content, extracted_tags = extract_hashtags(raw_content)
+        
         post_id = guid.split('/')[-1]
-
         local_images = []
         for img_url in images:
             local_images.append(download_image(img_url, post_id))
@@ -173,7 +196,15 @@ def main():
         filename = f"{date_str}-notes.md"
         filepath = POSTS_DIR / filename
         
+        # Build Front Matter
         frontmatter = ["---", "categories: [notes]"]
+        
+        # Add extracted tags if they exist
+        if extracted_tags:
+            # Format as YAML list: tags: [tag1, tag2]
+            tag_string = ", ".join(extracted_tags)
+            frontmatter.append(f"tags: [{tag_string}]")
+            
         if local_images:
             frontmatter.append(f"image: {local_images[0]}")
         frontmatter.extend(["---", ""])
