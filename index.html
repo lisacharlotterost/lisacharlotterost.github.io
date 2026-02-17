@@ -115,7 +115,7 @@ title: Home
         <a name="notes" class="anchor"></a>
         <h2>Recent notes</h2>
         <div class="sidebar-text">
-           <a href="/everything.xml">RSS</a>
+           &rarr; <a href="/notes.html">SEE MORE NOTES</a> | <a href="/everything.xml">RSS</a>
         </div>
     
         <div class="blogcontainer article-text">
@@ -123,74 +123,153 @@ title: Home
         </div>
       </div>
     
+
+
       <div class="grid">
-        {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+
+    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
         {% assign note_count = 0 %}
         
-        {% for note in sorted_notes %}
+        {% for thing in sorted_notes %}
           {% unless note.layout == 'withoutdate' %}
-          
-            {% assign note_count = note_count | plus: 1 %}
-            {% if note_count > 9 %}{% break %}{% endif %}
-    
-            {% capture url_to_use %}{{ note.url }}{% endcapture %}
-    
-            <a class="thumb responsive-hide-{{ note_count }}" href="{{ note.url }}">
-              <div class="post">
-    
-                 <div class="notes-image no-top">
-                    {% if note.image %}
-                      {% assign thumb_url = note.image | replace: '/pic/', '/pic/thumbs/' %}
-                      <img src="{{ thumb_url }}" loading="lazy" />
-                    {% endif %}
-                  </div>
-    
-                <div class="post-date">
-    
-                  <b><span style="color:#cc0000">{{ note.date | date: "%B %d, %Y" }}</span></b><br>
-    
-                  {% if note.categories contains "fav" %}
-                    ✦
-                  {% endif %}
-    
-                  {% unless note.whofor == nil %}
-                    <b><span style="color:#000">{{ note.whofor }}</span></b>
-                  {% endunless %}
-    
-                  {% assign clean_content = note.content | strip_html %}
-                  {% assign word_count = clean_content | number_of_words %}
-                  {% assign image_count = note.content | split:"<img" | size | minus:1 %}
-    
-                   {% if note.tags and note.tags.size > 0 %}
-                    <span class="note-tags">
-                    {{ note.tags | first }} | 
-                  </span>
-                  {% endif %}
-    
-                  {% if word_count > 0 %}
-                    {{ word_count }}
-                    {% if word_count == 1 %}
-                      word{% if image_count > 0 %}, {% endif %}
-                    {% else %}
-                      words{% if image_count > 0 %}, {% endif %}
-                    {% endif %}
-                  {% endif %}
-    
-                  {% if image_count > 0 %}
-                    {{ image_count }}
-                    {% if image_count == 1 %}image{% else %}images{% endif %}
-                  {% endif %}
-    
-                </div>
-    
-            </div></a>
-    
-          {% endunless %}
-        {% endfor %}
+              
+          {% assign note_count = note_count | plus: 1 %}
+          {% if note_count > 3 %}{% break %}{% endif %}
+
+          {% capture url_to_use %}{{ thing.url }}{% endcapture %}
+
+      <!-- Determine topic from tags -->
+      {% assign topic_classes = '' %}
+        {% if thing.tags %}
+          {% for tag in thing.tags %}
+            {% assign tag_normalized = tag
+              | downcase
+              | replace: "'s", "s"
+              | replace: "'", ""
+              | slugify
+            %}
+            {% if topic_classes != '' %}
+              {% assign topic_classes = topic_classes | append: '|' %}
+            {% endif %}
+            {% assign topic_classes = topic_classes | append: tag_normalized %}
+          {% endfor %}
+        {% endif %}
+
+      <!-- open external links -->
+      {% capture url_to_use %}{{ thing.url }}{% endcapture %}
+
+
+      {% assign creator_list = thing.created_by %}
+
+      {% if creator_list %}
+        {% unless creator_list.first %}
+          {% assign creator_list = creator_list | split: "," %}
+        {% endunless %}
+      {% else %}
+        {% assign creator_list = "" | split: "," %}
+      {% endif %}
+
+      <!-- display title, image and date for each post -->
+      <a class="thumb" href="{{ thing.url }}" 
+         data-topics="{{ topic_classes }}"
+         data-creator="{{ creator_list | join: ',' | downcase | strip }}"
+        <div class="post">
+
+      {% assign words = thing.content | size | times: 137 | modulo: 360 %}
+      {% assign pastel_bg = "hsl(" | append: words | append: ", 70%, 95%)" %}
+
+      <div class="notes-image" 
+           style="background-color: {{ pastel_bg }}; animation: hue-cycle;">
+
+        {% if thing.image %}
+          {% assign extension = thing.image | split: '.' | last | downcase %}
+
+          {% if extension == 'mp4' %}
+            <video 
+              src="{{ thing.image }}" autoplay loop muted preload="metadata">
+            </video>
+          {% else %}
+            {% assign thumb_url = thing.image | replace: '/pic/', '/pic/thumbs/' | downcase %}
+            <img src="{{ thumb_url }}" 
+            loading="lazy" onerror="this.onerror=null; this.src='/pic/cover.png';">
+          {% endif %}
+        {% endif %}
+
       </div>
+
+      <div class="post-date">
+
+      <b><span style="color:#cc0000">{{ thing.date | date: "%B %d, %Y" }}</span></b><br>
+      
+      {% assign clean_content = thing.content | strip_html %}
+      {% assign word_count = clean_content | number_of_words %}
+      {% assign image_count = thing.content | split:"<img" | size | minus:1 %}
+
+      {{ topic.classes }}
+
+      {% if thing.tags contains "Tweet" %}{% include icons/tweet.html %}|{% endif %}
+      {% if thing.tags contains "Color book" %}{% include icons/colorbook.html %}|{% endif %}
+      {% if thing.tags contains "Map" %}{% include icons/maps.html %}|{% endif %}
+      {% if thing.tags contains "Data Vis" %}{% include icons/datavis.html %}|{% endif %}
+      {% if thing.tags contains "Books" %}{% include icons/books.html %}|{% endif %}
+      {% if thing.tags contains "Photos" %}{% include icons/photos.html %}|{% endif %}
+      {% if thing.tags contains "Drawings" %}{% include icons/drawings.html %}|{% endif %}
+      {% if thing.tags contains "Fellowship in DC" %}{% include icons/fellowship.html %}|{% endif %}
+      {% if thing.tags contains "Master's Thesis" %}{% include icons/mastersthesis.html %}|{% endif %}
+
+      {% case thing.whofor %}
+        {% when "for Datawrapper" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
+        {% when "on Datawrapper ↗" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
+      {% endcase %}
+
+      <!-- show Datawrapper link if it's there -->
+      {% if thing.whofor == "on Datawrapper ↗" %}
+        on the Datawrapper Blog ↗<br>
+        <b style="color:black">{{ thing.title | truncate: 100 }}</b>
+      {% endif %}
+
+      {% capture clean_content %}
+         {{ thing.content | markdownify | strip_html | strip_newlines }}
+      {% endcapture %}
+
+      <span style="color:black">
+      {%- if thing.tags contains "Books" -%}
+        {{ thing.summary }}
+      {%- elsif thing.summary == nil and clean_content.size > 20 -%}
+        {%- assign quoted_content = clean_content | strip | truncate: 70 | prepend: '"' | append: '"' -%}
+        {{ quoted_content }}
+      {%- elsif thing.title and clean_content.size > 20 -%}
+        <b>{{ thing.title | truncate: 100 }}</b>
+      {% else %}
+       {% assign image_count = thing.content | markdownify | split:"<img" | size | minus:1 %}
+       {{ image_count }}
+       {% if image_count == 1 %}image{% else %}images{% endif %}
+      {%- endif -%}
+    </span>
+
+      </div>
+</a>
+
+      {% endunless %}
+    {% endfor %}
+</div>
+
   {% endif %}
   {% endif %}
 {% endfor %}
+
+<!--   <div class="category-header">
+    <hr>
+
+    <a id="everything"></a><h2>Everything</h2>
+    <div class="sidebar-text">
+      &rarr; <a href="/everything.html">SEE EVERYTHING</a>
+    </div>
+    <div class="blogcontainer article-text">
+      <p>Not sure where to start? Here's the chronological order. Everything you can find somewhere else on this website, plus a lot of things I put online elsewhere: tweets, book reviews, old drawings from 2007. </p>
+    </div>
+<br>
+</div> -->
 
   <div class="category-header">
     <hr>
