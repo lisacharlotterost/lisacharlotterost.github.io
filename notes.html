@@ -7,156 +7,103 @@ description: Unpolished text, blurry photos, quick drawings.
 <div class="completeright">
   <div class="blogcontainer">
 
-    <!-- display the name of the category -->
     <div class="category-header">
       <hr>
       <h2>Notes</h2>
-
       <div class="sidebar-text">
-      &rarr; <a href="/notes_stream.html">ALL NOTES AS A STREAM</a> | <a href="/notes.xml" class="rss-link">SUBSCRIBE VIA <svg class="rss-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg> RSS</a>
-    </div>
-
-      <!-- put a little intro text below the category title -->
-      <div class="article-text">
-        <p>Unpolished thoughts, blurry <a href="/notes/photos">photos</a>, quick <a href="/notes/drawings">drawings</a>, <a href="/notes/books">book reviews</a>, even a bit of <a href="/notes/data-vis">data vis</a>. Lots of notes on the <a href="/notes/color-book">book on colors</a> I'm currently writing, my <a href="/notes/dc">DC fellowship (2016)</a>, and <a href="/notes/masters-thesis">Master's Thesis (2012)</a>.</p>
+        <a href="/everything.xml" class="rss-link">SUBSCRIBE VIA <svg class="rss-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg> RSS</a>
       </div>
     </div>
 
+    <div id="initial-posts">
+      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      {% for note in sorted_notes limit:10 %}
+      <div class="individual-note">
+        <div class="article-text">
+           {{ note.content | markdownify }}
+        </div>
+        <div class="source-on-page">
+          {% if note.tags.size > 0 %}
+           {{ note.tags | join: " | " | replace: "-", " " }} •  
+           {% endif %}
 
-  <div class="grid">
+           <a href="{{ note.url }}">Link</a>
 
+           {% assign first_tag = note.tags | first %}
+           {% if first_tag == "Color book" %}
+              • First posted on the Datawrapper blog
+              <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.
+           {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
 
-    {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-    {% for note in sorted_notes %}
+    <div id="notes-list"></div>
 
-      <!-- don't display about and impressum page -->
-      {% unless note.layout == 'withoutdate' %}
-
-      <!-- open external links -->
-      {% capture url_to_use %}{{ note.url }}{% endcapture %}
-
-      <!-- display title, image and date for each post -->
-      <a class="thumb" href="{{ note.url }}">
-        <div class="post">
-
-           <div class="notes-image">
-            {% if note.image %}
-              {% assign thumb_url = note.image | replace: '/pic/', '/pic/thumbs/' %}
-              <img src="{{ thumb_url }}" loading="lazy" />
-            {% endif %}
-          </div>
-
-          <div class="post-date">
-
-            <b><span style="color:#cc0000">{{ note.date | date: "%B %d, %Y" }}</span></b><br>
-
-            {% if note.categories contains "fav" %}
-              ✦
-            {% endif %}
-
-            {% unless note.whofor == nil %}
-              <b><span style="color:#000">{{ note.whofor }}</span></b>
-            {% endunless %}
-
-            {% assign clean_content = note.content | strip_html %}
-            {% assign word_count = clean_content | number_of_words %}
-            {% assign image_count = note.content | split:"<img" | size | minus:1 %}
-
-            {% assign formatted_source = note.source | downcase | strip %}
-            {% case formatted_source %}
-              {% when "datawrapper-notion" %}<img src="/pic/icons/rgb.svg"class="inline-icon"> |
-              {% when "old-drawings-blog" %}<img src="/pic/icons/pencil.svg"class="inline-icon"> |
-              {% when "goodreads" %}<img src="/pic/icons/book.svg"class="inline-icon"> |
-              {% when "datawrapper-book-club" %}<img src="/pic/icons/book.svg"class="inline-icon"> |
-              {% when "old-photo-blog" %}<img src="/pic/icons/camera.svg"class="inline-icon"> |
-              {% when "twitter" %}<img src="/pic/icons/twitter-icon.svg" class="inline-icon"> |
-              {% when "the-lisa-project" %}TUMBLR
-            {% endcase %}
-
-            {% if word_count > 0 %}
-              {{ word_count }}
-              {% if word_count == 1 %}
-                word{% if image_count > 0 %}, {% endif %}
-              {% else %}
-                words{% if image_count > 0 %}, {% endif %}
-              {% endif %}
-            {% endif %}
-
-            {% if image_count > 0 %}
-              {{ image_count }}
-              {% if image_count == 1 %}image{% else %}images{% endif %}
-            {% endif %}
-
-          </div>
-
-      </div></a>
-
-      {% endunless %}
-    {% endfor %}
-
+    <div style="text-align:left; margin-top:-50px">
+      <button id="load-more">↓ Show me more</button>
+    </div>
 
   </div>
-
 </div>
 
-
-<!-- generates a pastel color for images without feature images, and subtly cycles through the hue -->
-
 <script>
-function generatePastelColor(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  
-  const hue = Math.abs(hash % 360);
-  const chroma = 0.05 + (Math.abs(hash >> 4) % 25) / 1000; 
-  const lightness = 0.92 + (Math.abs(hash >> 16) % 5) / 100; 
-  
-  return `oklch(${lightness} ${chroma} ${hue})`;
-}
+let posts = [];
+let index = 5; // We already loaded 2 via Liquid, so we start JS at index 2
+const batch = 5; // How many to load per click
 
-document.querySelectorAll('.notes-image').forEach(function(el) {
-  const img = el.querySelector('img');
-  const postElement = el.closest('.post');
-  const titleEl = postElement?.querySelector('.post-date b span');
-  const noteTitle = titleEl ? titleEl.textContent : "default";
-
-  if (!img || img.getAttribute('src').includes('cover.png')) {
-    applyPastelStyle(el, img, noteTitle);
-  } else {
-    if (img.complete && img.naturalWidth === 0) {
-      applyPastelStyle(el, img, noteTitle);
-    } else {
-      img.onerror = function() {
-        applyPastelStyle(el, img, noteTitle);
-      };
+async function loadData() {
+  try {
+    const res = await fetch("/notes.json");
+    posts = await res.json();
+    
+    // If we have fewer posts than the initial Liquid load, hide button immediately
+    if (posts.length <= index) {
+      document.getElementById("load-more").style.display = "none";
     }
-  }
-});
-
-function applyPastelStyle(container, image, title) {
-  const baseColor = generatePastelColor(title);
-  container.style.backgroundColor = baseColor;
-  
-  if (image) image.style.display = 'none';
-
-  // Extract hue for the animation ID
-  const match = baseColor.match(/(\d+(\.\d+)?)\)$/);
-  const baseHue = match ? parseFloat(match[1]) : 0;
-
-  container.style.animation = `hue-cycle-${Math.floor(baseHue)} 8s ease-in-out infinite`;
-
-  if (!document.getElementById(`style-${Math.floor(baseHue)}`)) {
-    const style = document.createElement('style');
-    style.id = `style-${Math.floor(baseHue)}`;
-    style.textContent = `
-      @keyframes hue-cycle-${Math.floor(baseHue)} {
-        0%, 100% { filter: hue-rotate(0deg); }
-        50% { filter: hue-rotate(20deg); } 
-      }
-    `;
-    document.head.appendChild(style);
+  } catch (error) {
+    console.error("Error loading notes:", error);
   }
 }
+
+function loadMore() {
+  const container = document.getElementById("notes-list");
+  
+  // Slice the array to get the next batch
+  const slice = posts.slice(index, index + batch);
+
+  slice.forEach(note => {
+    // Check tags logic
+    let firstTagContent = "";
+    if (note.tags && note.tags.length > 0 && note.tags[0] === "Color book") {
+       firstTagContent = `• First posted on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.`;
+    }
+
+    const el = document.createElement("div");
+    el.className = "individual-note";
+    
+    // We recreate your HTML structure inside the template literal
+    el.innerHTML = `
+      <div class="article-text">
+        ${note.content}
+      </div>
+      <div class="source-on-page">
+        <b>${note.title}</b> • <a href="${note.url}">Link</a>
+        ${firstTagContent}
+      </div>
+    `;
+    container.appendChild(el);
+  });
+
+  index += batch;
+
+  // Hide button if we reached the end
+  if (index >= posts.length) {
+    document.getElementById("load-more").style.display = "none";
+  }
+}
+
+document.getElementById("load-more").addEventListener("click", loadMore);
+loadData();
 </script>
