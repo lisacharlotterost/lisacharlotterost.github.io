@@ -4,22 +4,24 @@
 
 
 html {
-  @media screen and (max-width: $break-small) {
-      font-size: 14px;
-    }
-  @media screen and (min-width: $break-small) {
-      font-size: 16px;
-    }
-  @media screen and (min-width: $break-large) {
-      font-size: 18px;
-    }
+  @media screen and (max-width:$break-small) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width:$break-small) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width:$break-large) {
+    font-size: 18px;
+  }
+
 }
 
 body {
   font-family: $bodyfont;
   color: $maincolor;
 }
-
 
 h1 {
   font-size: $sans-small;
@@ -28,11 +30,11 @@ h1 {
 }
 
 h2 {
-
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width:$break-small) {
     font-size: $sans-bigger;
     line-height: $sans-bigger-lh;
   }
+
   font-size: $sans-big;
   line-height: $sans-big-lh;
   font-weight: $fw-medium;
@@ -44,11 +46,13 @@ h2 {
     text-decoration: none;
     border-bottom: 3px solid #ccc;
   }
+
   a:hover {
     color: $highlight;
     text-decoration: none;
     border-bottom: 3px solid $highlight;
   }
+
 }
 
 .intro h2 a {
@@ -57,37 +61,44 @@ h2 {
     border-bottom: none;
 
     &:hover {
-      border-bottom: none; // Keeps border off on hover too
-      
+      border-bottom: none;
+      // Keeps border off on hover too
+
       img {
-        // Applies your thumb shadow effect
         filter: drop-shadow(0px 0px 50px grey);
         transition: filter 0.2s ease;
       }
+
     }
+
   }
+
 }
 
 .intro-highlight {
   color: $highlight;
+
   a {
     color: $highlight;
     border-bottom: 3px solid $highlight;
   }
+
   a:hover {
     color: #ccc;
     text-decoration: none;
     border-bottom: 3px solid #ccc;
   }
+
 }
 
 .category-header {
-  h2 {
+  h1, h2 {
     font-size: $sans-bigger;
     line-height: 3rem;
     font-weight: $fw-medium;
     margin: 0;
   }
+
 }
 
 .post-summary {
@@ -98,7 +109,6 @@ a {
   color: $maincolor;
   text-decoration: none;
 }
-
 
 .sidebar-text {
   font-family: $titlefont;
@@ -123,19 +133,19 @@ a {
   .rss-link {
     display: inline-flex;
     text-decoration: none;
-    gap: 3px;       
-    line-height: 1; 
+    gap: 3px;
+    line-height: 1;
   }
 
   .rss-icon {
-    width: 12px;  
+    width: 12px;
     height: 12px;
-    display: block; 
+    display: block;
     position: relative;
-    top: -1px; 
+    top: -1px;
   }
-}
 
+}
 
 .blogheader {
   h1 {
@@ -144,11 +154,17 @@ a {
     margin-top: 10px;
     margin-bottom: 5px;
   }
+
+  &.extra-big h1 {
+    font-size: $sans-bigger;
+    line-height: $sans-bigger-lh;
+  }
+
   .article-date {
     font-size: $sans-tiny;
   }
-}
 
+}
 
 .article-text {
   font-family: $articlefont;
@@ -172,25 +188,31 @@ a {
     color: $toneddown;
     margin-top: 40px;
   }
-  a img {  // todo
+
+  a img {
+    // todo
     border-bottom: blue;
   }
+
   a {
     color: $maincolor;
     text-decoration: none;
     border-bottom: 1.8px solid #ccc;
   }
+
   a:hover {
     color: $highlight;
     text-decoration: none;
     border-bottom: 2px solid $highlight;
   }
+
   .pullquote {
     font-size: $sans-medium;
     line-height: $sans-medium-lh+0.25rem;
     font-style: italic;
     color: $toneddown;
   }
+
 }
 
 a.see-all-link {
@@ -214,6 +236,7 @@ a.see-all-link {
     border-width: 2px 7px;
     background-color: $highlight;
   }
+
 }
 
 .footnotes {
@@ -228,6 +251,7 @@ a.see-all-link {
   li {
     margin-bottom: 2rem;
   }
+
 }
 
 .source-on-page {
@@ -240,11 +264,12 @@ a.see-all-link {
   padding-top: 15px;
   color: $toneddown;
 
-     a {
+  a {
     color: $toneddown;
     text-decoration: none;
     border-bottom: 1.8px solid #ccc;
   }
+
   a:hover {
     color: $highlight;
     text-decoration: none;
@@ -254,7 +279,6 @@ a.see-all-link {
 }
 
 /* Main div for border to extend to 50% from bottom left corner */
-
 .source-on-page:before {
   content: "";
   background: $toneddown;
@@ -283,14 +307,14 @@ a.see-all-link {
   margin-top: 50px;
 }
 
-
 img[alt*="border"] {
   border: 40px solid #fff;
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
   img[alt*="border"] {
     border: 20px solid #fff; /* Smaller border on mobile */
   }
+
 }
