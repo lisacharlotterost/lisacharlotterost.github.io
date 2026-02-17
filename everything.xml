@@ -1,0 +1,27 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss-style.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lisa Charlotte Muth – Everything</title>
+    <description>Everything published by Lisa on her website</description> 
+    <link>{{ site.url }}/everything</link>
+    <atom:link href="{{ site.url }}/everything.xml" rel="self" type="application/rss+xml" />
+    
+    {% assign combined_items = site.posts | concat: site.notes %}
+    {% assign sorted_items = combined_items | sort: "date" | reverse %}
+
+    {% for post in sorted_items limit:20 %}
+      <item>
+        <title>{{ post.date | date: "%B %d, %Y" }}</title>
+        <link>{{ site.url }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        <description><![CDATA[
+          {{ post.content }}
+        ]]></description>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

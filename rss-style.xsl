@@ -62,19 +62,19 @@
         <div class="header">
           <hr/>
           <xsl:choose>
-            <xsl:when test="contains(rss/channel/title, 'Notes')">
-              <h1>RSS feed for Lisa's notes</h1>
-              <small><p><a href="/">Back to the home page</a> | <a href="/feed.xml">RSS feed for Lisa's articles etc.</a></p></small>
+            <xsl:when test="contains(rss/channel/title, 'Everything')">
+              <h1>RSS feed for <b>everything</b>, incl. notes</h1>
+              <small><p><a href="/">Back to the home page</a> | <a href="/feed.xml">RSS feed <b>only</b> for the big stuff Lisa publishes.</a></p></small>
               <div class="alert">
-                <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest notes will appear directly in your reader.<br/>Thanks for adding this feed!
+                <strong>Hi! This is an RSS feed</strong> for Lisa's articles, projects, talks, events – and all notes, sometimes published <b>daily</b>. It includes all big Datawrapper articles, too, at least eventually.<br/><br/>Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, everything I publish will appear directly in your reader. Thanks for adding this feed!
               </div>
             </xsl:when>
             
             <xsl:otherwise>
-              <h1>RSS feed for Lisa's articles, projects, talks, etc.</h1>
-              <small><p><a href="/">Back to the home page</a> | <a href="/notes.xml">RSS feed for Lisa's notes</a></p></small>
+              <h1>RSS feed <b>only</b> for the big stuff Lisa publishes</h1>
+              <small><p><a href="/">Back to the home page</a> | <a href="/everything.xml">RSS feed for <b>everything</b> Lisa publishes, incl. her Notes</a></p></small>
               <div class="alert">
-                <strong>Hi! This is an RSS feed.</strong> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest articles, projects, and talks will appear directly in your reader.<br/>Thanks for adding this feed!
+                <strong>Hi! This is an RSS feed</strong> for Lisa's articles, projects, talks, and events. It includes all big Datawrapper articles, too, at least eventually. It doesn't include Lisa's <a href="/notes.html">notes</a>. (<a href="/everything.xml">Find the RSS feed for that here.</a>) <br/><br/> Subscribe to it by copying the URL of this page into an RSS reader (my favorite one is <a href="https://feedbin.com/">Feedbin</a>). Once subscribed, my latest articles, projects, and talks will appear directly in your reader. Thanks for adding this feed!
               </div>
             </xsl:otherwise>
           </xsl:choose>
