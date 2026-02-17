@@ -4,6 +4,7 @@
 // 4 GRID: post thumb, title, date etc.
 // 5 COOKIE WARNING styling
 
+
 body {
   background: $background;
   font-feature-settings: ss01, frac, cpsp, cv07;
@@ -292,6 +293,163 @@ body.menu-open {
     margin-top: 100px;
   }
 
+.category-header .article-text {
+  width: 100%;
+}
+
+.inline-icon {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border-bottom: none !important;
+    flex-shrink: 0;
+    vertical-align: text-top;
+  }
+
+.post-date .inline-icon {
+    margin-right: 3px;
+  }
+
+// FILTER SYSTEM
+
+.filter-system {
+  margin-top: 20px;
+  width: 80%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; // tighter: pills + creator feel connected
+  align-items: flex-start;
+}
+
+
+.filter-pills-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+  align-items: flex-start; /* Add this */
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid $toneddown;
+  border-radius: 50px;
+  text-decoration: none !important;
+  color: $toneddown !important;
+  font-size: 0.7rem;
+  font-weight: $fw-medium;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.2s ease;
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  height: auto; /* Add this */
+  align-self: flex-start; /* Add this */
+
+  &:hover {
+    color: $highlight !important;
+    background-color: #f0f0f0;
+    border: 1px solid $highlight;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background-color: $highlight;
+    color: #fff !important;
+    border-color: $highlight;
+  }
+
+  #initial-posts {
+    margin-top: 50px;
+  }
+}
+
+
+.filter-divider {
+  display: none;
+
+  @media screen and (min-width: $break-small) {
+    display: block;
+    width: 2px;
+    background-color: $toneddown;
+    opacity: 0.3;
+  }
+}
+
+.filter-options-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  /* animation base state */
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-label {
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: $fw-medium;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $toneddown;
+  margin-bottom: 2px;
+}
+
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+}
+
+
+.radio-option {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: $fw-medium;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $toneddown;
+  transition: color 0.6s ease;
+
+  input[type="radio"] {
+    margin-right: 6px;
+    cursor: pointer;
+  }
+
+  span {
+    transition: color 0.6s ease;
+  }
+
+  input[type="radio"]:checked + span {
+    color: $highlight;
+  }
+}
+
+
 #lisa-discussion-wrap {
   // Matches your existing blog container constraints
   max-width: 640px; 
@@ -350,7 +508,7 @@ body.menu-open {
   }
 
   @media screen and (min-width: $break-small) {
-    p, .highlighter-rouge, h1, h2, h3, h4, .embed, .pullquote, .tweet {
+    p, .highlighter-rouge, h1, h2, h3, h4, .embed, .pullquote, .tweet, .category-header .article-text {
       width: 80%;
       max-width: 640px;
     }
@@ -547,23 +705,45 @@ a.thumb {
 a:hover.thumb .post-image img {
   filter: drop-shadow(0px 0px 0px grey) drop-shadow(0px 0px 50px grey);
 }
+@keyframes hue-cycle {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(90deg); } /* Cranked up to 90deg for visibility */
+}
 
 .notes-image {
   margin-bottom: 10px;
   position: relative;
   width: 100%;
-  padding-top: 30%;
+  padding-top: 50%; /* This creates your height */
   overflow: hidden;
-  background-color: #fff;
+  background-color: #fff; /* Default color */
+  
+  /* The animation is now built-in here */
+  animation-duration: 2s; /* Sped up as requested */
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-.notes-image img {
+.notes-image img, .notes-image video {
   position: absolute;
   top: -10px;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 2; /* Sits on top of the background color */
+  transition: opacity 0.2s ease;
+}
+
+body[data-topic="books"] .notes-image {
+  padding-top: 100%;
+
+}
+
+/* Specific fix for images that fail or are placeholders */
+.notes-image img[src*="cover.png"],
+.notes-image img:not([src]) {
+  opacity: 0; 
 }
 
 .notes-image.no-top img {

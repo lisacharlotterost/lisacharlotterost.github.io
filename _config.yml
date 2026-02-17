@@ -52,3 +52,4 @@ github:
   repo:           blog.lisacharlotterost.de
   sass:
     sass_dir:     _sass
+    style: :expanded
