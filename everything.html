@@ -13,55 +13,51 @@ description: A chronological timeline of everything
       <h2>Everything</h2>
 
       <div class="sidebar-text">
-      &rarr; <a href="/everything.xml" class="rss-link">SUBSCRIBE VIA <svg class="rss-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg> RSS</a>
-    </div>
+        &rarr; <a href="/everything.xml" class="rss-link">SUBSCRIBE VIA <svg class="rss-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg> RSS</a>
+      </div>
 
       <!-- put a little intro text below the category title -->
       <div class="article-text">
        <p>Everything you can find somewhere else on this website, plus a lot of things I put online elsewhere: tweets, book reviews, old drawings from 2007 – you name it.</p><br><div id="custom-topic-message" style="display:none; color:#bb271a"></div>
 
+     </div>
+
+     <div class="filter-system">
+      <div class="filter-pills-section">
+        <button class="filter-pill active" data-topic="all">All</button>
+        <button class="filter-pill" data-topic="data-vis">{% include icons/datavis.html %} Data Vis</button>
+        <button class="filter-pill" data-topic="map">{% include icons/maps.html %} Maps</button>
+        <button class="filter-pill" data-topic="photos">{% include icons/photos.html %} Photos</button>
+        <button class="filter-pill" data-topic="drawings">{% include icons/drawings.html %} Drawings</button>
+        <button class="filter-pill" data-topic="books">{% include icons/books.html %} Book reviews</button>
+        <button class="filter-pill" data-topic="color-book"> {% include icons/colorbook.html %} Color Book</button>
+        <button class="filter-pill" data-topic="fellowship-in-dc">{% include icons/fellowship.html %} Fellowship · 2016</button>
+        <button class="filter-pill" data-topic="masters-thesis"> {% include icons/mastersthesis.html %} Thesis · 2014</button>
+        <button class="filter-pill" data-topic="tweet">{% include icons/tweet.html %} Tweets</button>
       </div>
 
-      <div class="filter-system">
-        <div class="filter-pills-section">
-          <button class="filter-pill active" data-topic="all">All</button>
-          <button class="filter-pill" data-topic="data-vis">{% include icons/datavis.html %} Data Vis</button>
-          <button class="filter-pill" data-topic="map">{% include icons/maps.html %} Maps</button>
-          <button class="filter-pill" data-topic="photos">{% include icons/photos.html %} Photos</button>
-          <button class="filter-pill" data-topic="drawings">{% include icons/drawings.html %} Drawings</button>
-          <button class="filter-pill" data-topic="books">{% include icons/books.html %} Book reviews</button>
-          <button class="filter-pill" data-topic="color-book"> {% include icons/colorbook.html %} Color Book</button>
-          <button class="filter-pill" data-topic="fellowship-in-dc">{% include icons/fellowship.html %} Fellowship · 2016</button>
-          <button class="filter-pill" data-topic="masters-thesis"> {% include icons/mastersthesis.html %} Thesis · 2014</button>
-          <button class="filter-pill" data-topic="tweet">{% include icons/tweet.html %} Tweets</button>
-        </div>
-
-        <div class="filter-divider"></div>
-
-        <div class="filter-options-section" id="creator-filters">
-          <div class="filter-group">
-            <label class="filter-label">Creator</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="creator" value="all" checked>
-                <span>All</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="creator" value="me">
-                <span>Only by me</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="creator" value="others">
-                <span>Only by others</span>
-              </label>
-            </div>
+      <div class="filter-divider"></div>
+      <div class="filter-options-section" id="creator-filters">
+        <div class="filter-group">
+          <label class="filter-label">Creator</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="creator" value="all" checked>
+              <span>All</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="creator" value="me">
+              <span>Only by me</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="creator" value="others">
+              <span>Only by others</span>
+            </label>
           </div>
         </div>
-
       </div>
-
     </div>
-
+  </div>
 
   <div class="grid">
 
@@ -70,233 +66,233 @@ description: A chronological timeline of everything
 
     {% for thing in everything %}
 
-      <!-- don't display about and impressum page -->
-      {% unless thing.layout == 'withoutdate' %}
+    <!-- don't display about and impressum page -->
+    {% unless thing.layout == 'withoutdate' %}
 
-      <!-- open external links -->
-      {% capture url_to_use %}{{ post.url }}{% endcapture %}
-      {% if post.external %}
-        {% capture url_to_use %}{{ post.external }}{% endcapture %}
-      {% endif %}
+    <!-- open external links -->
+    {% capture url_to_use %}{{ post.url }}{% endcapture %}
+    {% if post.external %}
+    {% capture url_to_use %}{{ post.external }}{% endcapture %}
+    {% endif %}
 
-      <!-- Determine topic from tags -->
-      {% assign topic_classes = '' %}
-        {% if thing.tags %}
-          {% for tag in thing.tags %}
-            {% assign tag_normalized = tag
-              | downcase
-              | replace: "'s", "s"
-              | replace: "'", ""
-              | slugify
-            %}
-            {% if topic_classes != '' %}
-              {% assign topic_classes = topic_classes | append: '|' %}
-            {% endif %}
-            {% assign topic_classes = topic_classes | append: tag_normalized %}
-          {% endfor %}
-        {% endif %}
+    <!-- Determine topic from tags -->
+    {% assign topic_classes = '' %}
+    {% if thing.tags %}
+    {% for tag in thing.tags %}
+    {% assign tag_normalized = tag
+    | downcase
+    | replace: "'s", "s"
+    | replace: "'", ""
+    | slugify
+    %}
+    {% if topic_classes != '' %}
+    {% assign topic_classes = topic_classes | append: '|' %}
+    {% endif %}
+    {% assign topic_classes = topic_classes | append: tag_normalized %}
+    {% endfor %}
+    {% endif %}
 
-      <!-- open external links -->
-      {% capture url_to_use %}{{ thing.url }}{% endcapture %}
+    <!-- open external links -->
+    {% capture url_to_use %}{{ thing.url }}{% endcapture %}
 
 
-      {% assign creator_list = thing.created_by %}
+    {% assign creator_list = thing.created_by %}
 
-      {% if creator_list %}
-        {% unless creator_list.first %}
-          {% assign creator_list = creator_list | split: "," %}
-        {% endunless %}
-      {% else %}
-        {% assign creator_list = "" | split: "," %}
-      {% endif %}
+    {% if creator_list %}
+    {% unless creator_list.first %}
+    {% assign creator_list = creator_list | split: "," %}
+    {% endunless %}
+    {% else %}
+    {% assign creator_list = "" | split: "," %}
+    {% endif %}
 
-      <!-- display title, image and date for each post -->
-      <a class="thumb" href="{{ thing.url }}" 
-         data-topics="{{ topic_classes }}"
-         data-creator="{{ creator_list | join: ',' | downcase | strip }}"
-        <div class="post">
+    <!-- display title, image and date for each post -->
+    <a class="thumb" href="{{ thing.url }}" 
+    data-topics="{{ topic_classes }}"
+    data-creator="{{ creator_list | join: ',' | downcase | strip }}"
+    <div class="post">
 
       {% assign words = thing.content | size | times: 137 | modulo: 360 %}
       {% assign pastel_bg = "hsl(" | append: words | append: ", 70%, 95%)" %}
 
       <div class="notes-image" 
-           style="background-color: {{ pastel_bg }}; animation: hue-cycle;">
+      style="background-color: {{ pastel_bg }}; animation: hue-cycle;">
 
-        {% if thing.image %}
-          {% assign extension = thing.image | split: '.' | last | downcase %}
+      {% if thing.image %}
+      {% assign extension = thing.image | split: '.' | last | downcase %}
 
-          {% if extension == 'mp4' %}
-            <video 
-              src="{{ thing.image }}" autoplay loop muted preload="metadata">
-            </video>
-          {% else %}
-            {% assign thumb_url = thing.image | replace: '/pic/', '/pic/thumbs/' | downcase %}
-            <img src="{{ thumb_url }}" 
-            loading="lazy" onerror="this.onerror=null; this.src='/pic/cover.png';">
-          {% endif %}
-        {% endif %}
+      {% if extension == 'mp4' %}
+      <video 
+      src="{{ thing.image }}" autoplay loop muted preload="metadata">
+    </video>
+    {% else %}
+    {% assign thumb_url = thing.image | replace: '/pic/', '/pic/thumbs/' | downcase %}
+    <img src="{{ thumb_url }}" 
+    loading="lazy" onerror="this.onerror=null; this.src='/pic/cover.png';">
+    {% endif %}
+    {% endif %}
 
-      </div>
+  </div>
 
-      <div class="post-date">
+  <div class="post-date">
 
-      <b><span style="color:#cc0000">{{ thing.date | date: "%B %d, %Y" }}</span></b><br>
-      
-      {% assign clean_content = thing.content | strip_html %}
-      {% assign word_count = clean_content | number_of_words %}
-      {% assign image_count = thing.content | split:"<img" | size | minus:1 %}
+    <b><span style="color:#cc0000">{{ thing.date | date: "%B %d, %Y" }}</span></b><br>
 
-      {{ topic.classes }}
+    {% assign clean_content = thing.content | strip_html %}
+    {% assign word_count = clean_content | number_of_words %}
+    {% assign image_count = thing.content | split:"<img" | size | minus:1 %}
 
-      {% if thing.tags contains "Tweet" %}{% include icons/tweet.html %}|{% endif %}
-      {% if thing.tags contains "Color book" %}{% include icons/colorbook.html %}|{% endif %}
-      {% if thing.tags contains "Map" %}{% include icons/maps.html %}|{% endif %}
-      {% if thing.tags contains "Data Vis" %}{% include icons/datavis.html %}|{% endif %}
-      {% if thing.tags contains "Books" %}{% include icons/books.html %}|{% endif %}
-      {% if thing.tags contains "Photos" %}{% include icons/photos.html %}|{% endif %}
-      {% if thing.tags contains "Drawings" %}{% include icons/drawings.html %}|{% endif %}
-      {% if thing.tags contains "Fellowship in DC" %}{% include icons/fellowship.html %}|{% endif %}
-      {% if thing.tags contains "Master's Thesis" %}{% include icons/mastersthesis.html %}|{% endif %}
+    {{ topic.classes }}
 
-      {% case thing.whofor %}
-        {% when "for Datawrapper" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
-        {% when "on Datawrapper ↗" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
-      {% endcase %}
+    {% if thing.tags contains "Tweet" %}{% include icons/tweet.html %}|{% endif %}
+    {% if thing.tags contains "Color book" %}{% include icons/colorbook.html %}|{% endif %}
+    {% if thing.tags contains "Map" %}{% include icons/maps.html %}|{% endif %}
+    {% if thing.tags contains "Data Vis" %}{% include icons/datavis.html %}|{% endif %}
+    {% if thing.tags contains "Books" %}{% include icons/books.html %}|{% endif %}
+    {% if thing.tags contains "Photos" %}{% include icons/photos.html %}|{% endif %}
+    {% if thing.tags contains "Drawings" %}{% include icons/drawings.html %}|{% endif %}
+    {% if thing.tags contains "Fellowship in DC" %}{% include icons/fellowship.html %}|{% endif %}
+    {% if thing.tags contains "Master's Thesis" %}{% include icons/mastersthesis.html %}|{% endif %}
 
-      <!-- show Datawrapper link if it's there -->
-      {% if thing.whofor == "on Datawrapper ↗" %}
-        on the Datawrapper Blog ↗<br>
-        <b style="color:black">{{ thing.title | truncate: 100 }}</b>
-      {% endif %}
+    {% case thing.whofor %}
+    {% when "for Datawrapper" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
+    {% when "on Datawrapper ↗" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
+    {% endcase %}
 
-      {% capture clean_content %}
-         {{ thing.content | markdownify | strip_html | strip_newlines }}
-      {% endcapture %}
+    <!-- show Datawrapper link if it's there -->
+    {% if thing.whofor == "on Datawrapper ↗" %}
+    on the Datawrapper Blog ↗<br>
+    <b style="color:black">{{ thing.title | truncate: 100 }}</b>
+    {% endif %}
 
-      <span style="color:black">
+    {% capture clean_content %}
+    {{ thing.content | markdownify | strip_html | strip_newlines }}
+    {% endcapture %}
+
+    <span style="color:black">
       {%- if thing.tags contains "Books" -%}
-        {{ thing.summary }}
+      {{ thing.summary }}
       {%- elsif thing.summary == nil and clean_content.size > 20 -%}
-        {%- assign quoted_content = clean_content | strip | truncate: 70 | prepend: '"' | append: '"' -%}
-        {{ quoted_content }}
+      {%- assign quoted_content = clean_content | strip | truncate: 70 | prepend: '"' | append: '"' -%}
+      {{ quoted_content }}
       {%- elsif thing.title and clean_content.size > 20 -%}
-        <b>{{ thing.title | truncate: 100 }}</b>
+      <b>{{ thing.title | truncate: 100 }}</b>
       {% else %}
-       {% assign image_count = thing.content | markdownify | split:"<img" | size | minus:1 %}
-       {{ image_count }}
-       {% if image_count == 1 %}image{% else %}images{% endif %}
+      {% assign image_count = thing.content | markdownify | split:"<img" | size | minus:1 %}
+      {{ image_count }}
+      {% if image_count == 1 %}image{% else %}images{% endif %}
       {%- endif -%}
     </span>
 
-      </div>
+  </div>
 </a>
 
-      {% endunless %}
-    {% endfor %}
+{% endunless %}
+{% endfor %}
 
 
-  </div>
+</div>
 
 </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const pills = document.querySelectorAll('.filter-pill');
-  const thumbGrid = document.querySelector('.grid');
-  const thumbs = thumbGrid.querySelectorAll('a.thumb');
-  const creatorRadios = document.querySelectorAll('input[name="creator"]');
-  const creatorSection = document.querySelector('.filter-options-section');
+  document.addEventListener('DOMContentLoaded', () => {
+    const pills = document.querySelectorAll('.filter-pill');
+    const thumbGrid = document.querySelector('.grid');
+    const thumbs = thumbGrid.querySelectorAll('a.thumb');
+    const creatorRadios = document.querySelectorAll('input[name="creator"]');
+    const creatorSection = document.querySelector('.filter-options-section');
 
-  const CREATOR_TOPICS = ['data-vis', 'map'];
+    const CREATOR_TOPICS = ['data-vis', 'map'];
 
-  let state = {
-    topic: 'all',
-    creator: 'all'
-  };
+    let state = {
+      topic: 'all',
+      creator: 'all'
+    };
 
   /* -----------------------------
      URL ↔ state
   ----------------------------- */
 
-  function readFromURL() {
-    const parts = window.location.pathname.split('/').filter(Boolean);
+    function readFromURL() {
+      const parts = window.location.pathname.split('/').filter(Boolean);
     // ['', 'everything', 'maps', 'by-me'] → ['everything','maps','by-me']
 
-    if (parts[0] === 'everything') {
-      state.topic = parts[1] || 'all';
+      if (parts[0] === 'everything') {
+        state.topic = parts[1] || 'all';
 
-      if (parts[2] === 'by-me') state.creator = 'me';
-      else if (parts[2] === 'by-others') state.creator = 'others';
-      else state.creator = 'all';
+        if (parts[2] === 'by-me') state.creator = 'me';
+        else if (parts[2] === 'by-others') state.creator = 'others';
+        else state.creator = 'all';
+      }
+
+      enforceStateRules();
+      syncUI();
+      applyFilters();
     }
 
-    enforceStateRules();
-    syncUI();
-    applyFilters();
-  }
+    function writeToURL() {
+      let path = '/everything';
 
-  function writeToURL() {
-    let path = '/everything';
+      if (state.topic !== 'all') {
+        path += `/${state.topic}`;
+      }
 
-    if (state.topic !== 'all') {
-      path += `/${state.topic}`;
+      if (CREATOR_TOPICS.includes(state.topic) && state.creator !== 'all') {
+        path += state.creator === 'me' ? '/by-me' : '/by-others';
+      }
+
+      window.history.pushState({}, '', path);
     }
-
-    if (CREATOR_TOPICS.includes(state.topic) && state.creator !== 'all') {
-      path += state.creator === 'me' ? '/by-me' : '/by-others';
-    }
-
-    window.history.pushState({}, '', path);
-  }
 
   /* -----------------------------
      State rules
   ----------------------------- */
 
-  function enforceStateRules() {
-    if (!CREATOR_TOPICS.includes(state.topic)) {
-      state.creator = 'all';
+    function enforceStateRules() {
+      if (!CREATOR_TOPICS.includes(state.topic)) {
+        state.creator = 'all';
+      }
     }
-  }
 
   /* -----------------------------
      UI sync
   ----------------------------- */
 
-  function topicHasPill(topic) {
-    return Array.from(pills).some(
-      pill => pill.dataset.topic === topic
-    );
-  }
+    function topicHasPill(topic) {
+      return Array.from(pills).some(
+        pill => pill.dataset.topic === topic
+        );
+    }
 
-  function syncUI() {
-  pills.forEach(pill => {
-    pill.classList.toggle(
-      'active',
-      pill.dataset.topic === state.topic
-    );
-  });
+    function syncUI() {
+      pills.forEach(pill => {
+        pill.classList.toggle(
+          'active',
+          pill.dataset.topic === state.topic
+          );
+      });
 
-  creatorRadios.forEach(radio => {
-    radio.checked = radio.value === state.creator;
-  });
+      creatorRadios.forEach(radio => {
+        radio.checked = radio.value === state.creator;
+      });
 
-  if (CREATOR_TOPICS.includes(state.topic)) {
-    creatorSection.style.display = '';
-    requestAnimationFrame(() => {
-      creatorSection.classList.add('is-visible');
-    });
-  } else {
-    creatorSection.classList.remove('is-visible');
-    setTimeout(() => {
-      creatorSection.style.display = 'none';
-    }, 250);
-  }
+      if (CREATOR_TOPICS.includes(state.topic)) {
+        creatorSection.style.display = '';
+        requestAnimationFrame(() => {
+          creatorSection.classList.add('is-visible');
+        });
+      } else {
+        creatorSection.classList.remove('is-visible');
+        setTimeout(() => {
+          creatorSection.style.display = 'none';
+        }, 250);
+      }
 
-  document.body.dataset.topic = state.topic;
+      document.body.dataset.topic = state.topic;
 
-  const messageBox = document.getElementById('custom-topic-message');
+      const messageBox = document.getElementById('custom-topic-message');
 
   if (!messageBox) return; // safety guard
 
@@ -325,65 +321,65 @@ document.addEventListener('DOMContentLoaded', () => {
      Event handlers
   ----------------------------- */
 
-  pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      state.topic = pill.dataset.topic;
-      enforceStateRules();
-      writeToURL();
-      syncUI();
-      applyFilters();
-    });
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    state.topic = pill.dataset.topic;
+    enforceStateRules();
+    writeToURL();
+    syncUI();
+    applyFilters();
   });
+});
 
-  creatorRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      state.creator = radio.value;
-      writeToURL();
-      applyFilters();
-    });
+creatorRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    state.creator = radio.value;
+    writeToURL();
+    applyFilters();
   });
+});
 
   /* -----------------------------
      Filtering logic
   ----------------------------- */
 
-  function applyFilters() {
-    thumbs.forEach(thumb => {
-      let show = true;
+function applyFilters() {
+  thumbs.forEach(thumb => {
+    let show = true;
 
       // Topic
-      if (state.topic !== 'all') {
-        const topics = (thumb.dataset.topics || '').split('|');
-        if (!topics.includes(state.topic)) {
-          show = false;
-        }
+    if (state.topic !== 'all') {
+      const topics = (thumb.dataset.topics || '').split('|');
+      if (!topics.includes(state.topic)) {
+        show = false;
       }
+    }
 
       // Creator (only if relevant)
-      if (show && CREATOR_TOPICS.includes(state.topic)) {
-        const creatorAttr = (thumb.dataset.creator || '').toLowerCase();
-        const creators = creatorAttr.split(',').map(c => c.trim());
+    if (show && CREATOR_TOPICS.includes(state.topic)) {
+      const creatorAttr = (thumb.dataset.creator || '').toLowerCase();
+      const creators = creatorAttr.split(',').map(c => c.trim());
 
-        if (state.creator === 'me') {
-          show = creators.includes('me');
-        }
-
-        if (state.creator === 'others') {
-          show = creators.includes('others');
-        }
+      if (state.creator === 'me') {
+        show = creators.includes('me');
       }
 
+      if (state.creator === 'others') {
+        show = creators.includes('others');
+      }
+    }
 
 
-      thumb.style.display = show ? '' : 'none';
-    });
-  }
+
+    thumb.style.display = show ? '' : 'none';
+  });
+}
 
   /* -----------------------------
      Init
   ----------------------------- */
 
-  readFromURL();
+readFromURL();
 });
 </script>
 
