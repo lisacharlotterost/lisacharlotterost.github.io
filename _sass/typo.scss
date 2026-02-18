@@ -110,6 +110,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+    color: $highlight;
+    text-decoration: none;
+  }
+
 .sidebar-text {
   font-family: $titlefont;
   font-size: 0.7rem;
