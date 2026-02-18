@@ -206,6 +206,10 @@ description: A chronological timeline of everything
 
     const CREATOR_TOPICS = ['data-vis', 'map'];
 
+    window.addEventListener('hashchange', () => {
+      readFromURL();
+    });
+
     let state = {
       topic: 'all',
       creator: 'all'
@@ -216,14 +220,18 @@ description: A chronological timeline of everything
   ----------------------------- */
 
     function readFromURL() {
-      const parts = window.location.pathname.split('/').filter(Boolean);
-    // ['', 'everything', 'maps', 'by-me'] → ['everything','maps','by-me']
+      // Get the hash, e.g., "#color-tools" or "#map/by-me"
+      const hash = window.location.hash.replace('#', '');
+      
+      if (!hash) {
+        state.topic = 'all';
+        state.creator = 'all';
+      } else {
+        const parts = hash.split('/'); // Support #topic/creator format
+        state.topic = parts[0] || 'all';
 
-      if (parts[0] === 'everything') {
-        state.topic = parts[1] || 'all';
-
-        if (parts[2] === 'by-me') state.creator = 'me';
-        else if (parts[2] === 'by-others') state.creator = 'others';
+        if (parts[1] === 'by-me') state.creator = 'me';
+        else if (parts[1] === 'by-others') state.creator = 'others';
         else state.creator = 'all';
       }
 
@@ -233,17 +241,15 @@ description: A chronological timeline of everything
     }
 
     function writeToURL() {
-      let path = '/everything';
+      let hash = `#${state.topic}`;
 
-      if (state.topic !== 'all') {
-        path += `/${state.topic}`;
-      }
-
+      // Only append creator if the topic actually supports it
       if (CREATOR_TOPICS.includes(state.topic) && state.creator !== 'all') {
-        path += state.creator === 'me' ? '/by-me' : '/by-others';
+        hash += state.creator === 'me' ? '/by-me' : '/by-others';
       }
 
-      window.history.pushState({}, '', path);
+      // Update the hash without reloading the page
+      window.history.pushState(null, '', hash);
     }
 
   /* -----------------------------

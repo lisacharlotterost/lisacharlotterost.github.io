@@ -31,7 +31,7 @@ description: Unpolished text, blurry photos, quick drawings.
             {% assign tag_slug = tag | downcase | slugify %}
 
             <span style="text-transform: capitalize">
-              <a style="border-bottom: 0px !important" href="/everything/{{ tag_slug }}">
+              <a style="border-bottom: 0px !important" href="/everything/#{{ tag_slug }}">
                 {{ tag }}
               </a>
             </span>
