@@ -32,7 +32,19 @@ description: Unpolished text, blurry photos, quick drawings.
 
             <span style="text-transform: capitalize">
               <a style="border-bottom: 0px !important" href="/everything#{{ tag_slug }}">
-                {{ tag }}
+                {% case tag %}
+                {% when "Tweet" %}{% include icons/tweet.html %}
+                {% when "Color book" %}{% include icons/colorbook.html %}
+                {% when "Map" %}{% include icons/maps.html %}
+                {% when "Data Vis" %}{% include icons/datavis.html %}
+                {% when "Books" %}{% include icons/books.html %}
+                {% when "Photos" %}{% include icons/photos.html %}
+                {% when "Drawings" %}{% include icons/drawings.html %}
+                {% when "Datawrapper" %}{% include icons/datawrapper-logo.html %}
+                {% when "Fellowship in DC" %}{% include icons/fellowship.html %}
+                {% when "Master's Thesis" %}{% include icons/mastersthesis.html %}
+              {% endcase %}
+              {{ tag }}
               </a>
             </span>
 
@@ -82,42 +94,90 @@ async function loadData() {
   }
 }
 
+// Pre-rendered icons from Liquid
+const ICONS = {
+  "Tweet": `{% capture icon %}{% include icons/tweet.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Color book": `{% capture icon %}{% include icons/colorbook.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Map": `{% capture icon %}{% include icons/maps.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Data Vis": `{% capture icon %}{% include icons/datavis.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Books": `{% capture icon %}{% include icons/books.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Photos": `{% capture icon %}{% include icons/photos.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Drawings": `{% capture icon %}{% include icons/drawings.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Datawrapper": `{% capture icon %}{% include icons/datawrapper-logo.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Fellowship in DC": `{% capture icon %}{% include icons/fellowship.html %}{% endcapture %}{{ icon | strip_newlines }}`,
+  "Master's Thesis": `{% capture icon %}{% include icons/mastersthesis.html %}{% endcapture %}{{ icon | strip_newlines }}`
+};
+
+function getTagIcon(tag) {
+  return ICONS[tag] || "";
+}
+
 function loadMore() {
   const container = document.getElementById("notes-list");
-  
-  // Slice the array to get the next batch
   const slice = posts.slice(index, index + batch);
 
   slice.forEach(note => {
-    // Check tags logic
+
+    // Build tags HTML
+    let tagsHTML = "";
+
+    if (note.tags && note.tags.length > 0) {
+      note.tags.forEach((tag, i) => {
+        const tagSlug = tag.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-");
+
+        tagsHTML += `
+          <span style="text-transform: capitalize">
+            <a style="border-bottom: 0px !important" href="/everything#${tagSlug}">
+              ${getTagIcon(tag)}
+              ${tag}
+            </a>
+          </span>
+        `;
+
+        if (i !== note.tags.length - 1) {
+          tagsHTML += `<span style="color:#808080"> | </span>`;
+        }
+      });
+
+      tagsHTML += " • ";
+    }
+
+    // Color book special case
     let firstTagContent = "";
-    if (note.tags && note.tags.length > 0 && note.tags[0] === "Color book") {
-     firstTagContent = `• First posted on the Datawrapper blog <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">Color Book Updates</a>.`;
-   }
+    if (note.tags && note.tags[0] === "Color book") {
+      firstTagContent = `
+        • First posted on the Datawrapper blog
+        <a href="https://datawrapper.notion.site/Color-Book-Updates-54905c2bd0bb4c6bae15d99e31a9d5c4">
+          Color Book Updates
+        </a>.
+      `;
+    }
 
-   const el = document.createElement("div");
-   el.className = "individual-note";
+    const el = document.createElement("div");
+    el.className = "individual-note";
 
-    // We recreate your HTML structure inside the template literal
-   el.innerHTML = `
+    el.innerHTML = `
       <div class="article-text">
         ${note.content}
       </div>
+
       <div class="source-on-page">
-        <b>${note.title}</b> • <a href="${note.url}">Link</a>
+        ${tagsHTML}
+        <a href="${note.url}">Link</a>
         ${firstTagContent}
       </div>
-   `;
-   container.appendChild(el);
- });
+    `;
+
+    container.appendChild(el);
+  });
 
   index += batch;
 
-  // Hide button if we reached the end
   if (index >= posts.length) {
     document.getElementById("load-more").style.display = "none";
   }
 }
+
 
 document.getElementById("load-more").addEventListener("click", loadMore);
 loadData();

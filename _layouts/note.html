@@ -20,13 +20,25 @@ layout: default
         {% endif %} 
 
         {% for tag in page.tags %}
-        {% assign tag_slug = tag | downcase | slugify %}
+          {% assign tag_slug = tag | downcase | slugify %}
 
-        <span style="text-transform: capitalize">
-          <a href="/everything#{{ tag_slug }}">
-            {{ tag }}
-          </a>
-        </span>
+          <span style="text-transform: capitalize">
+            <a href="/everything#{{ tag_slug }}">
+              {% case tag %}
+                {% when "Tweet" %}{% include icons/tweet.html %}
+                {% when "Color book" %}{% include icons/colorbook.html %}
+                {% when "Map" %}{% include icons/maps.html %}
+                {% when "Data Vis" %}{% include icons/datavis.html %}
+                {% when "Books" %}{% include icons/books.html %}
+                {% when "Photos" %}{% include icons/photos.html %}
+                {% when "Drawings" %}{% include icons/drawings.html %}
+                {% when "Datawrapper" %}{% include icons/datawrapper-logo.html %}
+                {% when "Fellowship in DC" %}{% include icons/fellowship.html %}
+                {% when "Master's Thesis" %}{% include icons/mastersthesis.html %}
+              {% endcase %}
+              {{ tag }}
+            </a>
+          </span>
 
         {% unless forloop.last %}
         <span style="color:#808080"> | </span> 
