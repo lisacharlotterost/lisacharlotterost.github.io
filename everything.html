@@ -155,8 +155,8 @@ description: A chronological timeline of everything
     {% if thing.tags contains "Master's Thesis" %}{% include icons/mastersthesis.html %}|{% endif %}
 
     {% case thing.whofor %}
-    {% when "for Datawrapper" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
-    {% when "on Datawrapper ↗" %}<img src="/pic/icons/datawrapper-logo.svg"class="inline-icon"> |
+    {% when "for Datawrapper" %}{% include icons/datawrapper-logo.html %} |
+    {% when "on Datawrapper ↗" %}{% include icons/datawrapper-logo.html %} |
     {% endcase %}
 
     <!-- show Datawrapper link if it's there -->
