@@ -123,7 +123,7 @@ description: A chronological timeline of everything
 
       {% if extension == 'mp4' %}
       <video 
-      src="{{ thing.image }}" autoplay loop muted preload="metadata">
+      src="{{ thing.image }}" autoplay loop muted playsinline preload="metadata">
     </video>
     {% else %}
     {% assign thumb_url = thing.image | replace: '/pic/', '/pic/thumbs/' | downcase %}
