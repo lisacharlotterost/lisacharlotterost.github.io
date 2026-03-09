@@ -17,7 +17,7 @@ description: Unpolished text, blurry photos, quick drawings.
 
     <div id="initial-posts">
       {% assign sorted_notes = site.notes | sort: "date" | reverse %}
-      {% for note in sorted_notes limit:10 %}
+      {% for note in sorted_notes limit:15 %}
       <div class="individual-note">
 
         <div class="article-text">
@@ -25,6 +25,8 @@ description: Unpolished text, blurry photos, quick drawings.
        </div>
 
        <div class="source-on-page">
+
+        {{ note.date | date: "%B %d, %Y" }} • 
         
         {% if note.tags.size > 0 %}
           {% for tag in note.tags %}
@@ -77,15 +79,25 @@ description: Unpolished text, blurry photos, quick drawings.
 
 <script>
 let posts = [];
-let index = 5; // We already loaded 2 via Liquid, so we start JS at index 2
-const batch = 5; // How many to load per click
+let index = 15; 
+const batch = 10; 
+
+// Helper function to format date like Liquid: "Month Day, Year"
+function formatDate(dateString) {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
 
 async function loadData() {
   try {
     const res = await fetch("/notes.json");
     posts = await res.json();
     
-    // If we have fewer posts than the initial Liquid load, hide button immediately
     if (posts.length <= index) {
       document.getElementById("load-more").style.display = "none";
     }
@@ -94,7 +106,6 @@ async function loadData() {
   }
 }
 
-// Pre-rendered icons from Liquid
 const ICONS = {
   "Tweet": `{% capture icon %}{% include icons/tweet.html %}{% endcapture %}{{ icon | strip_newlines }}`,
   "Color book": `{% capture icon %}{% include icons/colorbook.html %}{% endcapture %}{{ icon | strip_newlines }}`,
@@ -117,10 +128,8 @@ function loadMore() {
   const slice = posts.slice(index, index + batch);
 
   slice.forEach(note => {
-
     // Build tags HTML
     let tagsHTML = "";
-
     if (note.tags && note.tags.length > 0) {
       note.tags.forEach((tag, i) => {
         const tagSlug = tag.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-");
@@ -138,11 +147,11 @@ function loadMore() {
           tagsHTML += `<span style="color:#808080"> | </span>`;
         }
       });
-
+      
+      // Note: We'll add the bullet separator after tags if tags exist
       tagsHTML += " • ";
     }
 
-    // Color book special case
     let firstTagContent = "";
     if (note.tags && note.tags[0] === "Color book") {
       firstTagContent = `
@@ -156,12 +165,14 @@ function loadMore() {
     const el = document.createElement("div");
     el.className = "individual-note";
 
+    // Combined formatting: Date • Tags • Link
     el.innerHTML = `
       <div class="article-text">
         ${note.content}
       </div>
 
       <div class="source-on-page">
+        ${formatDate(note.date)} • 
         ${tagsHTML}
         <a href="${note.url}">Link</a>
         ${firstTagContent}
@@ -177,7 +188,6 @@ function loadMore() {
     document.getElementById("load-more").style.display = "none";
   }
 }
-
 
 document.getElementById("load-more").addEventListener("click", loadMore);
 loadData();
