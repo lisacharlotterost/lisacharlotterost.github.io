@@ -50,8 +50,8 @@ And that’s it! Every post that lands in the `_posts` or `_notes` folder in Git
 ## Why I like this workflow
 
 There are lots of advantages to using the Tumblr app:
-- **It works on phones**. Initially, I did quite a lot of research into using a Markdown-based writing app and GitHub on my phone, but opening two apps for one small note feels like a perfect excuse to just not post. 
-- **Writing new posts looks and feels smooth**. Formatting, uploading images, publishing all works as nicely as you’d imagine from a blogging app with lots of money and people behind it. 
+- **It works on phones**. Initially, I did quite a lot of research into using a Markdown-based writing app and GitHub on my phone – but opening two apps for one small note feels like a perfect excuse to just not post. 
+- **Writing new posts looks and feels smooth**. Formatting, uploading images, and publishing all works as nicely as you’d imagine from a blogging app with lots of money and people behind it. 
 - **The editing experience doesn’t force me to have a title**. My notes don’t have a title, so that’s neat. (The title is the date, which Jekyll gets from the file name, which the Python script writes based on the publishing date of the Tumblr post.)
 - **I can still add metadata to my posts**, by creating rules in my Python script. For example, I add tags by adding a new line in my Tumblr post that begins with a hash, e.g. „[#Data Vis](/everything#data-vis) [#Elections](/everything#elections)“. I told my Python script to not include such a line in the content of my Markdown file, but extract the tags in that line for my front matter. I could do the same to add categories, a summary or title, a different publishing date or layout, etc.
 - **I don’t get sucked into doomscrolling.** I’m not following other Tumblr blogs and really don’t care about the stuff I see in the feed when I open the Tumblr app.
